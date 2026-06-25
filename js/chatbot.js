@@ -1,15 +1,22 @@
 (function () {
   const WORKER_URL = "https://reverie.ashesh-devnath.workers.dev";
+  const BOT_NAME = "Neel";
+  const TOGGLE_LABEL = "Chat with " + BOT_NAME;
   const MAX_HISTORY_TURNS = 4;
 
   const container = document.createElement("div");
   container.id = "cb-chat-widget";
   container.innerHTML = `
-    <button id="cb-chat-toggle" aria-label="Open chat">💬</button>
+    <button id="cb-chat-toggle" aria-label="Open chat">
+      <span class="cb-toggle-icon">💬</span>
+      <span class="cb-toggle-label">${TOGGLE_LABEL}</span>
+    </button>
     <div id="cb-chat-window" hidden>
       <div id="cb-chat-header">
-        <span>Cox's Bazar Assistant</span>
+        <span>${BOT_NAME} — Cox's Bazar Assistant</span>
         <div id="cb-chat-header-actions">
+          <button id="cb-chat-expand" type="button" aria-label="Expand chat">⤢</button>
+          <button id="cb-chat-minimize" type="button" aria-label="Minimize chat">–</button>
           <button id="cb-chat-close" type="button" aria-label="Close chat">✕</button>
         </div>
       </div>
@@ -24,6 +31,8 @@
 
   const toggle = document.getElementById("cb-chat-toggle");
   const win = document.getElementById("cb-chat-window");
+  const expandBtn = document.getElementById("cb-chat-expand");
+  const minimizeBtn = document.getElementById("cb-chat-minimize");
   const closeBtn = document.getElementById("cb-chat-close");
   const messages = document.getElementById("cb-chat-messages");
   const form = document.getElementById("cb-chat-form");
@@ -40,6 +49,7 @@
     let safe = escapeHtml(text);
     safe = safe.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
     safe = safe.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    safe = safe.replace(/\*\*/g, ""); // clean up any stray unpaired markers
     safe = safe.replace(/\n/g, "<br>");
     return safe;
   }
@@ -51,7 +61,7 @@
       const raw = sessionStorage.getItem("cb_chat_state");
       if (raw) return JSON.parse(raw);
     } catch (e) {}
-    return { history: [], open: false, started: false };
+    return { history: [], open: false, started: false, expanded: false };
   }
 
   function saveState() {
@@ -59,6 +69,16 @@
       state.history = state.history.slice(-MAX_HISTORY_TURNS * 2);
       sessionStorage.setItem("cb_chat_state", JSON.stringify(state));
     } catch (e) {}
+  }
+
+  const DEVICE_TYPE = /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop";
+
+  function getSessionId() {
+    if (!state.sessionId) {
+      state.sessionId = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      saveState();
+    }
+    return state.sessionId;
   }
 
   function addMessage(text, sender, save) {
@@ -79,20 +99,6 @@
       state.history.push({ role: sender === "bot" ? "model" : "user", text: text });
       saveState();
     }
-  }
-
-  function showThinking() {
-    const row = document.createElement("div");
-    row.className = "cb-row cb-row-bot";
-    row.id = "cb-thinking-row";
-    row.innerHTML = BOT_AVATAR + '<div class="cb-msg cb-msg-bot cb-thinking">Thinking<span class="cb-dots"><span>.</span><span>.</span><span>.</span></span></div>';
-    messages.appendChild(row);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function removeThinking() {
-    const row = document.getElementById("cb-thinking-row");
-    if (row) row.remove();
   }
 
   function clearSuggestionRows() {
@@ -119,6 +125,20 @@
     messages.scrollTop = messages.scrollHeight;
   }
 
+  function showThinking() {
+    const row = document.createElement("div");
+    row.className = "cb-row cb-row-bot";
+    row.id = "cb-thinking-row";
+    row.innerHTML = BOT_AVATAR + '<div class="cb-msg cb-msg-bot cb-thinking">' + BOT_NAME + ' is thinking<span class="cb-dots"><span></span><span></span><span></span></span></div>';
+    messages.appendChild(row);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function removeThinking() {
+    const row = document.getElementById("cb-thinking-row");
+    if (row) row.remove();
+  }
+
   function openWindow() {
     win.hidden = false;
     state.open = true;
@@ -132,15 +152,32 @@
     saveState();
   }
 
-  function closeAndReset() {
-      minimizeWindow();
+  function closeChat() {
+    if (!window.confirm("Exit chat? This will clear your conversation.")) return;
+    win.hidden = true;
+    state.open = false;
+    state.history = [];
+    state.started = false;
+    state.expanded = false;
+    state.sessionId = null;
+    win.classList.remove("cb-expanded");
+    messages.innerHTML = "";
+    saveState();
+  }
+
+  function toggleExpand() {
+    state.expanded = !state.expanded;
+    win.classList.toggle("cb-expanded", state.expanded);
+    saveState();
   }
 
   toggle.addEventListener("click", function () {
     if (win.hidden) openWindow();
     else minimizeWindow();
   });
-  closeBtn.addEventListener("click", closeAndReset);
+  minimizeBtn.addEventListener("click", minimizeWindow);
+  closeBtn.addEventListener("click", closeChat);
+  expandBtn.addEventListener("click", toggleExpand);
 
   async function sendMessage() {
     const question = input.value.trim();
@@ -157,6 +194,9 @@
         body: JSON.stringify({
           message: question,
           history: state.history.slice(0, -1),
+          sessionId: getSessionId(),
+          page: document.title,
+          device: DEVICE_TYPE,
         }),
       });
       const data = await res.json();
@@ -174,6 +214,8 @@
     sendMessage();
   });
 
+  if (state.expanded) win.classList.add("cb-expanded");
+
   if (state.started) {
     state.history.forEach(function (h) {
       addMessage(h.text, h.role === "user" ? "user" : "bot", false);
@@ -184,7 +226,7 @@
       state.started = true;
       openWindow();
       addMessage(
-        "Welcome to Cox's Bazar! I can help with the best time to visit, getting here, places to see, food, activities, or anything else on this site. What would you like to know?",
+        "Hi! I'm " + BOT_NAME + ", here to help with anything about visiting Cox's Bazar — the beach, getting here, food, activities, and more.\nI'm an AI, so I might occasionally get a detail wrong — for anything important like visas, ferry schedules, or bookings, it's always worth double-checking before you go.\nWhat would you like to know?",
         "bot"
       );
     }, 2500);
