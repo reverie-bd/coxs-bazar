@@ -324,13 +324,6 @@ ul { list-style: none; }
     rgba(6,15,24,.45) 45%,
     rgba(6,15,24,.12) 100%
   );
-  animation: tidalShift 14s ease-in-out infinite alternate;
-}
-
-@keyframes tidalShift {
-  0%   { background: linear-gradient(to top, rgba(6,15,24,.92) 0%, rgba(6,15,24,.45) 45%, rgba(6,15,24,.12) 100%); }
-  50%  { background: linear-gradient(to top, rgba(28,14,4,.92) 0%, rgba(80,40,8,.50) 45%, rgba(6,15,24,.10) 100%); }
-  100% { background: linear-gradient(to top, rgba(6,15,24,.92) 0%, rgba(6,15,24,.45) 45%, rgba(6,15,24,.12) 100%); }
 }
 
 .hero-content {

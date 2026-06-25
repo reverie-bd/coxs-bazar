@@ -21,6 +21,13 @@
         </div>
       </div>
       <div id="cb-chat-messages"></div>
+  <div id="cb-close-confirm" style="display:none;flex-direction:column;gap:10px;padding:14px 16px;background:#fff3cd;border-top:2px solid #E8A838;font-size:0.82rem;color:#3D4F5E;flex-shrink:0;">
+    <span style="font-weight:600;line-height:1.4;">End this conversation? Your history will be cleared.</span>
+    <div style="display:flex;gap:8px;">
+      <button id="cb-confirm-yes" style="flex:1;padding:8px 0;background:#163C4D;color:#fff;border:none;border-radius:6px;font-size:0.8rem;font-weight:600;cursor:pointer;">Yes, close</button>
+      <button id="cb-confirm-no" style="flex:1;padding:8px 0;background:transparent;color:#163C4D;border:1.5px solid #163C4D;border-radius:6px;font-size:0.8rem;font-weight:600;cursor:pointer;">Keep chatting</button>
+    </div>
+  </div>
       <form id="cb-chat-form">
         <input id="cb-chat-input" type="text" placeholder="Ask a question…" autocomplete="off" />
         <button type="submit" aria-label="Send">→</button>
