@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore beyond the beach — coral islands, waterfalls, safari parks, mangrove islands, and Buddhist villages around Cox's Bazar." />
+<meta property="og:title" content="Explore — Cox's Bazar" />
+<meta property="og:description" content="Explore beyond the beach — coral islands, waterfalls, safari parks, mangrove islands, and Buddhist villages around Cox's Bazar." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/hero-discover.jpg" />
+  <title>Explore — Cox's Bazar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-main">Cox's Bazar</span>
+        <span class="logo-sub">Bangladesh</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="beach.html" class="nav-link">The Beach</a></li>
+        <li><a href="explore.html" class="nav-link active">Explore</a></li>
+        <li><a href="culture.html" class="nav-link">Culture</a></li>
+        <li><a href="history.html" class="nav-link">History</a></li>
+        <li><a href="activities.html" class="nav-link">Activities</a></li>
+        <li><a href="food.html" class="nav-link">Food</a></li>
+        <li><a href="stay.html" class="nav-link">Stay</a></li>
+        <li><a href="plan.html" class="nav-link nav-cta">Plan Your Trip</a></li>
+      </ul>
+        <a href="wishlist.html" class="nav-wishlist" aria-label="Your wishlist">♡<span class="wishlist-badge">0</span></a>
+      <div class="nav-search" id="nav-search">
+        <input type="search" class="nav-search-input" id="nav-search-input" placeholder="Search…" aria-label="Search the site" autocomplete="off" />
+        <div class="nav-search-results" id="nav-search-results" hidden></div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('images/hero-discover.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-body">
+      <p class="page-hero-eyebrow">Cox's Bazar</p>
+      <h1 class="page-hero-title">Explore</h1>
+      <p class="page-hero-desc">The beach is the beginning. Nine distinct destinations stretch south from Cox's Bazar to the tip of Bangladesh.</p>
+    </div>
+  </section>
+
+  <!-- DESTINATION GRID -->
+  <section class="section-pad" style="background: var(--sand-light);">
+    <div class="container">
+      <p class="section-label">Destinations</p>
+      <h2 class="section-heading">Where to go</h2>
+      <div class="dest-grid">
+
+        <article class="dest-card reveal reveal-d1" id="saint-martin">
+            <button class="wish-btn" data-id="saint-martin" data-title="Saint Martin Island" data-url="explore.html#saint-martin" data-img="saint-martin.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="dest-img" style="background-image: url('images/saint-martin.jpg');"></div>
+          <div class="dest-body">
+            <div class="dest-meta-row">
+              <span class="dest-tag" style="background: rgba(18,160,133,0.12); color: #12a085;">Coral Island</span>
+              <span class="dest-distance">9 km offshore</span>
+            </div>
+            <h3 class="dest-title">Saint Martin Island</h3>
+            <p class="dest-desc">Bangladesh's only coral island — 8 sq km of turquoise shallows, coral reefs, coconut groves, and the clearest water in the country. Reached by ship from Cox's Bazar only (Nov 1–Jan 31), under a daily visitor cap to protect the reef.</p>
+            <div class="dest-highlights">
+              <span>🐠 Snorkelling</span>
+              <span>🪸 Coral reefs</span>
+              <span>🌴 Overnight stays</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card reveal reveal-d2" id="inani">
+            <button class="wish-btn" data-id="inani" data-title="Inani Beach" data-url="explore.html#inani" data-img="inani-beach.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="dest-img" style="background-image: url('images/inani-beach.jpg');"></div>
+          <div class="dest-body">
+            <div class="dest-meta-row">
+              <span class="dest-tag" style="background: rgba(10,110,138,0.12); color: var(--ocean);">Beach Zone</span>
+              <span class="dest-distance">32 km south</span>
+            </div>
+            <h3 class="dest-title">Inani Beach</h3>
+            <p class="dest-desc">The most photographed stretch of Cox's Bazar coastline — embedded coral stones, natural rock formations, and teal water with far fewer visitors than the main beach.</p>
+            <div class="dest-highlights">
+              <span>📸 Photography</span>
+              <span>🪨 Coral stones</span>
+              <span>🌅 Sunrise</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card reveal reveal-d3" id="himchari">
+            <button class="wish-btn" data-id="himchari" data-title="Himchari" data-url="explore.html#himchari" data-img="himchari.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="dest-img" style="background-image: url('images/himchari.jpg');"></div>
+          <div class="dest-body">
+            <div class="dest-meta-row">
+              <span class="dest-tag" style="background: rgba(58,125,68,0.12); color: #3a7d44;">National Park</span>
+              <span class="dest-distance">18 km south</span>
+            </div>
+            <h3 class="dest-title">Himchari</h3>
+            <p class="dest-desc">A waterfall tumbling through forested hills to the sea — most powerful in monsoon. The national park trail above offers the only elevated view of the full beach from the hills.</p>
+            <div class="dest-highlights">
+              <span>💧 Waterfall</span>
+              <span>🌿 Hill trail</span>
+              <span>🦋 Wildlife</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card reveal reveal-d1" id="dulahazara">
+            <button class="wish-btn" data-id="dulahazara" data-title="Dulahazara Safari Park" data-url="explore.html#dulahazara" data-img="dulahazara.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="dest-img" style="background-image: url('images/dulahazara.jpg');"></div>
+          <div class="dest-body">
+            <div class="dest-meta-row">
+              <span class="dest-tag" style="background: rgba(58,125,68,0.12); color: #3a7d44;">Safari Park</span>
+              <span class="dest-distance">50 km north</span>
+            </div>
+            <h3 class="dest-title">Dulahazara Safari Park</h3>
+            <p class="dest-desc">Bangladesh's largest safari park — 900 hectares of mixed forest with Asian elephants, deer, crocodiles, and over 200 bird species. A half-day trip from Cox's Bazar town.</p>
+            <div class="dest-highlights">
+              <span>🐘 Elephants</span>
+              <span>🦌 Safari trail</span>
+              <span>🦅 Birdwatching</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card reveal reveal-d2" id="moheshkhali">
+            <button class="wish-btn" data-id="moheshkhali" data-title="Moheshkhali Island" data-url="explore.html#moheshkhali" data-img="moheshkhali.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="dest-img" style="background-image: url('images/moheshkhali.jpg');"></div>
+          <div class="dest-body">
+            <div class="dest-meta-row">
+              <span class="dest-tag" style="background: rgba(160,82,45,0.12); color: #a0522d;">Island</span>
+              <span class="dest-distance">12 km by boat</span>
+            </div>
+            <h3 class="dest-title">Moheshkhali Island</h3>
+            <p class="dest-desc">A tidal island reached by motorboat — home to the ancient Adinath Shiva temple on a hilltop, salt flats, betel nut groves, and mangrove forests. A complete contrast to the beach.</p>
+            <div class="dest-highlights">
+              <span>🛕 Adinath Temple</span>
+              <span>🚤 Boat crossing</span>
+              <span>🌾 Salt flats</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card reveal reveal-d3" id="teknaf">
+            <button class="wish-btn" data-id="teknaf" data-title="Teknaf" data-url="explore.html#teknaf" data-img="teknaf.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="dest-img" style="background-image: url('images/teknaf.jpg');"></div>
+          <div class="dest-body">
+            <div class="dest-meta-row">
+              <span class="dest-tag" style="background: rgba(26,58,92,0.12); color: #1a3a5c;">Peninsula</span>
+              <span class="dest-distance">85 km south</span>
+            </div>
+            <h3 class="dest-title">Teknaf</h3>
+            <p class="dest-desc">The southern tip of the beach — where the Bay of Bengal meets the Naf River and Myanmar lies across the water, with the Teknaf Wildlife Reserve rising just inland.</p>
+            <div class="dest-highlights">
+              <span>🐦 Birdwatching</span>
+              <span>🏔️ Naf River views</span>
+              <span>🌿 Wildlife reserve</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card reveal reveal-d1" id="sonadia">
+            <button class="wish-btn" data-id="sonadia" data-title="Sonadia Island" data-url="explore.html#sonadia" data-img="sonadia.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="dest-img" style="background-image: url('images/sonadia.jpg');"></div>
+          <div class="dest-body">
+            <div class="dest-meta-row">
+              <span class="dest-tag" style="background: rgba(58,125,68,0.12); color: #3a7d44;">Eco Island</span>
+              <span class="dest-distance">7 km offshore</span>
+            </div>
+            <h3 class="dest-title">Sonadia Island</h3>
+            <p class="dest-desc">An uninhabited tidal island of mangrove forest, mudflats, and sea grass beds — one of the most important bird habitats in Bangladesh. No hotels. No crowds. Pure wild coast.</p>
+            <div class="dest-highlights">
+              <span>🦅 Migratory birds</span>
+              <span>🌿 Mangroves</span>
+              <span>🔇 No crowds</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card reveal reveal-d2" id="rakhain">
+            <button class="wish-btn" data-id="rakhain" data-title="Rakhain Village" data-url="explore.html#rakhain" data-img="rakhain-village.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="dest-img" style="background-image: url('images/rakhain-village.jpg');"></div>
+          <div class="dest-body">
+            <div class="dest-meta-row">
+              <span class="dest-tag" style="background: rgba(160,82,45,0.12); color: #a0522d;">Cultural Village</span>
+              <span class="dest-distance">Within town</span>
+            </div>
+            <h3 class="dest-title">Rakhain Village</h3>
+            <p class="dest-desc">The Rakhaine community's wooden stilt houses, hand-loom weaving workshops, and Buddhist Khyang temples are a short walk from the main beach — a thousand years of culture a five-minute ride away.</p>
+            <div class="dest-highlights">
+              <span>🧵 Weaving</span>
+              <span>🛕 Khyang temple</span>
+              <span>🎭 Festivals</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+</section>
+
+  <!-- WHAT TO BRING HOME -->
+  <section class="section-pad" style="background: var(--sand-light);">
+    <div class="container-narrow">
+      <p class="section-label">Shopping</p>
+      <h2 class="section-heading">What to Bring Home</h2>
+      <p class="editorial-body">The Burmese Market in Tekpara is the obvious starting point — handwoven textiles, pickles, and goods found nowhere else in Bangladesh (see <a href="culture.html" style="color: var(--ocean); text-decoration: underline; text-underline-offset: 3px;">Culture &amp; Heritage</a>). Beyond that, look for Rakhine hand-loom weaving bought directly from village workshops, dried fish from Nazirartek for the adventurous, and simple beachwear and handicrafts along Laboni and Kolatoli. Bargaining is part of the experience in most markets and shops.</p>
+    </div>
+  </section>
+
+  <!-- TRAVELLING RESPONSIBLY -->
+  <section class="section-pad" style="background: var(--ocean-deep);">
+    <div class="container">
+      <p class="section-label light">Travel With Care</p>
+      <h2 class="section-heading light">Travelling Responsibly</h2>
+      <p class="atmo-body" style="max-width: 760px;">Saint Martin's coral reef is now under active government protection — no coral or shell collection, no single-use plastics, a daily visitor cap, and a seasonal closure from February to October. The same care extends beyond the island: avoid buying coral, shell, or turtle-product souvenirs anywhere on the coast, pack out what you bring to the beach, and when visiting Rakhine villages, ask before photographing people and consider buying handwoven textiles directly from the weavers rather than mass-produced imports.</p>
+    </div>
+  </section>
+
+  <!-- PLAN NUDGE -->
+  <section class="cta-band">
+    <div class="container cta-band-inner">
+      <div class="cta-band-text">
+        <h2>Plan your route</h2>
+        <p>Best time to visit each destination, how to get there, what to pack.</p>
+      </div>
+<a href="plan.html" class="btn btn-primary btn-large">Plan Your Trip →</a>
+    </div>
+  </section>
+
+  <section class="newsletter-band">
+    <div class="nl-bg" style="background-image: url('images/cox-portrait.jpg');"></div>
+    <div class="nl-overlay"></div>
+    <div class="container nl-inner">
+      <div class="nl-content">
+        <div class="nl-icon">✦</div>
+        <p class="section-label light">Stay in Touch</p>
+        <h2 class="nl-title">Cox's Bazar<br><em>in your inbox</em></h2>
+        <p class="nl-desc">Seasonal guides, travel tips, and stories from one of the world's longest unbroken beaches — a few times a year, nothing more.</p>
+        <form class="nl-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="nl-input-wrap">
+            <input type="email" name="email" class="nl-input" placeholder="Your email address" required aria-label="Email address" />
+            <button type="submit" class="nl-btn">→</button>
+          </div>
+          <p class="nl-note">No spam. Unsubscribe any time.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main">Cox's Bazar</span>
+        <span class="logo-sub">Bangladesh</span>
+<p class="footer-tagline">The Longest Natural Sea Beach in Asia</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+          <a href="#" aria-label="X / Twitter" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-nav"><h4>Discover</h4><ul>
+        <li><a href="beach.html">The Beach</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="culture.html">Culture</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="activities.html">Activities</a></li>
+      </ul></div>
+      <div class="footer-nav"><h4>Travel</h4><ul>
+        <li><a href="food.html">Food &amp; Dining</a></li>
+        <li><a href="stay.html">Where to Stay</a></li>
+        <li><a href="plan.html">Plan Your Trip</a></li>
+          <li><a href="plan.html#faq">FAQ</a></li>
+      </ul></div>
+      <div class="footer-info">
+        <h4>Cox's Bazar</h4>
+        <p>Chittagong Division<br>Bangladesh</p>
+        <p class="footer-credit">A destination guide to Asia's longest natural sea beach.</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container">
+      <p>&copy; 2026 Cox's Bazar Destination Guide.</p>
+    </div></div>
+  </footer>
+
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+  <script src="js/search-index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

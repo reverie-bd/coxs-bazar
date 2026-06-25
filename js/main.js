@@ -1,0 +1,372 @@
+// ── Nav: transparent → solid on scroll ──
+const header = document.getElementById('site-header');
+const onScroll = () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ── Mobile nav toggle ──
+const toggle = document.getElementById('nav-toggle');
+const menu   = document.getElementById('nav-menu');
+toggle.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+  toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+// Close mobile nav on link click
+menu.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
+// ── Hero subtle zoom-in on load ──
+const hero = document.getElementById('hero');
+if (hero) {
+  window.addEventListener('load', () => hero.classList.add('loaded'));
+}
+
+// ── Scroll-reveal: fade-up on entry ──
+const revealEls = document.querySelectorAll(
+  '.card, .exp-card, .identity-stat, .editorial-body, .atmo-text, .reveal'
+);
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => {
+    el.classList.add('reveal-ready');
+    observer.observe(el);
+  });
+}
+
+// ── Live Coast Conditions (month-based, no API needed) ──
+const coastData = {
+  //        season              sea           boats                       beach         temp
+  1:  ['Peak Season',     'Calm · Clear',   'Capped · Cox\'s Bazar',      'Inani',      '18–22°C'],
+  2:  ['Peak Season',     'Calm · Clear',   'Closed (Reef Season)',       'Inani',      '20–24°C'],
+  3:  ['Shoulder',        'Calm',           'Closed (Reef Season)',       'Laboni',     '24–28°C'],
+  4:  ['Shoulder',        'Gentle Swell',   'Closed (Reef Season)',       'Laboni',     '27–31°C'],
+  5:  ['Pre-Monsoon',     'Moderate Swell', 'Closed (Reef Season)',       'Laboni',     '28–32°C'],
+  6:  ['Monsoon',         'Rough',          'Closed (Reef Season)',       'Himchari',   '27–30°C'],
+  7:  ['Monsoon',         'Very Rough',     'Closed (Reef Season)',       'Himchari',   '27–29°C'],
+  8:  ['Monsoon',         'Very Rough',     'Closed (Reef Season)',       'Himchari',   '27–29°C'],
+  9:  ['Late Monsoon',    'Rough',          'Closed (Reef Season)',       'Laboni',     '27–30°C'],
+  10: ['Transition',      'Calming',        'Reopens Nov 1',              'Laboni',     '25–28°C'],
+  11: ['Peak Season',     'Calm · Clear',   'Capped · Cox\'s Bazar',      'Inani',      '20–25°C'],
+  12: ['Peak Season',     'Calm · Clear',   'Capped · Cox\'s Bazar',      'Inani',      '16–21°C'],
+};
+
+const m = new Date().getMonth() + 1;
+const d = coastData[m];
+if (d) {
+  var elSeason = document.getElementById('cond-season');
+  var elSea    = document.getElementById('cond-sea');
+  var elBoats  = document.getElementById('cond-boats');
+  var elBeach  = document.getElementById('cond-beach');
+  var elTemp   = document.getElementById('cond-temp');
+  if (elSeason) elSeason.textContent = ' ' + d[0];
+  if (elSea)    elSea.textContent    = ' ' + d[1];
+  if (elBoats)  elBoats.textContent  = ' ' + d[2];
+  if (elBeach)  elBeach.textContent  = ' ' + d[3];
+  if (elTemp)   elTemp.textContent   = ' ' + d[4];
+}
+
+// ── Open-Meteo Live Weather (Cox's Bazar: 21.4272°N, 92.0058°E) ──
+function updateWeather() {
+  var url = 'https://api.open-meteo.com/v1/forecast?latitude=21.4272&longitude=92.0058&current=temperature_2m,weathercode,windspeed_10m&wind_speed_unit=kmh&timezone=Asia%2FDhaka';
+  fetch(url)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var c = data.current;
+      var temp = Math.round(c.temperature_2m) + '°C';
+      var wind = Math.round(c.windspeed_10m) + ' km/h wind';
+      var code = c.weathercode;
+      var condition =
+        code === 0 ? 'Clear Sky' :
+        code <= 2  ? 'Partly Cloudy' :
+        code === 3 ? 'Overcast' :
+        code <= 49 ? 'Foggy' :
+        code <= 59 ? 'Drizzle' :
+        code <= 69 ? 'Rain' :
+        code <= 79 ? 'Snow' :
+        code <= 82 ? 'Rain Showers' :
+        code <= 99 ? 'Thunderstorm' : 'Variable';
+
+      var tempEl  = document.getElementById('cond-temp');
+      var seaEl   = document.getElementById('cond-sea');
+      if (tempEl) tempEl.textContent  = ' ' + temp;
+      if (seaEl)  seaEl.textContent   = ' ' + condition + ' · ' + wind;
+    })
+    .catch(function() {});
+}
+updateWeather();
+
+// ── Lunr.js Search ──
+function initSearch() {
+  if (typeof lunr === 'undefined' || typeof searchIndex === 'undefined') return;
+
+  var idx = lunr(function() {
+    this.ref('id');
+    this.field('title', { boost: 10 });
+    this.field('body');
+    searchIndex.forEach(function(doc) { this.add(doc); }, this);
+  });
+
+  var input   = document.getElementById('nav-search-input');
+  var results = document.getElementById('nav-search-results');
+  if (!input || !results) return;
+
+  input.addEventListener('input', function() {
+    var q = input.value.trim();
+    results.innerHTML = '';
+    if (q.length < 2) { results.hidden = true; return; }
+
+    var hits = [];
+    try { hits = idx.search(q + '~1'); } catch(e) { hits = []; }
+
+    if (hits.length === 0) {
+      results.innerHTML = '<div class="search-no-results">No results for "' + q + '"</div>';
+      results.hidden = false;
+      return;
+    }
+
+    hits.slice(0, 5).forEach(function(hit) {
+      var doc = searchIndex.filter(function(d) { return d.id === hit.ref; })[0];
+      if (!doc) return;
+      var a = document.createElement('a');
+      a.className = 'search-result-item';
+      a.href = doc.url;
+      a.innerHTML =
+        '<div class="search-result-title">' + doc.title + '</div>' +
+        '<div class="search-result-excerpt">' + doc.body.substring(0, 80) + '…</div>';
+      results.appendChild(a);
+    });
+    results.hidden = false;
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!input.contains(e.target) && !results.contains(e.target)) {
+      results.hidden = true;
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSearch);
+} else {
+  initSearch();
+}
+
+// ── Coast Map Interaction ──
+var zoneData = {
+  laboni:   { title: 'Laboni & Kolatoli Beach', desc: 'The lively heart of Cox\'s Bazar — kites, horses, food stalls, and the longest unbroken view of open sea you will ever stand in front of.', link: 'beach.html' },
+  kolatoli: { title: 'Sugandha & Kolatoli', desc: 'The preferred sunset-watching stretch. The beach faces directly west — when the sky turns copper, there is nowhere better to be.', link: 'beach.html' },
+  inani:    { title: 'Inani Beach', desc: '32 km south — coral stones embedded in the sand, teal water, dramatically quieter. The beach photographers come for.', link: 'explore.html#inani' },
+  himchari: { title: 'Himchari & the Hills', desc: 'Forested hills tumbling to the sea, a waterfall most powerful in monsoon, and the only elevated view of the full coastline.', link: 'explore.html#himchari' },
+  teknaf:   { title: 'Teknaf Peninsula', desc: 'The southern tip — where Bangladesh ends, the Naf River begins, and Myanmar lies across the water.', link: 'explore.html#teknaf' },
+  stmartin: { title: "Saint Martin's Island", desc: "Bangladesh's only coral island — 9 km offshore from Teknaf. Turquoise shallows, coral reefs, and the clearest water in the country.", link: 'explore.html#saint-martin' }
+};
+
+var mapTitle   = document.getElementById('map-zone-title');
+var mapDesc    = document.getElementById('map-zone-desc');
+var mapLink    = document.getElementById('map-zone-link');
+var mapZones   = document.querySelectorAll('.coast-zone');
+
+var defaultTitle = 'Not just a beach.<br>A world of its own.';
+var defaultDesc  = 'Cox\'s Bazar stretches 120 kilometres from Laboni south to Teknaf — coral islands, forested hills, Buddhist temples, and the Bay of Bengal, all within one coastline. Hover a zone to explore.';
+
+mapZones.forEach(function(zone) {
+  zone.addEventListener('mouseenter', function() {
+    var key  = zone.getAttribute('data-zone');
+    var info = zoneData[key];
+    if (!info) return;
+    mapZones.forEach(function(z) { z.classList.remove('active'); });
+    zone.classList.add('active');
+    mapTitle.innerHTML = info.title;
+    mapDesc.textContent = info.desc;
+    mapLink.href = info.link;
+    mapLink.style.display = 'inline-flex';
+  });
+
+  zone.addEventListener('mouseleave', function() {
+    zone.classList.remove('active');
+    mapTitle.innerHTML = defaultTitle;
+    mapDesc.textContent = defaultDesc;
+    mapLink.style.display = 'none';
+  });
+
+  zone.addEventListener('click', function() {
+    var key = zone.getAttribute('data-zone');
+    var info = zoneData[key];
+    if (info) window.location.href = info.link;
+  });
+});
+
+// ── Month Strip ──
+var monthItems = document.querySelectorAll('.month-item');
+var monthTooltip = document.getElementById('month-tooltip');
+var currentMonth = new Date().getMonth(); // 0-indexed
+var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+monthItems.forEach(function(item, index) {
+  // Map grid order (Nov=0) to real month index
+  var monthOrder = [10,11,0,1,2,3,4,5,6,7,8,9];
+  if (monthOrder[index] === currentMonth) {
+    item.classList.add('current-month');
+  }
+
+  item.addEventListener('mouseenter', function() {
+    if (monthTooltip) {
+      monthTooltip.textContent = item.getAttribute('data-tip');
+      monthTooltip.classList.add('visible');
+    }
+  });
+
+  item.addEventListener('mouseleave', function() {
+    if (monthTooltip) {
+      monthTooltip.classList.remove('visible');
+    }
+  });
+
+  item.addEventListener('click', function() {
+    window.location.href = 'plan.html';
+  });
+});
+
+// ── Wishlist (localStorage) ──
+function getWishlist() {
+  try { return JSON.parse(localStorage.getItem('cbwishlist') || '[]'); }
+  catch(e) { return []; }
+}
+
+function saveWishlist(list) {
+  localStorage.setItem('cbwishlist', JSON.stringify(list));
+}
+
+function updateWishlistBadge() {
+  var badges = document.querySelectorAll('.wishlist-badge');
+  var count = getWishlist().length;
+  badges.forEach(function(b) {
+    b.textContent = count;
+    b.style.display = count > 0 ? 'flex' : 'none';
+  });
+}
+
+function initWishlistButtons() {
+  var btns = document.querySelectorAll('.wish-btn');
+  var list = getWishlist();
+  btns.forEach(function(btn) {
+    var id    = btn.getAttribute('data-id');
+    var title = btn.getAttribute('data-title');
+    var url   = btn.getAttribute('data-url');
+    var img   = btn.getAttribute('data-img');
+    if (list.find(function(i){ return i.id === id; })) {
+      btn.classList.add('wished');
+      btn.setAttribute('aria-label', 'Remove from wishlist');
+    }
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var current = getWishlist();
+      var exists  = current.findIndex(function(i){ return i.id === id; });
+      if (exists > -1) {
+        current.splice(exists, 1);
+        btn.classList.remove('wished');
+        btn.setAttribute('aria-label', 'Save to wishlist');
+      } else {
+        current.push({ id: id, title: title, url: url, img: img });
+        btn.classList.add('wished');
+        btn.setAttribute('aria-label', 'Remove from wishlist');
+      }
+      saveWishlist(current);
+      updateWishlistBadge();
+    });
+  });
+  updateWishlistBadge();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initWishlistButtons);
+} else {
+  initWishlistButtons();
+}
+
+// ── Season Tab Switcher ──
+function initSeasonTabs() {
+  var tabs   = document.querySelectorAll('.season-tab');
+  var panels = document.querySelectorAll('.season-panel');
+
+  if (!tabs.length || !panels.length) return;
+
+  // Force hide all panels first
+  panels.forEach(function(p) {
+    p.style.setProperty('display', 'none', 'important');
+  });
+
+  // Show peak
+  var peakPanel = document.getElementById('season-peak');
+  if (peakPanel) {
+    peakPanel.style.setProperty('display', 'grid', 'important');
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var target = tab.getAttribute('data-season');
+
+      panels.forEach(function(p) {
+        p.style.setProperty('display', 'none', 'important');
+      });
+      tabs.forEach(function(t) {
+        t.classList.remove('active');
+      });
+
+      var panel = document.getElementById('season-' + target);
+      if (panel) {
+        panel.style.setProperty('display', 'grid', 'important');
+      }
+      tab.classList.add('active');
+    });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSeasonTabs);
+} else {
+  initSeasonTabs();
+}
+
+// ── Wishlist Page Renderer ──
+var wishlistGrid  = document.getElementById('wishlist-grid');
+var wishlistEmpty = document.getElementById('wishlist-empty');
+
+if (wishlistGrid) {
+  var saved = getWishlist();
+  if (saved.length === 0) {
+    wishlistEmpty.style.display = 'block';
+  } else {
+    saved.forEach(function(item) {
+      var card = document.createElement('div');
+      card.className = 'act-card';
+      card.innerHTML =
+        '<button class="wish-btn wished" data-id="' + item.id + '" data-title="' + item.title + '" data-url="' + item.url + '" data-img="' + item.img + '" aria-label="Remove from wishlist">♥</button>' +
+        '<div class="act-icon-wrap" style="background: linear-gradient(135deg,#1A5F7A,#7EC8C8); background-image: url(images/' + item.img + '); background-size: cover; background-position: center; height: 160px;"></div>' +
+        '<div class="act-body">' +
+          '<h3>' + item.title + '</h3>' +
+          '<a href="' + item.url + '" class="coast-map-link" style="margin-top:8px; display:inline-flex;">View details →</a>' +
+        '</div>';
+      wishlistGrid.appendChild(card);
+    });
+    initWishlistButtons();
+  }
+}

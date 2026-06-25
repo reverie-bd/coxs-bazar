@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plan your trip to Cox's Bazar — best time to visit, how to get there, local transport, visa information and practical tips." />
+<meta property="og:title" content="Plan Your Trip — Cox's Bazar" />
+<meta property="og:description" content="Plan your trip to Cox's Bazar — best time to visit, how to get there, local transport, visa information and practical tips." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/hero-plan.jpg" />
+  <title>Plan Your Trip — Cox's Bazar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-main">Cox's Bazar</span>
+        <span class="logo-sub">Bangladesh</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="beach.html" class="nav-link">The Beach</a></li>
+        <li><a href="explore.html" class="nav-link">Explore</a></li>
+        <li><a href="culture.html" class="nav-link">Culture</a></li>
+        <li><a href="history.html" class="nav-link">History</a></li>
+        <li><a href="activities.html" class="nav-link">Activities</a></li>
+        <li><a href="food.html" class="nav-link">Food</a></li>
+        <li><a href="stay.html" class="nav-link">Stay</a></li>
+        <li><a href="plan.html" class="nav-link active nav-cta">Plan Your Trip</a></li>
+      </ul>
+      <a href="wishlist.html" class="nav-wishlist" aria-label="Your wishlist">♡<span class="wishlist-badge">0</span></a>
+      <div class="nav-search" id="nav-search">
+        <input type="search" class="nav-search-input" id="nav-search-input" placeholder="Search…" aria-label="Search the site" autocomplete="off" />
+        <div class="nav-search-results" id="nav-search-results" hidden></div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('images/hero-plan.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-body">
+      <p class="page-hero-eyebrow">Cox's Bazar</p>
+      <h1 class="page-hero-title">Plan Your Trip</h1>
+      <p class="page-hero-desc">Everything you need — when to come, how to get here, and what to know before you go.</p>
+    </div>
+  </section>
+
+  <!-- SEASON SWITCHER -->
+  <section class="section-pad" style="background: var(--sand-light);">
+    <div class="container">
+      <p class="section-label">When to Visit</p>
+      <h2 class="section-heading">Choose your season</h2>
+      <div class="season-tabs">
+        <button class="season-tab active" data-season="peak">🌤️ Peak Season</button>
+        <button class="season-tab" data-season="shoulder">🌿 Shoulder</button>
+        <button class="season-tab" data-season="monsoon">🌧️ Monsoon</button>
+        <button class="season-tab" data-season="transition">🍂 Transition</button>
+      </div>
+      <div class="season-panels">
+
+        <div class="season-panel" id="season-peak">
+          <div class="season-img">
+            <img src="images/inani-beach.jpg" alt="Cox's Bazar peak season" loading="lazy" />
+          </div>
+          <div class="season-body">
+            <p class="season-period" style="color: var(--ocean);">November — February</p>
+            <h3 class="season-name">Peak Season</h3>
+            <p class="season-desc">The best time to visit — cool and dry with temperatures of 18–25°C, calm seas, and maximum visibility. Saint Martin's Island ships run through January 31st, Cox's Bazar departure only, under a daily visitor cap. The beach is at its most beautiful and most crowded. Book accommodation well in advance, especially during public holidays.</p>
+            <div class="season-facts">
+              <div class="season-fact"><span class="sfact-num">18–25°C</span><span class="sfact-label">Temperature</span></div>
+              <div class="season-fact"><span class="sfact-num">Calm</span><span class="sfact-label">Sea state</span></div>
+              <div class="season-fact"><span class="sfact-num">Capped, Cox's Bazar</span><span class="sfact-label">St Martin boats</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="season-panel" id="season-shoulder">
+          <div class="season-img">
+            <img src="images/quiet-beach.jpg" alt="Cox's Bazar shoulder season" loading="lazy" />
+          </div>
+          <div class="season-body">
+            <p class="season-period" style="color: #2d8a6e;">March — May</p>
+            <h3 class="season-name">Shoulder Season</h3>
+            <p class="season-desc">Warm and significantly less crowded than peak — temperatures rise to 28–32°C. Good beach conditions through April. By May the humidity builds and the first pre-monsoon storms begin, marking the start of the region's cyclone season — worth checking the forecast in the days before a May visit. The island is closed to tourism from February through October to protect its coral reef. Prices are lower and the experience is more local.</p>
+            <div class="season-facts">
+              <div class="season-fact"><span class="sfact-num">24–32°C</span><span class="sfact-label">Temperature</span></div>
+              <div class="season-fact"><span class="sfact-num">Gentle</span><span class="sfact-label">Sea state</span></div>
+              <div class="season-fact"><span class="sfact-num">Closed (Feb–Oct)</span><span class="sfact-label">St Martin boats</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="season-panel" id="season-monsoon">
+          <div class="season-img">
+            <img src="images/himchari.jpg" alt="Cox's Bazar monsoon season" loading="lazy" />
+          </div>
+          <div class="season-body">
+            <p class="season-period" style="color: #1a3a5c;">June — September</p>
+            <h3 class="season-name">Monsoon Season</h3>
+            <p class="season-desc">Heavy rain, rough seas, and almost no tourists — but the hills are intensely green, the waterfalls at Himchari are at full force, and prices drop 40–60%. Swimming is not advisable. Island boats are suspended. For landscape photography and solitude, this is actually the most remarkable time to visit.</p>
+            <div class="season-facts">
+              <div class="season-fact"><span class="sfact-num">27–30°C</span><span class="sfact-label">Temperature</span></div>
+              <div class="season-fact"><span class="sfact-num">Rough</span><span class="sfact-label">Sea state</span></div>
+              <div class="season-fact"><span class="sfact-num">Suspended</span><span class="sfact-label">St Martin boats</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="season-panel" id="season-transition">
+          <div class="season-img">
+            <img src="images/sunrise-beach.jpg" alt="Cox's Bazar transition season" loading="lazy" />
+          </div>
+          <div class="season-body">
+            <p class="season-period" style="color: #3a7d44;">October</p>
+            <h3 class="season-name">Transition</h3>
+            <p class="season-desc">The overlooked sweet spot — the rains ease, the landscape stays green from the monsoon, the seas begin to calm, and the crowds haven't arrived yet. October sits at the tail end of the region's cyclone season, so it's worth checking the forecast in the lead-up to a visit. Boat services resume November 1st under the new regulated season. Prices are still low. Sunsets are extraordinary. If flexibility allows, October is one of the most rewarding months to visit.</p>
+            <div class="season-facts">
+              <div class="season-fact"><span class="sfact-num">25–28°C</span><span class="sfact-label">Temperature</span></div>
+              <div class="season-fact"><span class="sfact-num">Calming</span><span class="sfact-label">Sea state</span></div>
+              <div class="season-fact"><span class="sfact-num">Closed until Nov 1</span><span class="sfact-label">St Martin boats</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GETTING HERE FROM ABROAD -->
+  <section class="section-pad" style="background: var(--sand-light);">
+    <div class="container-narrow">
+      <p class="section-label">Arriving From Abroad</p>
+      <h2 class="section-heading">Getting Here, Wherever You're Coming From</h2>
+      <p class="editorial-body">International visitors arrive through Hazrat Shahjalal International Airport in Dhaka, well connected to major hubs across the Middle East, South and Southeast Asia, and Europe. From there, reaching Cox's Bazar is part of the everyday rhythm of travel here — a quick domestic flight, a scenic train ride, or an overnight bus, each with its own character.</p>
+    </div>
+  </section>
+
+  <!-- GETTING THERE -->
+  <section class="section-pad" style="background: var(--white);">
+    <div class="container">
+      <p class="section-label">Getting There</p>
+      <h2 class="section-heading">From Dhaka to Cox's Bazar</h2>
+      <div class="transport-grid">
+
+        <div class="transport-card reveal reveal-d1">
+          <div class="transport-icon" style="background: linear-gradient(135deg,#1A5F7A,#7EC8C8);"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M44 6L6 20l14 6 4 14 8-12 12-22z"/></svg></div>
+          <h3>By Air</h3>
+          <p>The fastest option — Dhaka (DAC) to Cox's Bazar (CXB) takes just 1 hour, with Biman Bangladesh, US-Bangla, and Novoair operating multiple flights daily.</p>
+          <div class="transport-detail"><span>⏱ 1 hour</span><span>💰 BDT 3,500–8,000</span></div>
+        </div>
+
+        <div class="transport-card reveal reveal-d2">
+          <div class="transport-icon" style="background: linear-gradient(135deg,#c8870e,#f5c96a);"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="36" height="24" rx="4"/><path d="M6 24h36"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/></svg></div>
+          <h3>By Bus</h3>
+          <p>Direct AC buses from Dhaka's Sayedabad terminal — depart evening, arrive morning. Shyamoli, Hanif, and S Alam are the main operators. Comfortable enough for an overnight journey.</p>
+          <div class="transport-detail"><span>⏱ 10–12 hours</span><span>💰 BDT 700–1,400</span></div>
+        </div>
+
+        <div class="transport-card reveal reveal-d3">
+          <div class="transport-icon" style="background: linear-gradient(135deg,#1a3a5c,#3a6ea8);"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="8" width="28" height="26" rx="5"/><path d="M10 22h28"/><circle cx="18" cy="40" r="2.5"/><circle cx="30" cy="40" r="2.5"/><path d="M14 34l-6 8M34 34l6 8"/></svg></div>
+          <h3>By Train + Bus</h3>
+          <p>Train from Dhaka to Chittagong (7 hrs), then bus or shared car from Chittagong to Cox's Bazar (3 hrs). Longer but scenic — the train through the countryside is worth doing once.</p>
+          <div class="transport-detail"><span>⏱ 10–11 hours</span><span>💰 BDT 500–1,200</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARIES -->
+  <section class="section-pad" style="background: var(--white);">
+    <div class="container">
+      <p class="section-label">Suggested Itineraries</p>
+      <h2 class="section-heading">How long do you need?</h2>
+      <div class="itin-options">
+
+        <div class="itin-card reveal reveal-d1">
+          <div class="itin-card-header">
+            <h3>Weekend Escape</h3>
+            <p>2–3 Days</p>
+          </div>
+          <div class="itin-days">
+            <div class="itin-day"><div class="itin-day-num">1</div><p>Arrive, settle into Kolatoli or Sugandha, sunset at Sugandha Beach.</p></div>
+            <div class="itin-day"><div class="itin-day-num">2</div><p>Morning at Laboni (horse riding, kite flying), afternoon along Marine Drive to Himchari waterfall and Inani Beach, seafood dinner in Kolatoli.</p></div>
+            <div class="itin-day"><div class="itin-day-num">3</div><p>If extending: Burmese Market morning, depart afternoon.</p></div>
+          </div>
+        </div>
+
+        <div class="itin-card reveal reveal-d2">
+          <div class="itin-card-header">
+            <h3>The Classic Week</h3>
+            <p>5 Days</p>
+          </div>
+          <div class="itin-days">
+            <div class="itin-day"><div class="itin-day-num">1</div><p>Arrive, Laboni Beach, sunset at Sugandha.</p></div>
+            <div class="itin-day"><div class="itin-day-num">2</div><p>Full Marine Drive day — Himchari, Inani.</p></div>
+            <div class="itin-day"><div class="itin-day-num">3</div><p>Culture day — Rakhain Village, Aggameda Khyang, Burmese Market, Shutki Palli.</p></div>
+            <div class="itin-day"><div class="itin-day-num">4</div><p>Moheshkhali Island — Adinath Temple, salt flats, speedboat crossing.</p></div>
+            <div class="itin-day"><div class="itin-day-num">5</div><p>Activities (surfing, parasailing) and departure.</p></div>
+          </div>
+        </div>
+
+        <div class="itin-card reveal reveal-d3">
+          <div class="itin-card-header">
+            <h3>Island Explorer</h3>
+            <p>7 Days · Nov 1 – Jan 31 only</p>
+          </div>
+          <div class="itin-days">
+            <div class="itin-day"><div class="itin-day-num">1–2</div><p>As the Classic Week — Laboni, Sugandha, Marine Drive.</p></div>
+            <div class="itin-day"><div class="itin-day-num">3</div><p>Day trip to Saint Martin's (book ahead — daily cap applies).</p></div>
+            <div class="itin-day"><div class="itin-day-num">4</div><p>Culture day.</p></div>
+            <div class="itin-day"><div class="itin-day-num">5</div><p>Himchari + Inani.</p></div>
+            <div class="itin-day"><div class="itin-day-num">6</div><p>Moheshkhali.</p></div>
+            <div class="itin-day"><div class="itin-day-num">7</div><p>Free day / departure.</p></div>
+          </div>
+          <p class="itin-note">Saint Martin's is closed to tourism Feb–Oct — this itinerary only works in peak season.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND COX'S BAZAR -->
+  <section class="section-pad" style="background: var(--white);">
+    <div class="container-narrow" style="text-align:center;">
+      <p class="section-label">Beyond the Coast</p>
+      <h2 class="section-heading">Make It Part of a Bigger Trip</h2>
+      <p class="editorial-body">Cox's Bazar pairs beautifully with a wider Bangladesh journey — Dhaka's old city and museums, the Sundarbans mangrove forest, or Chittagong's hill districts all extend naturally from time on the coast.</p>
+    </div>
+  </section>
+
+  <!-- BUDGET -->
+  <section class="section-pad" style="background: var(--sand-light);">
+    <div class="container">
+      <p class="section-label">Cost of Travel</p>
+      <h2 class="section-heading">Sample daily budget</h2>
+      <table class="budget-table">
+        <thead>
+          <tr><th>Tier</th><th>Lodging</th><th>Food</th><th>Local Transport</th><th>Activities</th><th>Daily Total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Budget</td><td>BDT 600–2,500</td><td>BDT 300–600</td><td>BDT 200–400</td><td>Free (beach, horse riding)</td><td class="budget-total">~BDT 2,500–4,500</td></tr>
+          <tr><td>Mid-Range</td><td>BDT 2,500–8,000</td><td>BDT 800–1,500</td><td>BDT 500–800</td><td>BDT 500–1,500</td><td class="budget-total">~BDT 6,000–11,000</td></tr>
+          <tr><td>Luxury</td><td>BDT 8,000–25,000</td><td>BDT 2,000–4,000</td><td>BDT 1,500–3,000</td><td>BDT 2,000–5,000</td><td class="budget-total">~BDT 15,000–30,000+</td></tr>
+        </tbody>
+      </table>
+      <p class="budget-caveat">Excludes flights to/from Dhaka and the Saint Martin's ferry. Figures are illustrative based on prices elsewhere in this guide — confirm current rates before budgeting precisely.</p>
+    </div>
+  </section>
+
+  <!-- LOCAL TRANSPORT -->
+  <section class="section-pad" style="background: var(--sand-light);">
+    <div class="container">
+      <p class="section-label">Getting Around</p>
+      <h2 class="section-heading">Local transport</h2>
+      <div class="tips-grid">
+        <div class="tip-card reveal reveal-d1">
+          <div class="tip-icon"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30V18a4 4 0 014-4h14l8 10h6a4 4 0 014 4v2"/><path d="M8 30h36"/><circle cx="14" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg></div>
+          <h4>CNG Auto-Rickshaw</h4>
+          <p>The main way to move around — negotiate a price before you get in. Marine Drive end-to-end takes about 3 hours and costs BDT 800–1,200 negotiated.</p>
+        </div>
+        <div class="tip-card reveal reveal-d2">
+          <div class="tip-icon"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28h40l-6 10H12z"/><path d="M10 28V14h14l6 14"/></svg></div>
+          <h4>Speed Boat</h4>
+          <p>For Moheshkhali and Sonadia — speed boats from the main jetty. Shared boats run on demand; private hire is negotiable. Always agree price before boarding.</p>
+        </div>
+        <div class="tip-card reveal reveal-d3">
+          <div class="tip-icon"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 28h36l-5 12H11z"/><path d="M14 28V14h20v14"/><path d="M24 14V6h6v4"/></svg></div>
+          <h4>Ship to Saint Martin's</h4>
+          <p>Tourist ships depart from Cox's Bazar — the Teknaf and Inani routes are currently closed. The season runs November 1 – January 31, with a daily visitor cap and advance booking required.</p>
+        </div>
+        <div class="tip-card reveal reveal-d4">
+          <div class="tip-icon"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="36" r="5"/><circle cx="36" cy="36" r="5"/><path d="M12 36h10l6-14h10M22 22l6 14"/></svg></div>
+          <h4>Motorbike Hire</h4>
+          <p>Available for hire near Kolatoli — BDT 400–600 per day. The most flexible way to explore Marine Drive at your own pace. International licence recommended.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL TIPS -->
+  <section class="section-pad" style="background: var(--ocean-deep);">
+    <div class="container">
+      <p class="section-label">Know Before You Go</p>
+      <h2 class="section-heading light">Essential information</h2>
+      <div class="essentials-grid">
+        <div class="essential-item reveal reveal-d1">
+  <h4>🛂 Visa</h4>
+  <p>Most visitors can obtain a <strong>Visa on Arrival</strong> at Dhaka airport — valid 30 days. Some nationalities must apply in advance. Requirements vary by country — check with your nearest <a href="https://mofa.gov.bd/" class="essential-link" target="_blank" rel="noopener">Bangladesh Mission</a> or visit the <a href="https://visa.gov.bd" class="essential-link" target="_blank" rel="noopener">official visa portal</a>.</p>
+</div>
+        <div class="essential-item reveal reveal-d2">
+          <h4>💵 Currency</h4>
+          <p>Bangladeshi Taka (BDT). Currency counters at Dhaka airport and banks in Cox's Bazar town offer reliable exchange rates; hotels typically exchange at a small markup for convenience. Major hotels accept cards — smaller restaurants and markets are cash only.</p>
+        </div>
+        <div class="essential-item reveal reveal-d3">
+          <h4>📱 Connectivity</h4>
+          <p>Grameenphone and Robi are the leading local providers — pick up a SIM at the airport with your passport, or from any shop in town.</p>
+        </div>
+        <div class="essential-item reveal reveal-d1">
+          <h4>🏥 Health</h4>
+          <p>No vaccinations specifically required. Standard precautions — drink bottled water, be cautious with street food initially. Cox's Bazar District Hospital is the main facility; Dhaka is the nearest for serious care.</p>
+        </div>
+        <div class="essential-item reveal reveal-d2">
+          <h4>⚡ Power</h4>
+          <p>Bangladesh uses 220V / 50Hz. Type C and Type D plug sockets. Power cuts are occasional — better hotels have generators. Bring a power bank for day trips to the islands.</p>
+        </div>
+        <div class="essential-item reveal reveal-d3">
+          <h4>🕌 Ramadan &amp; Prayer Times</h4>
+          <p>During Ramadan, many local restaurants adjust hours or close during daytime fasting; hotel restaurants generally stay open for guests. Friday midday prayers may briefly affect local market hours.</p>
+        </div>
+        <div class="essential-item reveal reveal-d1">
+          <h4>📞 Emergency Contacts</h4>
+          <p>National emergency line: <strong>999</strong> (police, fire, ambulance). Cox's Bazar District Hospital handles urgent medical care. Your embassy or consulate in Dhaka is the right first call for lost passports or other serious matters abroad.</p>
+        </div>
+        <div class="essential-item reveal reveal-d2">
+          <h4>🕐 Time &amp; Week</h4>
+          <p>Bangladesh runs on Bangladesh Standard Time (UTC+6), with no daylight saving. The weekend here is Friday–Saturday rather than Saturday–Sunday — useful to know when planning around bank or office hours.</p>
+        </div>
+        <div class="essential-item reveal reveal-d3">
+          <h4>🛸 Drones</h4>
+          <p>Drone use in Bangladesh requires prior permission from civil aviation authorities. If aerial photography is part of your trip, arrange clearance well before you travel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- PACKING LIST -->
+  <section class="section-pad" style="background: var(--white);">
+    <div class="container">
+      <p class="section-label">Before You Pack</p>
+      <h2 class="section-heading">Packing checklist</h2>
+      <div class="pack-grid">
+        <div class="pack-group reveal reveal-d1">
+          <h4>📄 Documents</h4>
+          <ul>
+            <li>Passport + visa-on-arrival printout</li>
+            <li>Passport photos</li>
+            <li>Hotel confirmations</li>
+            <li>Travel insurance</li>
+          </ul>
+        </div>
+        <div class="pack-group reveal reveal-d2">
+          <h4>👕 Clothing</h4>
+          <ul>
+            <li>Light, breathable fabrics</li>
+            <li>A modest cover-up for moving between beach and town</li>
+            <li>Swimwear</li>
+            <li>A light jacket for Nov–Feb evenings</li>
+            <li>Comfortable shoes for the Himchari trail</li>
+          </ul>
+        </div>
+        <div class="pack-group reveal reveal-d3">
+          <h4>🩹 Health &amp; Sun</h4>
+          <ul>
+            <li>High-SPF sunscreen</li>
+            <li>Insect repellent</li>
+            <li>Basic first-aid and rehydration salts</li>
+            <li>Personal medication</li>
+          </ul>
+        </div>
+        <div class="pack-group reveal reveal-d4">
+          <h4>🔌 Tech &amp; Gear</h4>
+          <ul>
+            <li>Power bank for day trips</li>
+            <li>Dry bag for water activities</li>
+            <li>Underwater camera if diving/snorkelling</li>
+          </ul>
+        </div>
+      </div>
+      <p class="budget-caveat">Season-specific: Nov–Feb, pack light layers for cooler evenings. Jun–Sep (monsoon), bring a rain jacket, waterproof bag, and quick-dry clothing.</p>
+    </div>
+  </section>
+
+    <section class="section-pad" id="faq" style="background: var(--white);">
+    <div class="container-narrow">
+      <p class="section-label">Quick Answers</p>
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is Cox's Bazar safe for tourists?</summary>
+          <p>Yes — the core beach and town areas (Laboni, Kolatoli, Sugandha, Inani) are calm, well-trodden, and used to tourists. If your plans extend further south toward Teknaf, it's worth checking current local conditions before you go.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How many days do I need?</summary>
+          <p>Three days covers the beach, Marine Drive, and one nearby destination like Himchari or a Rakhine village. Five days lets you add Saint Martin's or Moheshkhali without rushing.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is alcohol available?</summary>
+          <p>Alcohol is served by a number of licensed hotels and restaurants.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need a local guide?</summary>
+          <p>Not for the main beach and town — it's easy to navigate independently. A guide is useful for the Himchari trail or arranging island boat trips, and most hotels can arrange one.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which beach area is best for swimming?</summary>
+          <p>Laboni and Kolatoli have flagged, supervised swimming zones. The Bay of Bengal has strong currents elsewhere, so stick to flagged areas and avoid swimming alone at low tide.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is it good for families or solo travellers?</summary>
+          <p>Yes to both — Kolatoli/Sugandha is the most convenient base for families, and the area is generally comfortable for solo travellers, including women.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I drink the tap water?</summary>
+          <p>No — stick to bottled water, which is cheap and widely available, including at most hotels.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What should I wear?</summary>
+          <p>Many visitors choose breathable, light clothing for the heat, wearing swimwear on the beach itself and a cover-up when moving into town or markets.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is it okay to take photos of local people?</summary>
+          <p>Most visitors ask before photographing people directly, especially in villages, markets, or at religious sites.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is tipping expected?</summary>
+          <p>Tipping isn't required, though many visitors leave a small amount for hotel staff, guides, and drivers.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I negotiate prices?</summary>
+          <p>Negotiating a price beforehand is common practice for CNG rides, boat hire, and souvenirs.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use foreign currency like USD or EUR?</summary>
+          <p>Bangladeshi Taka is the currency accepted directly at most businesses. Foreign currency such as USD or EUR can be exchanged at the airport, banks, or hotels.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Should I get a local SIM or use roaming?</summary>
+          <p>Local SIM cards (Grameenphone, Robi) are inexpensive and offer the best coverage along the coast. International roaming is also an option for shorter stays.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Should I travel independently or book a package tour?</summary>
+          <p>Both approaches are common. Independent travel suits the main beach and town areas well, while package tours offer a convenient single booking for itineraries that include the islands or culture circuit.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are there any useful Bangla phrases to know?</summary>
+          <p>A few that help along the way: ধন্যবাদ (dhonnobad) — thank you; কত? (koto) — how much?; ভালো (bhalo) — good. English is spoken to a reasonable degree in tourist-facing businesses in Cox's Bazar town.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-band">
+    <div class="nl-bg" style="background-image: url('images/cox-portrait.jpg');"></div>
+    <div class="nl-overlay"></div>
+    <div class="container nl-inner">
+      <div class="nl-content">
+        <div class="nl-icon">✦</div>
+        <p class="section-label light">Stay in Touch</p>
+        <h2 class="nl-title">Cox's Bazar<br><em>in your inbox</em></h2>
+        <p class="nl-desc">Seasonal guides, travel tips, and stories from one of the world's longest unbroken beaches — a few times a year, nothing more.</p>
+        <form class="nl-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="nl-input-wrap">
+            <input type="email" name="email" class="nl-input" placeholder="Your email address" required aria-label="Email address" />
+            <button type="submit" class="nl-btn">→</button>
+          </div>
+          <p class="nl-note">No spam. Unsubscribe any time.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main">Cox's Bazar</span>
+        <span class="logo-sub">Bangladesh</span>
+        <p class="footer-tagline">The Longest Natural Sea Beach in Asia</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+          <a href="#" aria-label="X / Twitter" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-nav"><h4>Discover</h4><ul>
+        <li><a href="beach.html">The Beach</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="culture.html">Culture</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="activities.html">Activities</a></li>
+      </ul></div>
+      <div class="footer-nav"><h4>Travel</h4><ul>
+        <li><a href="food.html">Food &amp; Dining</a></li>
+        <li><a href="stay.html">Where to Stay</a></li>
+        <li><a href="plan.html">Plan Your Trip</a></li>
+          <li><a href="plan.html#faq">FAQ</a></li>
+      </ul></div>
+      <div class="footer-info">
+        <h4>Cox's Bazar</h4>
+        <p>Chittagong Division<br>Bangladesh</p>
+        <p class="footer-credit">A destination guide to Asia's longest natural sea beach.</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container">
+      <p>&copy; 2026 Cox's Bazar Destination Guide.</p>
+    </div></div>
+  </footer>
+
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+  <script src="js/search-index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Your saved places and experiences in Cox's Bazar." />
+<meta property="og:title" content="Your Wishlist — Cox's Bazar" />
+<meta property="og:description" content="Your saved places and experiences in Cox's Bazar." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/sunset-beach.jpg" />
+  <title>Your Wishlist — Cox's Bazar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-main">Cox's Bazar</span>
+        <span class="logo-sub">Bangladesh</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="beach.html" class="nav-link">The Beach</a></li>
+        <li><a href="explore.html" class="nav-link">Explore</a></li>
+        <li><a href="culture.html" class="nav-link">Culture</a></li>
+        <li><a href="history.html" class="nav-link">History</a></li>
+        <li><a href="activities.html" class="nav-link">Activities</a></li>
+        <li><a href="food.html" class="nav-link">Food</a></li>
+        <li><a href="stay.html" class="nav-link">Stay</a></li>
+        <li><a href="plan.html" class="nav-link nav-cta">Plan Your Trip</a></li>
+      </ul>
+      <a href="wishlist.html" class="nav-wishlist" aria-label="Your wishlist">♡<span class="wishlist-badge">0</span></a>
+      <div class="nav-search" id="nav-search">
+        <input type="search" class="nav-search-input" id="nav-search-input" placeholder="Search…" aria-label="Search the site" autocomplete="off" />
+        <div class="nav-search-results" id="nav-search-results" hidden></div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-hero" style="min-height: 260px;">
+    <div class="page-hero-bg" style="background-image: url('images/sunset-beach.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-body">
+      <p class="page-hero-eyebrow">Your List</p>
+      <h1 class="page-hero-title">Wishlist</h1>
+      <p class="page-hero-desc">Places and experiences you've saved for your trip.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background: var(--sand-light); min-height: 400px;">
+    <div class="container">
+      <div id="wishlist-empty" style="display:none; text-align:center; padding: 80px 0;">
+        <div style="font-size:3rem; margin-bottom:20px;">♡</div>
+        <h2 style="font-family:var(--font-display); font-size:1.8rem; color:var(--text-dark); margin-bottom:12px;">Nothing saved yet</h2>
+        <p style="color:var(--text-mid); margin-bottom:32px;">Tap the heart icon on any activity, destination or experience to save it here.</p>
+        <a href="explore.html" class="btn btn-primary">Start Exploring →</a>
+      </div>
+      <div id="wishlist-grid" class="act-grid"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main">Cox's Bazar</span>
+        <span class="logo-sub">Bangladesh</span>
+        <p class="footer-tagline">The Longest Natural Sea Beach in Asia</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+          <a href="#" aria-label="X / Twitter" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-nav"><h4>Discover</h4><ul>
+        <li><a href="beach.html">The Beach</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="culture.html">Culture</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="activities.html">Activities</a></li>
+      </ul></div>
+      <div class="footer-nav"><h4>Travel</h4><ul>
+        <li><a href="food.html">Food &amp; Dining</a></li>
+        <li><a href="stay.html">Where to Stay</a></li>
+        <li><a href="plan.html">Plan Your Trip</a></li>
+          <li><a href="plan.html#faq">FAQ</a></li>
+      </ul></div>
+      <div class="footer-info">
+        <h4>Cox's Bazar</h4>
+        <p>Chittagong Division<br>Bangladesh</p>
+        <p class="footer-credit">A destination guide to Asia's longest natural sea beach.</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container">
+      <p>&copy; 2026 Cox's Bazar Destination Guide.</p>
+    </div></div>
+  </footer>
+
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+  <script src="js/search-index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

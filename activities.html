@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Surfing, parasailing, diving, boat tours, hiking, golf — activities on and around Cox's Bazar beach." />
+  <meta property="og:title" content="Activities — Cox's Bazar" />
+<meta property="og:description" content="Surfing, parasailing, diving, boat tours, hiking, golf — activities on and around Cox's Bazar beach." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/activities.jpg" />
+  <title>Activities — Cox's Bazar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-main">Cox's Bazar</span>
+        <span class="logo-sub">Bangladesh</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="beach.html" class="nav-link">The Beach</a></li>
+        <li><a href="explore.html" class="nav-link">Explore</a></li>
+        <li><a href="culture.html" class="nav-link">Culture</a></li>
+        <li><a href="history.html" class="nav-link">History</a></li>
+        <li><a href="activities.html" class="nav-link active">Activities</a></li>
+        <li><a href="food.html" class="nav-link">Food</a></li>
+        <li><a href="stay.html" class="nav-link">Stay</a></li>
+        <li><a href="plan.html" class="nav-link nav-cta">Plan Your Trip</a></li>
+      </ul>
+      <a href="wishlist.html" class="nav-wishlist" aria-label="Your wishlist">♡<span class="wishlist-badge">0</span></a>
+      <div class="nav-search" id="nav-search">
+        <input type="search" class="nav-search-input" id="nav-search-input" placeholder="Search…" aria-label="Search the site" autocomplete="off" />
+        <div class="nav-search-results" id="nav-search-results" hidden></div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('images/activities.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-body">
+      <p class="page-hero-eyebrow">Cox's Bazar</p>
+      <h1 class="page-hero-title">Activities</h1>
+      <p class="page-hero-desc">From surfing at dawn to diving coral reefs — the coast offers more than most people expect.</p>
+    </div>
+  </section>
+
+  <!-- ACTIVITY CARDS -->
+  <section class="section-pad" style="background: var(--sand-light);">
+    <div class="container">
+      <p class="section-label">On the Water</p>
+      <h2 class="section-heading">Sea &amp; Shore</h2>
+      <div class="act-grid">
+
+        <div class="act-card reveal reveal-d1">
+          <button class="wish-btn" data-id="surfing" data-title="Surfing" data-url="activities.html" data-img="activities.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="act-icon-wrap" style="background: linear-gradient(135deg, #1A5F7A, #7EC8C8);"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16l14-8 6 6-16 16z"/><path d="M6 34c4-5 8-5 12 0s8 5 12 0 8-5 12 0"/></svg></div>
+          <div class="act-body">
+            <h3>Surfing</h3>
+            <p>Cox's Bazar has a growing surf scene — the waves are best November to March. Boards available for hire at Laboni and Kolatoli beach areas.</p>
+            <div class="act-meta"><span>⭐ Best: Nov–Mar</span><span>📍 Laboni Beach</span></div>
+          </div>
+        </div>
+
+        <div class="act-card reveal reveal-d2">
+          <button class="wish-btn" data-id="parasailing" data-title="Parasailing" data-url="activities.html" data-img="activities.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="act-icon-wrap" style="background: linear-gradient(135deg, #c8870e, #f5c96a);"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20Q24 2 42 20"/><path d="M10 20l12 16M38 20l-12 16M24 20v16"/><circle cx="24" cy="39" r="3"/></svg></div>
+          <div class="act-body">
+            <h3>Parasailing</h3>
+            <p>Rise above the beach and see the full length of the coast from the air — the 120 km curve of shore visible from altitude is unforgettable.</p>
+            <div class="act-meta"><span>⭐ Best: Nov–Apr</span><span>📍 Kolatoli</span></div>
+          </div>
+        </div>
+
+        <div class="act-card reveal reveal-d3">
+          <button class="wish-btn" data-id="diving" data-title="Scuba Diving" data-url="activities.html" data-img="saint-martin.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="act-icon-wrap" style="background: linear-gradient(135deg, #12a085, #5dd6bf);"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20h28a4 4 0 014 4v6a8 8 0 01-8 8H14a8 8 0 01-8-8v-6a4 4 0 014-4z"/><circle cx="18" cy="28" r="3"/><circle cx="30" cy="28" r="3"/><path d="M38 20V8h6"/></svg></div>
+          <div class="act-body">
+            <h3>Scuba Diving &amp; Snorkelling</h3>
+            <p>Saint Martin's Island is the only place in Bangladesh with coral reefs significant enough for diving. Operators run day trips from Cox's Bazar during peak season.</p>
+            <div class="act-meta"><span>⭐ Best: Nov–Mar</span><span>📍 Saint Martin's</span></div>
+          </div>
+        </div>
+
+        <div class="act-card reveal reveal-d1">
+          <button class="wish-btn" data-id="boattour" data-title="Boat Tours" data-url="activities.html" data-img="hero-plan.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="act-icon-wrap" style="background: linear-gradient(135deg, #1a3a5c, #3a6ea8);"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 36h32l-5 8H13z"/><path d="M24 36V8"/><path d="M24 10L24 33L40 33Z"/></svg></div>
+          <div class="act-body">
+            <h3>Boat Tours</h3>
+            <p>Sunset boat rides from the main jetty, island-hopping to Sonadia and Moheshkhali, and the full-day ship journey to Saint Martin's — boats are central to life here.</p>
+            <div class="act-meta"><span>⭐ Year-round</span><span>📍 Main Jetty</span></div>
+          </div>
+        </div>
+
+        <div class="act-card reveal reveal-d2">
+          <button class="wish-btn" data-id="horseriding" data-title="Horse Riding" data-url="activities.html" data-img="laboni-beach.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="act-icon-wrap" style="background: linear-gradient(135deg, #a0522d, #d4845a);"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8v14a10 10 0 0020 0V8"/><path d="M20 8v14a4 4 0 008 0V8"/><circle cx="14" cy="9" r="1.4" fill="currentColor"/><circle cx="34" cy="9" r="1.4" fill="currentColor"/></svg></div>
+          <div class="act-body">
+            <h3>Horse Riding</h3>
+            <p>One of Cox's Bazar's most iconic images — horses cantering along the wet sand at low tide. Handlers with horses are available at Laboni Beach throughout the day.</p>
+            <div class="act-meta"><span>⭐ Year-round</span><span>📍 Laboni Beach</span></div>
+          </div>
+        </div>
+
+        <div class="act-card reveal reveal-d3">
+          <button class="wish-btn" data-id="fishing" data-title="Deep Sea Fishing" data-url="activities.html" data-img="fishing-boats.jpg" aria-label="Save to wishlist">♡</button>
+          <div class="act-icon-wrap" style="background: linear-gradient(135deg, #1A5F7A, #0F3D52);"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10l28 8"/><path d="M36 18c4 8 4 16 0 22"/><path d="M36 40a4 4 0 11-4-4"/></svg></div>
+          <div class="act-body">
+            <h3>Deep Sea Fishing</h3>
+            <p>Charter a trawler for a full-day deep sea fishing trip — the Bay of Bengal yields tuna, red snapper, and barracuda. A completely different way to experience the coast.</p>
+            <div class="act-meta"><span>⭐ Best: Nov–Apr</span><span>📍 Fishing Harbour</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LAND ACTIVITIES -->
+  <section class="section-pad" style="background: var(--white);">
+    <div class="container">
+      <p class="section-label">On Land</p>
+      <h2 class="section-heading">Beyond the shoreline</h2>
+      <div class="tips-grid">
+        <div class="tip-card reveal reveal-d1">
+          <div class="tip-icon"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 38L18 14l8 12 6-8 12 20z"/><circle cx="34" cy="12" r="3"/></svg></div>
+          <h4>Hill Trails</h4>
+          <p>Himchari National Park has forest trails rising above the beach — the only place you can look down on the full coastline. Best in the green post-monsoon season.</p>
+        </div>
+        <div class="tip-card reveal reveal-d2">
+          <div class="tip-icon"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 40V8"/><path d="M14 8l16 6-16 6z"/><circle cx="34" cy="38" r="3"/><path d="M6 40h36"/></svg></div>
+          <h4>Golf</h4>
+          <p>Cox's Bazar Golf Club — a nine-hole course near the town centre, one of the few coastal golf venues in Bangladesh. Equipment available for hire.</p>
+        </div>
+        <div class="tip-card reveal reveal-d3">
+          <div class="tip-icon"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24c8-10 26-10 34 0-8 10-26 10-34 0z"/><path d="M40 24l6-6v12z"/><circle cx="14" cy="22" r="1.6" fill="currentColor"/></svg></div>
+          <h4>Sea Aquarium</h4>
+          <p>Radiant Fish World — Bangladesh's first sea aquarium, with live coral displays, ray tanks, and marine species from the Bay of Bengal. A good option with children.</p>
+        </div>
+        <div class="tip-card reveal reveal-d4">
+          <div class="tip-icon"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 26c6-10 12-10 18 0 6-10 12-10 18 0"/></svg></div>
+          <h4>Birdwatching</h4>
+          <p>Sonadia Island and the Teknaf Wildlife Reserve are internationally significant birdwatching sites — migratory shorebirds arrive October to March in large numbers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-band">
+    <div class="nl-bg" style="background-image: url('images/cox-portrait.jpg');"></div>
+    <div class="nl-overlay"></div>
+    <div class="container nl-inner">
+      <div class="nl-content">
+        <div class="nl-icon">✦</div>
+        <p class="section-label light">Stay in Touch</p>
+        <h2 class="nl-title">Cox's Bazar<br><em>in your inbox</em></h2>
+        <p class="nl-desc">Seasonal guides, travel tips, and stories from one of the world's longest unbroken beaches — a few times a year, nothing more.</p>
+        <form class="nl-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="nl-input-wrap">
+            <input type="email" name="email" class="nl-input" placeholder="Your email address" required aria-label="Email address" />
+            <button type="submit" class="nl-btn">→</button>
+          </div>
+          <p class="nl-note">No spam. Unsubscribe any time.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main">Cox's Bazar</span>
+        <span class="logo-sub">Bangladesh</span>
+        <p class="footer-tagline">The Longest Natural Sea Beach in Asia</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+          <a href="#" aria-label="X / Twitter" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-nav"><h4>Discover</h4><ul>
+        <li><a href="beach.html">The Beach</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="culture.html">Culture</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="activities.html">Activities</a></li>
+      </ul></div>
+      <div class="footer-nav"><h4>Travel</h4><ul>
+        <li><a href="food.html">Food &amp; Dining</a></li>
+        <li><a href="stay.html">Where to Stay</a></li>
+        <li><a href="plan.html">Plan Your Trip</a></li>
+          <li><a href="plan.html#faq">FAQ</a></li>
+      </ul></div>
+      <div class="footer-info">
+        <h4>Cox's Bazar</h4>
+        <p>Chittagong Division<br>Bangladesh</p>
+        <p class="footer-credit">A destination guide to Asia's longest natural sea beach.</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container">
+      <p>&copy; 2026 Cox's Bazar Destination Guide.</p>
+    </div></div>
+  </footer>
+
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+  <script src="js/search-index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
