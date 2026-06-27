@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The history behind Cox's Bazar — Captain Cox, the Rakhine coast, and the rise of the longest natural sea beach in Asia." />
-  <meta property="og:title" content="History & Origins — Cox's Bazar" />
-  <meta property="og:description" content="The history behind Cox's Bazar — Captain Cox, the Rakhine coast, and the rise of the longest natural sea beach in Asia." />
+  <meta name="description" content="Frequently asked questions about visiting Cox's Bazar — safety, money, customs, and more." />
+  <meta property="og:title" content="FAQ — Cox's Bazar" />
+  <meta property="og:description" content="Frequently asked questions about visiting Cox's Bazar — safety, money, customs, and more." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/cox-portrait.jpg" />
-  <title>History & Origins — Cox's Bazar</title>
+  <meta property="og:image" content="images/hero-beach.jpg" />
+  <title>FAQ — Cox's Bazar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -28,9 +28,9 @@
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li class="nav-dropdown">
-          <button type="button" class="nav-link nav-dropdown-toggle active" aria-expanded="false">About <span class="nav-caret">▾</span></button>
+          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">About <span class="nav-caret">▾</span></button>
           <ul class="nav-dropdown-menu">
-            <li><a href="history.html" class="nav-dropdown-link active">History &amp; Origins</a></li>
+            <li><a href="history.html" class="nav-dropdown-link">History &amp; Origins</a></li>
             <li><a href="trivia.html" class="nav-dropdown-link">Trivia</a></li>
             <li><a href="about-us.html" class="nav-dropdown-link">About Us</a></li>
           </ul>
@@ -58,12 +58,12 @@
             <li><a href="itineraries.html" class="nav-dropdown-link">Itineraries</a></li>
           </ul>
         </li>
-        <li class="nav-dropdown">
-          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">Travel Info <span class="nav-caret">▾</span></button>
+        <li class="nav-dropdown open">
+          <button type="button" class="nav-link nav-dropdown-toggle active" aria-expanded="false">Travel Info <span class="nav-caret">▾</span></button>
           <ul class="nav-dropdown-menu">
             <li><a href="getting-there.html" class="nav-dropdown-link">Getting There</a></li>
             <li><a href="essentials.html" class="nav-dropdown-link">Essentials</a></li>
-            <li><a href="faq.html" class="nav-dropdown-link">FAQ</a></li>
+            <li><a href="faq.html" class="nav-dropdown-link active">FAQ</a></li>
           </ul>
         </li>
       </ul>
@@ -75,65 +75,87 @@
     </nav>
   </header>
 
+  <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('images/cox-portrait.jpg');"></div>
+    <div class="page-hero-bg" style="background-image: url('images/hero-beach.jpg');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-body">
       <p class="page-hero-eyebrow">Cox's Bazar</p>
-      <h1 class="page-hero-title">History &amp; Origins</h1>
-      <p class="page-hero-desc">From a Rakhine fishing settlement to Bangladesh's tourism capital — the story behind the name, and the coast that became the longest beach in Asia.</p>
+      <h1 class="page-hero-title">Frequently Asked Questions</h1>
+      <p class="page-hero-desc">Quick, honest answers to what people actually ask before visiting.</p>
     </div>
   </section>
 
-  <!-- NAME ORIGIN -->
-  <section class="culture-split section-pad">
-    <div class="container culture-split-inner">
-      <div class="culture-split-img reveal">
-        <div class="culture-img-frame" style="background-image: url('images/fishing-boats.jpg');"></div>
-      </div>
-      <div class="culture-split-text reveal reveal-d2">
-        <p class="section-label">1798</p>
-        <h2 class="section-heading">How Cox's Bazar Got Its Name</h2>
-        <p class="culture-body">In 1798, Captain Hiram Cox, an officer of the British East India Company, was posted to oversee the resettlement of Arakanese refugees fleeing conflict in neighbouring Burma, at an outpost then known as Palongkee. After his death the following year, a market was established here in his memory — Cox's Bazar, literally "Cox's Market."</p>
-        <p class="culture-body">Older names for the area include Panowa, meaning "yellow flower" — a reminder that this coastline carried identities long before the name most visitors know it by today.</p>
-        <div class="culture-tags">
-          <span>🏛️ British East India Company</span>
-          <span>⛵ Palongkee Outpost</span>
-          <span>🌼 Panowa — "Yellow Flower"</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FISHING VILLAGE TO BEACH CAPITAL -->
-  <section class="editorial-intro" style="background: var(--white);">
+  <!-- FAQ ACCORDION -->
+  <section class="section-pad" id="faq" style="background: var(--white);">
     <div class="container-narrow">
-      <p class="section-label">A Thousand Years in the Making</p>
-      <h2 class="section-heading">From Fishing Village to Beach Capital</h2>
-      <p class="editorial-body">The coast has been settled for over a thousand years, long before Cox arrived — the Rakhine community trace their presence here back to the 9th century. For most of its history since, Cox's Bazar remained a quiet fishing port. Its transformation into Bangladesh's primary beach destination is a 20th- and 21st-century story, driven first by domestic tourism and, more recently, by direct flights from Dhaka and growing international interest in its coastline, islands, and Rakhine heritage.</p>
-    </div>
-  </section>
-
-  <!-- TODAY -->
-  <section class="atmo-strip section-pad atmo-dark">
-    <div class="container atmo-inner">
-      <div class="atmo-text">
-        <p class="section-label light">Right Now</p>
-        <h2 class="section-heading light">Cox's Bazar Today</h2>
-        <p class="atmo-body">Cox's Bazar is now Bangladesh's busiest coastal tourism hub, anchored by the beach zones, Marine Drive, and the islands covered throughout this guide. It stands today as the longest natural sea beach in Asia and is widely recognised as the third longest beach in the world — one of the longest unbroken stretches of sand anywhere on Earth — a distinction that also placed it among the official finalist candidates in the New7Wonders of Nature global campaign, alongside Komodo Island and the Amazon Rainforest.</p>
-        <a href="explore.html" class="btn btn-outline-light">Explore the destinations →</a>
+      <p class="section-label">Quick Answers</p>
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is Cox's Bazar safe for tourists?</summary>
+          <p>Yes — the core beach and town areas (Laboni, Kolatoli, Sugandha, Inani) are calm, well-trodden, and used to tourists. If your plans extend further south toward Teknaf, it's worth checking current local conditions before you go.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How many days do I need?</summary>
+          <p>Three days covers the beach, Marine Drive, and one nearby destination like Himchari or a Rakhine village. Five days lets you add Saint Martin's or Moheshkhali without rushing.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is alcohol available?</summary>
+          <p>Alcohol is served by a number of licensed hotels and restaurants.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need a local guide?</summary>
+          <p>Not for the main beach and town — it's easy to navigate independently. A guide is useful for the Himchari trail or arranging island boat trips, and most hotels can arrange one.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which beach area is best for swimming?</summary>
+          <p>Laboni and Kolatoli have flagged, supervised swimming zones. The Bay of Bengal has strong currents elsewhere, so stick to flagged areas and avoid swimming alone at low tide.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is it good for families or solo travellers?</summary>
+          <p>Yes to both — Kolatoli/Sugandha is the most convenient base for families, and the area is generally comfortable for solo travellers, including women.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I drink the tap water?</summary>
+          <p>No — stick to bottled water, which is cheap and widely available, including at most hotels.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What should I wear?</summary>
+          <p>Many visitors choose breathable, light clothing for the heat, wearing swimwear on the beach itself and a cover-up when moving into town or markets.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is it okay to take photos of local people?</summary>
+          <p>Most visitors ask before photographing people directly, especially in villages, markets, or at religious sites.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is tipping expected?</summary>
+          <p>Tipping isn't required, though many visitors leave a small amount for hotel staff, guides, and drivers.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I negotiate prices?</summary>
+          <p>Negotiating a price beforehand is common practice for CNG rides, boat hire, and souvenirs.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use foreign currency like USD or EUR?</summary>
+          <p>Bangladeshi Taka is the currency accepted directly at most businesses. Foreign currency such as USD or EUR can be exchanged at the airport, banks, or hotels.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Should I get a local SIM or use roaming?</summary>
+          <p>Local SIM cards (Grameenphone, Robi) are inexpensive and offer the best coverage along the coast. International roaming is also an option for shorter stays.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Should I travel independently or book a package tour?</summary>
+          <p>Both approaches are common. Independent travel suits the main beach and town areas well, while package tours offer a convenient single booking for itineraries that include the islands or culture circuit.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are there any useful Bangla phrases to know?</summary>
+          <p>A few that help along the way: ধন্যবাদ (dhonnobad) — thank you; কত? (koto) — how much?; ভালো (bhalo) — good. English is spoken to a reasonable degree in tourist-facing businesses in Cox's Bazar town.</p>
+        </details>
       </div>
-      <div class="atmo-image" style="background-image: url('images/hero-discover.jpg');"></div>
-    </div>
-  </section>
 
-  <section class="cta-band">
-    <div class="container cta-band-inner">
-      <div class="cta-band-text">
-        <h2>Curious about the culture?</h2>
-        <p>Meet the Rakhine community whose heritage predates Cox's Bazar by a thousand years.</p>
-      </div>
-      <a href="culture.html" class="btn btn-primary btn-large">See Culture & Heritage →</a>
+      <!-- PHASE 4 PLACEHOLDER: "Share a tip" mini-feature goes here, below the FAQ accordion -->
+
     </div>
   </section>
 
@@ -180,8 +202,8 @@
       <div class="footer-nav"><h4>Travel</h4><ul>
         <li><a href="food.html">Food &amp; Dining</a></li>
         <li><a href="stay.html">Where to Stay</a></li>
-        <li><a href="itineraries.html">Plan Your Trip</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+        <li><a href="plan.html">Plan Your Trip</a></li>
+        <li><a href="plan.html#faq">FAQ</a></li>
       </ul></div>
       <div class="footer-info">
         <h4>Cox's Bazar</h4>

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Where to stay in Cox's Bazar — from luxury beachfront resorts to local guesthouses." />
-<meta property="og:title" content="Where to Stay — Cox's Bazar" />
-<meta property="og:description" content="Where to stay in Cox's Bazar — from luxury beachfront resorts to local guesthouses." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="images/hero-beach.jpg" />
-  <title>Where to Stay — Cox's Bazar</title>
+  <meta name="description" content="Choose the best season for your Cox's Bazar trip — peak, shoulder, monsoon, or the quiet transition month of October." />
+  <meta property="og:title" content="When to Visit — Cox's Bazar" />
+  <meta property="og:description" content="Choose the best season for your Cox's Bazar trip — peak, shoulder, monsoon, or the quiet transition month of October." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/hero-beach.jpg" />
+  <title>When to Visit — Cox's Bazar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -50,11 +50,11 @@
             <li><a href="food.html" class="nav-dropdown-link">Food &amp; Dining</a></li>
           </ul>
         </li>
-        <li class="nav-dropdown">
+        <li class="nav-dropdown open">
           <button type="button" class="nav-link nav-dropdown-toggle nav-cta-toggle active" aria-expanded="false">Plan Your Visit <span class="nav-caret">▾</span></button>
           <ul class="nav-dropdown-menu">
-            <li><a href="stay.html" class="nav-dropdown-link active">Where to Stay</a></li>
-            <li><a href="when-to-visit.html" class="nav-dropdown-link">When to Visit</a></li>
+            <li><a href="stay.html" class="nav-dropdown-link">Where to Stay</a></li>
+            <li><a href="when-to-visit.html" class="nav-dropdown-link active">When to Visit</a></li>
             <li><a href="itineraries.html" class="nav-dropdown-link">Itineraries</a></li>
           </ul>
         </li>
@@ -75,132 +75,95 @@
     </nav>
   </header>
 
+  <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('images/hotel-beachfront.jpg');"></div>
+    <div class="page-hero-bg" style="background-image: url('images/hero-beach.jpg');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-body">
       <p class="page-hero-eyebrow">Cox's Bazar</p>
-      <h1 class="page-hero-title">Where to Stay</h1>
-      <p class="page-hero-desc">From beachfront suites to simple guesthouses — every budget, every style, all within reach of the shore.</p>
+      <h1 class="page-hero-title">When to Visit</h1>
+      <p class="page-hero-desc">Every season tells a different story — here's how to pick yours.</p>
     </div>
   </section>
 
-  <!-- AREA GUIDE -->
+  <!-- SEASON SWITCHER -->
   <section class="section-pad" style="background: var(--sand-light);">
     <div class="container">
-      <p class="section-label">Choose Your Area</p>
-      <h2 class="section-heading">Where you stay changes how you experience it</h2>
-      <div class="area-grid">
+      <p class="section-label">When to Visit</p>
+      <h2 class="section-heading">Choose your season</h2>
+      <div class="season-tabs">
+        <button class="season-tab active" data-season="peak">🌤️ Peak Season</button>
+        <button class="season-tab" data-season="shoulder">🌿 Shoulder</button>
+        <button class="season-tab" data-season="monsoon">🌧️ Monsoon</button>
+        <button class="season-tab" data-season="transition">🍂 Transition</button>
+      </div>
+      <div class="season-panels">
 
-        <div class="area-card reveal reveal-d1">
-            <button class="wish-btn" data-id="area-kolatoli" data-title="Kolatoli & Sugandha" data-url="stay.html" data-img="hotel-beachfront.jpg" aria-label="Save to wishlist">♡</button>
-          <div class="area-colour" style="background: linear-gradient(135deg, #c8870e, #f5c96a);"></div>
-          <div class="area-body">
-            <h3>Kolatoli &amp; Sugandha</h3>
-            <p>The main hotel strip — most international-standard properties are here, within walking distance of the beach. Most convenient, most options, most activity.</p>
-            <div class="area-best-for"><span>Best for:</span> First-timers, families, short stays</div>
+        <div class="season-panel" id="season-peak">
+          <div class="season-img">
+            <img src="images/inani-beach.jpg" alt="Cox's Bazar peak season" loading="lazy" />
+          </div>
+          <div class="season-body">
+            <p class="season-period" style="color: var(--ocean);">November — February</p>
+            <h3 class="season-name">Peak Season</h3>
+            <p class="season-desc">The best time to visit — cool and dry with temperatures of 18–25°C, calm seas, and maximum visibility. Saint Martin's Island ships run through January 31st, Cox's Bazar departure only, under a daily visitor cap. The beach is at its most beautiful and most crowded. Book accommodation well in advance, especially during public holidays.</p>
+            <div class="season-facts">
+              <div class="season-fact"><span class="sfact-num">18–25°C</span><span class="sfact-label">Temperature</span></div>
+              <div class="season-fact"><span class="sfact-num">Calm</span><span class="sfact-label">Sea state</span></div>
+              <div class="season-fact"><span class="sfact-num">Capped, Cox's Bazar</span><span class="sfact-label">St Martin boats</span></div>
+            </div>
           </div>
         </div>
 
-        <div class="area-card reveal reveal-d2">
-            <button class="wish-btn" data-id="area-laboni" data-title="Laboni Beach Area" data-url="stay.html" data-img="laboni-beach.jpg" aria-label="Save to wishlist">♡</button>
-          <div class="area-colour" style="background: linear-gradient(135deg, #1A5F7A, #7EC8C8);"></div>
-          <div class="area-body">
-            <h3>Laboni Beach Area</h3>
-            <p>The older, more local end of the beach — busier, more chaotic, more authentic. Budget and mid-range guesthouses, beach-facing restaurants, real Cox's Bazar life.</p>
-            <div class="area-best-for"><span>Best for:</span> Budget travellers, local experience</div>
+        <div class="season-panel" id="season-shoulder">
+          <div class="season-img">
+            <img src="images/quiet-beach.jpg" alt="Cox's Bazar shoulder season" loading="lazy" />
+          </div>
+          <div class="season-body">
+            <p class="season-period" style="color: #2d8a6e;">March — May</p>
+            <h3 class="season-name">Shoulder Season</h3>
+            <p class="season-desc">Warm and significantly less crowded than peak — temperatures rise to 28–32°C. Good beach conditions through April. By May the humidity builds and the first pre-monsoon storms begin, marking the start of the region's cyclone season — worth checking the forecast in the days before a May visit. The island is closed to tourism from February through October to protect its coral reef. Prices are lower and the experience is more local.</p>
+            <div class="season-facts">
+              <div class="season-fact"><span class="sfact-num">24–32°C</span><span class="sfact-label">Temperature</span></div>
+              <div class="season-fact"><span class="sfact-num">Gentle</span><span class="sfact-label">Sea state</span></div>
+              <div class="season-fact"><span class="sfact-num">Closed (Feb–Oct)</span><span class="sfact-label">St Martin boats</span></div>
+            </div>
           </div>
         </div>
 
-        <div class="area-card reveal reveal-d3">
-            <button class="wish-btn" data-id="area-inani-south" data-title="Inani & Marine Drive South" data-url="stay.html" data-img="inani-beach.jpg" aria-label="Save to wishlist">♡</button>
-          <div class="area-colour" style="background: linear-gradient(135deg, #0F3D52, #1A5F7A);"></div>
-          <div class="area-body">
-            <h3>Inani &amp; Marine Drive South</h3>
-            <p>A handful of resort-style properties along the quieter southern stretch — more space, more privacy, dramatic coastal views, fewer crowds. The premium choice for longer stays.</p>
-            <div class="area-best-for"><span>Best for:</span> Couples, longer stays, peace</div>
+        <div class="season-panel" id="season-monsoon">
+          <div class="season-img">
+            <img src="images/himchari.jpg" alt="Cox's Bazar monsoon season" loading="lazy" />
+          </div>
+          <div class="season-body">
+            <p class="season-period" style="color: #1a3a5c;">June — September</p>
+            <h3 class="season-name">Monsoon Season</h3>
+            <p class="season-desc">Heavy rain, rough seas, and almost no tourists — but the hills are intensely green, the waterfalls at Himchari are at full force, and prices drop 40–60%. Swimming is not advisable. Island boats are suspended. For landscape photography and solitude, this is actually the most remarkable time to visit.</p>
+            <div class="season-facts">
+              <div class="season-fact"><span class="sfact-num">27–30°C</span><span class="sfact-label">Temperature</span></div>
+              <div class="season-fact"><span class="sfact-num">Rough</span><span class="sfact-label">Sea state</span></div>
+              <div class="season-fact"><span class="sfact-num">Suspended</span><span class="sfact-label">St Martin boats</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="season-panel" id="season-transition">
+          <div class="season-img">
+            <img src="images/sunrise-beach.jpg" alt="Cox's Bazar transition season" loading="lazy" />
+          </div>
+          <div class="season-body">
+            <p class="season-period" style="color: #3a7d44;">October</p>
+            <h3 class="season-name">Transition</h3>
+            <p class="season-desc">The overlooked sweet spot — the rains ease, the landscape stays green from the monsoon, the seas begin to calm, and the crowds haven't arrived yet. October sits at the tail end of the region's cyclone season, so it's worth checking the forecast in the lead-up to a visit. Boat services resume November 1st under the new regulated season. Prices are still low. Sunsets are extraordinary. If flexibility allows, October is one of the most rewarding months to visit.</p>
+            <div class="season-facts">
+              <div class="season-fact"><span class="sfact-num">25–28°C</span><span class="sfact-label">Temperature</span></div>
+              <div class="season-fact"><span class="sfact-num">Calming</span><span class="sfact-label">Sea state</span></div>
+              <div class="season-fact"><span class="sfact-num">Closed until Nov 1</span><span class="sfact-label">St Martin boats</span></div>
+            </div>
           </div>
         </div>
 
       </div>
-    </div>
-  </section>
-
-  <!-- ACCOMMODATION TIERS -->
-  <section class="section-pad" style="background: var(--white);">
-    <div class="container">
-      <p class="section-label">By Budget</p>
-      <h2 class="section-heading">What to expect at every level</h2>
-      <div class="tier-stack">
-
-        <div class="tier-item reveal reveal-d1">
-          <div class="tier-badge luxury">Luxury</div>
-          <div class="tier-content">
-            <h3>BDT 8,000–25,000 / night</h3>
-            <p>Beachfront resorts with sea-view rooms, pools, and full service. Long Beach Hotel, Seagull Hotel, and Ocean Paradise are the established names in this tier — international standard by Bangladeshi terms, well short of what that price buys in the region.</p>
-            <div class="tier-includes"><span>🏊 Pool</span><span>🍽️ Restaurant</span><span>🌊 Sea view</span><span>🧖 Spa</span></div>
-          </div>
-        </div>
-
-        <div class="tier-item reveal reveal-d2">
-          <div class="tier-badge mid">Mid-Range</div>
-          <div class="tier-content">
-            <h3>BDT 2,500–8,000 / night</h3>
-            <p>Clean, comfortable hotels within a short walk of the beach — AC rooms, attached bathrooms, basic breakfast included at the better end. This is where most domestic tourists stay.</p>
-            <div class="tier-includes"><span>❄️ AC</span><span>🚿 En-suite</span><span>📶 WiFi</span><span>🥐 Breakfast</span></div>
-          </div>
-        </div>
-
-        <div class="tier-item reveal reveal-d3">
-          <div class="tier-badge budget">Budget</div>
-          <div class="tier-content">
-            <h3>BDT 600–2,500 / night</h3>
-            <p>Simple guesthouses around Laboni — fan or basic AC rooms, shared or attached bathrooms. Entirely functional and sometimes surprisingly good. The right choice if you plan to spend all day on the beach anyway.</p>
-            <div class="tier-includes"><span>🛏️ Clean rooms</span><span>📍 Central</span><span>💰 Value</span></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PRACTICAL TIPS -->
-  <section class="section-pad" style="background: var(--sand);">
-    <div class="container">
-      <p class="section-label">Before You Book</p>
-      <h2 class="section-heading">Booking advice</h2>
-      <div class="tips-grid">
-        <div class="tip-card reveal reveal-d1">
-          <div class="tip-icon">📅</div>
-          <h4>Book Early for Peak</h4>
-          <p>November–February is high season. Popular hotels fill weeks in advance during Eid, public holidays, and winter weekends. Book at least 2–3 weeks ahead.</p>
-        </div>
-        <div class="tip-card reveal reveal-d2">
-          <div class="tip-icon">🌊</div>
-          <h4>Ask for Sea View</h4>
-          <p>Sea-view rooms are available at most beachfront hotels — simply request one when booking to guarantee an ocean-facing room.</p>
-        </div>
-        <div class="tip-card reveal reveal-d3">
-          <div class="tip-icon">🏷️</div>
-          <h4>Negotiate Off-Season</h4>
-          <p>During monsoon (June–September) rates drop dramatically — 40–60% off peak prices are common. The beach is rough but the hills are at their greenest.</p>
-        </div>
-        <div class="tip-card reveal reveal-d4">
-          <div class="tip-icon">📍</div>
-          <h4>Stay Central First</h4>
-          <p>If it's your first visit, stay near Kolatoli or Sugandha. You can always move further out for a second trip once you understand the geography.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-band">
-    <div class="container cta-band-inner">
-      <div class="cta-band-text">
-        <h2>Ready to plan the full trip?</h2>
-        <p>Best time, how to get there, what to pack — all in one place.</p>
-      </div>
-      <a href="itineraries.html" class="btn btn-primary btn-large">Plan Your Trip →</a>
     </div>
   </section>
 
@@ -247,8 +210,8 @@
       <div class="footer-nav"><h4>Travel</h4><ul>
         <li><a href="food.html">Food &amp; Dining</a></li>
         <li><a href="stay.html">Where to Stay</a></li>
-        <li><a href="itineraries.html">Plan Your Trip</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+        <li><a href="plan.html">Plan Your Trip</a></li>
+        <li><a href="plan.html#faq">FAQ</a></li>
       </ul></div>
       <div class="footer-info">
         <h4>Cox's Bazar</h4>

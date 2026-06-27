@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The history behind Cox's Bazar — Captain Cox, the Rakhine coast, and the rise of the longest natural sea beach in Asia." />
-  <meta property="og:title" content="History & Origins — Cox's Bazar" />
-  <meta property="og:description" content="The history behind Cox's Bazar — Captain Cox, the Rakhine coast, and the rise of the longest natural sea beach in Asia." />
+  <meta name="description" content="Fun facts about Cox's Bazar — the third-longest beach in the world, a nominated wonder of nature, and more." />
+  <meta property="og:title" content="Trivia — Cox's Bazar" />
+  <meta property="og:description" content="Fun facts about Cox's Bazar — the third-longest beach in the world, a nominated wonder of nature, and more." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/cox-portrait.jpg" />
-  <title>History & Origins — Cox's Bazar</title>
+  <meta property="og:image" content="images/hero-beach.jpg" />
+  <title>Trivia — Cox's Bazar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -27,23 +27,23 @@
       </button>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-dropdown">
-          <button type="button" class="nav-link nav-dropdown-toggle active" aria-expanded="false">About <span class="nav-caret">▾</span></button>
+        <li class="nav-dropdown open">
+          <button type="button" class="nav-link nav-dropdown-toggle active" aria-expanded="false">About <span class="nav-caret">&#9662;</span></button>
           <ul class="nav-dropdown-menu">
-            <li><a href="history.html" class="nav-dropdown-link active">History &amp; Origins</a></li>
-            <li><a href="trivia.html" class="nav-dropdown-link">Trivia</a></li>
+            <li><a href="history.html" class="nav-dropdown-link">History &amp; Origins</a></li>
+            <li><a href="trivia.html" class="nav-dropdown-link active">Trivia</a></li>
             <li><a href="about-us.html" class="nav-dropdown-link">About Us</a></li>
           </ul>
         </li>
         <li class="nav-dropdown">
-          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">Destinations <span class="nav-caret">▾</span></button>
+          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">Destinations <span class="nav-caret">&#9662;</span></button>
           <ul class="nav-dropdown-menu">
             <li><a href="beach.html" class="nav-dropdown-link">The Beach</a></li>
             <li><a href="explore.html" class="nav-dropdown-link">Explore</a></li>
           </ul>
         </li>
         <li class="nav-dropdown">
-          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">Inspiration <span class="nav-caret">▾</span></button>
+          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">Inspiration <span class="nav-caret">&#9662;</span></button>
           <ul class="nav-dropdown-menu">
             <li><a href="culture.html" class="nav-dropdown-link">Culture &amp; Heritage</a></li>
             <li><a href="activities.html" class="nav-dropdown-link">Activities</a></li>
@@ -51,7 +51,7 @@
           </ul>
         </li>
         <li class="nav-dropdown">
-          <button type="button" class="nav-link nav-dropdown-toggle nav-cta-toggle" aria-expanded="false">Plan Your Visit <span class="nav-caret">▾</span></button>
+          <button type="button" class="nav-link nav-dropdown-toggle nav-cta-toggle" aria-expanded="false">Plan Your Visit <span class="nav-caret">&#9662;</span></button>
           <ul class="nav-dropdown-menu">
             <li><a href="stay.html" class="nav-dropdown-link">Where to Stay</a></li>
             <li><a href="when-to-visit.html" class="nav-dropdown-link">When to Visit</a></li>
@@ -59,7 +59,7 @@
           </ul>
         </li>
         <li class="nav-dropdown">
-          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">Travel Info <span class="nav-caret">▾</span></button>
+          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">Travel Info <span class="nav-caret">&#9662;</span></button>
           <ul class="nav-dropdown-menu">
             <li><a href="getting-there.html" class="nav-dropdown-link">Getting There</a></li>
             <li><a href="essentials.html" class="nav-dropdown-link">Essentials</a></li>
@@ -67,73 +67,91 @@
           </ul>
         </li>
       </ul>
-      <a href="wishlist.html" class="nav-wishlist" aria-label="Your wishlist">♡<span class="wishlist-badge">0</span></a>
+      <a href="wishlist.html" class="nav-wishlist" aria-label="Your wishlist">&#9825;<span class="wishlist-badge">0</span></a>
       <div class="nav-search" id="nav-search">
-        <input type="search" class="nav-search-input" id="nav-search-input" placeholder="Search…" aria-label="Search the site" autocomplete="off" />
+        <input type="search" class="nav-search-input" id="nav-search-input" placeholder="Search&hellip;" aria-label="Search the site" autocomplete="off" />
         <div class="nav-search-results" id="nav-search-results" hidden></div>
       </div>
     </nav>
   </header>
 
   <section class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('images/cox-portrait.jpg');"></div>
+    <div class="page-hero-bg" style="background-image: url('images/hero-beach.jpg');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-body">
       <p class="page-hero-eyebrow">Cox's Bazar</p>
-      <h1 class="page-hero-title">History &amp; Origins</h1>
-      <p class="page-hero-desc">From a Rakhine fishing settlement to Bangladesh's tourism capital — the story behind the name, and the coast that became the longest beach in Asia.</p>
+      <h1 class="page-hero-title">Did You Know?</h1>
+      <p class="page-hero-desc">A few surprising facts about the coast, for the curious.</p>
     </div>
   </section>
 
-  <!-- NAME ORIGIN -->
-  <section class="culture-split section-pad">
-    <div class="container culture-split-inner">
-      <div class="culture-split-img reveal">
-        <div class="culture-img-frame" style="background-image: url('images/fishing-boats.jpg');"></div>
-      </div>
-      <div class="culture-split-text reveal reveal-d2">
-        <p class="section-label">1798</p>
-        <h2 class="section-heading">How Cox's Bazar Got Its Name</h2>
-        <p class="culture-body">In 1798, Captain Hiram Cox, an officer of the British East India Company, was posted to oversee the resettlement of Arakanese refugees fleeing conflict in neighbouring Burma, at an outpost then known as Palongkee. After his death the following year, a market was established here in his memory — Cox's Bazar, literally "Cox's Market."</p>
-        <p class="culture-body">Older names for the area include Panowa, meaning "yellow flower" — a reminder that this coastline carried identities long before the name most visitors know it by today.</p>
-        <div class="culture-tags">
-          <span>🏛️ British East India Company</span>
-          <span>⛵ Palongkee Outpost</span>
-          <span>🌼 Panowa — "Yellow Flower"</span>
+  <section class="section-pad" style="background: var(--sand-light);">
+    <div class="container">
+      <p class="section-label">Trivia</p>
+      <h2 class="section-heading">Ten things worth knowing</h2>
+      <div class="tips-grid">
+
+        <div class="tip-card reveal reveal-d1">
+          <div class="tip-icon">&#127958;&#65039;</div>
+          <h4>Third-Longest Beach</h4>
+          <p>Cox's Bazar is the third-longest beach in the world, behind Brazil's Praia do Cassino and Australia's Eighty Mile Beach.</p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- FISHING VILLAGE TO BEACH CAPITAL -->
-  <section class="editorial-intro" style="background: var(--white);">
-    <div class="container-narrow">
-      <p class="section-label">A Thousand Years in the Making</p>
-      <h2 class="section-heading">From Fishing Village to Beach Capital</h2>
-      <p class="editorial-body">The coast has been settled for over a thousand years, long before Cox arrived — the Rakhine community trace their presence here back to the 9th century. For most of its history since, Cox's Bazar remained a quiet fishing port. Its transformation into Bangladesh's primary beach destination is a 20th- and 21st-century story, driven first by domestic tourism and, more recently, by direct flights from Dhaka and growing international interest in its coastline, islands, and Rakhine heritage.</p>
-    </div>
-  </section>
+        <div class="tip-card reveal reveal-d2">
+          <div class="tip-icon">&#127942;</div>
+          <h4>New7Wonders Finalist</h4>
+          <p>Between 2008 and 2011, it was named an official finalist in the New7Wonders of Nature campaign, alongside Komodo Island and the Amazon Rainforest.</p>
+        </div>
 
-  <!-- TODAY -->
-  <section class="atmo-strip section-pad atmo-dark">
-    <div class="container atmo-inner">
-      <div class="atmo-text">
-        <p class="section-label light">Right Now</p>
-        <h2 class="section-heading light">Cox's Bazar Today</h2>
-        <p class="atmo-body">Cox's Bazar is now Bangladesh's busiest coastal tourism hub, anchored by the beach zones, Marine Drive, and the islands covered throughout this guide. It stands today as the longest natural sea beach in Asia and is widely recognised as the third longest beach in the world — one of the longest unbroken stretches of sand anywhere on Earth — a distinction that also placed it among the official finalist candidates in the New7Wonders of Nature global campaign, alongside Komodo Island and the Amazon Rainforest.</p>
-        <a href="explore.html" class="btn btn-outline-light">Explore the destinations →</a>
-      </div>
-      <div class="atmo-image" style="background-image: url('images/hero-discover.jpg');"></div>
-    </div>
-  </section>
+        <div class="tip-card reveal reveal-d3">
+          <div class="tip-icon">&#9875;</div>
+          <h4>Named After a Captain</h4>
+          <p>The name comes from Captain Hiram Cox, a British East India Company officer posted here in 1798.</p>
+        </div>
 
-  <section class="cta-band">
-    <div class="container cta-band-inner">
-      <div class="cta-band-text">
-        <h2>Curious about the culture?</h2>
-        <p>Meet the Rakhine community whose heritage predates Cox's Bazar by a thousand years.</p>
+        <div class="tip-card reveal reveal-d1">
+          <div class="tip-icon">&#128031;</div>
+          <h4>Dried Fish Capital</h4>
+          <p>Nazirartek, just north of the main beach, produces around 85% of Bangladesh's entire dried fish supply.</p>
+        </div>
+
+        <div class="tip-card reveal reveal-d2">
+          <div class="tip-icon">&#129426;</div>
+          <h4>Bangladesh's Only Coral Island</h4>
+          <p>Saint Martin Island is the only coral island in Bangladesh.</p>
+        </div>
+
+        <div class="tip-card reveal reveal-d3">
+          <div class="tip-icon">&#127963;&#65039;</div>
+          <h4>Over 1,200 Years of History</h4>
+          <p>The Rakhine community has called this coast home since the 9th century — over 1,200 years of continuous presence.</p>
+        </div>
+
+        <div class="tip-card reveal reveal-d1">
+          <div class="tip-icon">&#128739;&#65039;</div>
+          <h4>80 km of Coastal Road</h4>
+          <p>Marine Drive, the coastal road running the length of the beach, stretches 80 km — about 3 hours end to end.</p>
+        </div>
+
+        <div class="tip-card reveal reveal-d2">
+          <div class="tip-icon">&#128197;</div>
+          <h4>A Different Weekend</h4>
+          <p>Bangladesh's weekend falls on Friday and Saturday, not Saturday and Sunday — useful to know when planning around bank or market hours.</p>
+        </div>
+
+        <div class="tip-card reveal reveal-d3">
+          <div class="tip-icon">&#128024;</div>
+          <h4>Bangladesh's Largest Safari Park</h4>
+          <p>Nearby Dulahazara Safari Park is Bangladesh's largest, spanning roughly 900 hectares.</p>
+        </div>
+
+        <div class="tip-card reveal reveal-d1">
+          <div class="tip-icon">&#127804;</div>
+          <h4>Once Called Panowa</h4>
+          <p>Long before "Cox's Bazar," this coast was known as Panowa — meaning "yellow flower."</p>
+        </div>
+
       </div>
-      <a href="culture.html" class="btn btn-primary btn-large">See Culture & Heritage →</a>
     </div>
   </section>
 
@@ -142,14 +160,14 @@
     <div class="nl-overlay"></div>
     <div class="container nl-inner">
       <div class="nl-content">
-        <div class="nl-icon">✦</div>
+        <div class="nl-icon">&#10022;</div>
         <p class="section-label light">Stay in Touch</p>
         <h2 class="nl-title">Cox's Bazar<br><em>in your inbox</em></h2>
         <p class="nl-desc">Seasonal guides, travel tips, and stories from one of the world's longest unbroken beaches — a few times a year, nothing more.</p>
         <form class="nl-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="nl-input-wrap">
             <input type="email" name="email" class="nl-input" placeholder="Your email address" required aria-label="Email address" />
-            <button type="submit" class="nl-btn">→</button>
+            <button type="submit" class="nl-btn">&#8594;</button>
           </div>
           <p class="nl-note">No spam. Unsubscribe any time.</p>
         </form>
@@ -181,7 +199,7 @@
         <li><a href="food.html">Food &amp; Dining</a></li>
         <li><a href="stay.html">Where to Stay</a></li>
         <li><a href="itineraries.html">Plan Your Trip</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+        <li><a href="faq.html">FAQ</a></li>
       </ul></div>
       <div class="footer-info">
         <h4>Cox's Bazar</h4>

@@ -1,8 +1,8 @@
 (function () {
   const WORKER_URL = "https://reverie.ashesh-devnath.workers.dev";
-  const BOT_NAME = "Neel";
-  const TOGGLE_LABEL = "Chat with " + BOT_NAME;
-  const MAX_HISTORY_TURNS = 4;
+  const BOT_NAME = "Neela";
+  const TOGGLE_LABEL = "Explore with " + BOT_NAME;
+  const MAX_HISTORY_TURNS = 6;
 
   const container = document.createElement("div");
   container.id = "cb-chat-widget";
@@ -13,7 +13,13 @@
     </button>
     <div id="cb-chat-window" hidden>
       <div id="cb-chat-header">
-        <span>${BOT_NAME} — Cox's Bazar Assistant</span>
+        <span class="cb-header-identity">
+        <img src="images/neela-avatar.png" alt="Neela" class="cb-header-avatar" />
+        <span class="cb-header-text">
+        <span class="cb-header-name">${BOT_NAME}<span class="cb-online-dot"></span></span>
+        <span class="cb-header-sub">AI Assistant</span>
+        </span>
+        </span>
         <div id="cb-chat-header-actions">
           <button id="cb-chat-expand" type="button" aria-label="Expand chat">⤢</button>
           <button id="cb-chat-minimize" type="button" aria-label="Minimize chat">–</button>
@@ -21,13 +27,13 @@
         </div>
       </div>
       <div id="cb-chat-messages"></div>
-  <div id="cb-close-confirm" style="display:none;flex-direction:column;gap:10px;padding:14px 16px;background:#fff3cd;border-top:2px solid #E8A838;font-size:0.82rem;color:#3D4F5E;flex-shrink:0;">
-    <span style="font-weight:600;line-height:1.4;">End this conversation? Your history will be cleared.</span>
-    <div style="display:flex;gap:8px;">
-      <button id="cb-confirm-yes" style="flex:1;padding:8px 0;background:#163C4D;color:#fff;border:none;border-radius:6px;font-size:0.8rem;font-weight:600;cursor:pointer;">Yes, close</button>
-      <button id="cb-confirm-no" style="flex:1;padding:8px 0;background:transparent;color:#163C4D;border:1.5px solid #163C4D;border-radius:6px;font-size:0.8rem;font-weight:600;cursor:pointer;">Keep chatting</button>
-    </div>
-  </div>
+      <div id="cb-close-confirm" hidden>
+        <span>End this conversation? Your history will be cleared.</span>
+        <div class="cb-close-confirm-actions">
+          <button id="cb-confirm-yes" type="button">Yes, close</button>
+          <button id="cb-confirm-no" type="button">Keep chatting</button>
+        </div>
+      </div>
       <form id="cb-chat-form">
         <input id="cb-chat-input" type="text" placeholder="Ask a question…" autocomplete="off" />
         <button type="submit" aria-label="Send">→</button>
@@ -44,9 +50,13 @@
   const messages = document.getElementById("cb-chat-messages");
   const form = document.getElementById("cb-chat-form");
   const input = document.getElementById("cb-chat-input");
+  const closeConfirm = document.getElementById("cb-close-confirm");
+  const confirmYes = document.getElementById("cb-confirm-yes");
+  const confirmNo = document.getElementById("cb-confirm-no");
 
-  const BOT_AVATAR = '<span class="cb-avatar cb-avatar-bot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/><path d="M3 11c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/></svg></span>';
+  const BOT_AVATAR = '<span class="cb-avatar cb-avatar-bot"><img src="images/neela-avatar.png" alt="Neela" width="26" height="26" style="border-radius:50%;object-fit:cover;width:26px;height:26px;" /></span>';
   const USER_AVATAR = '<span class="cb-avatar cb-avatar-user"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></span>';
+  const WELCOME_TEXT = "Hi, Welcome to Cox's Bazar!\nI'm " + BOT_NAME + ", here to help you discover the longest natural beach in Asia.\n\nI'm an AI, so I might occasionally get a detail wrong — for anything important like visas, ferry schedules, or bookings, it's always worth double-checking before you go.\n\nWhat would you like to know?";
 
   function escapeHtml(str) {
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -56,7 +66,7 @@
     let safe = escapeHtml(text);
     safe = safe.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
     safe = safe.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-    safe = safe.replace(/\*\*/g, ""); // clean up any stray unpaired markers
+    safe = safe.replace(/\*\*/g, "");
     safe = safe.replace(/\n/g, "<br>");
     return safe;
   }
@@ -68,7 +78,7 @@
       const raw = sessionStorage.getItem("cb_chat_state");
       if (raw) return JSON.parse(raw);
     } catch (e) {}
-    return { history: [], open: false, started: false, expanded: false };
+    return { history: [], open: false, started: false, expanded: false, sessionId: null };
   }
 
   function saveState() {
@@ -86,6 +96,11 @@
       saveState();
     }
     return state.sessionId;
+  }
+
+  function isHomePage() {
+    const path = window.location.pathname.toLowerCase();
+    return path === "/" || path.endsWith("/index.html") || path.split("/").pop() === "";
   }
 
   function addMessage(text, sender, save) {
@@ -159,12 +174,10 @@
     saveState();
   }
 
-  function closeChat() {
-    if (!window.confirm("Exit chat? This will clear your conversation.")) return;
+  function performClose() {
     win.hidden = true;
     state.open = false;
     state.history = [];
-    state.started = false;
     state.expanded = false;
     state.sessionId = null;
     win.classList.remove("cb-expanded");
@@ -179,12 +192,25 @@
   }
 
   toggle.addEventListener("click", function () {
-    if (win.hidden) openWindow();
-    else minimizeWindow();
+    if (!win.hidden) {
+      minimizeWindow();
+      return;
+    }
+    closeConfirm.hidden = true;
+    if (state.history.length === 0) {
+      state.started = true;
+      openWindow();
+      addMessage(WELCOME_TEXT, "bot");
+    } else {
+      openWindow();
+    }
   });
+
   minimizeBtn.addEventListener("click", minimizeWindow);
-  closeBtn.addEventListener("click", closeChat);
   expandBtn.addEventListener("click", toggleExpand);
+  closeBtn.addEventListener("click", function () { closeConfirm.hidden = false; });
+  confirmNo.addEventListener("click", function () { closeConfirm.hidden = true; });
+  confirmYes.addEventListener("click", function () { closeConfirm.hidden = true; performClose(); });
 
   async function sendMessage() {
     const question = input.value.trim();
@@ -228,14 +254,11 @@
       addMessage(h.text, h.role === "user" ? "user" : "bot", false);
     });
     if (state.open) win.hidden = false;
-  } else {
+  } else if (isHomePage()) {
     setTimeout(function () {
       state.started = true;
       openWindow();
-      addMessage(
-        "Hi! I'm " + BOT_NAME + ", here to help with anything about visiting Cox's Bazar — the beach, getting here, food, activities, and more.\nI'm an AI, so I might occasionally get a detail wrong — for anything important like visas, ferry schedules, or bookings, it's always worth double-checking before you go.\nWhat would you like to know?",
-        "bot"
-      );
-    }, 2500);
+      addMessage(WELCOME_TEXT, "bot");
+    }, 1500);
   }
 })();

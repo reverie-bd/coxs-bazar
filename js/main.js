@@ -16,6 +16,51 @@ toggle.addEventListener('click', () => {
   document.body.style.overflow = open ? 'hidden' : '';
 });
 
+// ── Nav dropdowns ──
+function closeAllDropdowns() {
+  document.querySelectorAll('.nav-dropdown.open').forEach(function (d) {
+    d.classList.remove('open');
+    d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+  });
+}
+
+// On page load: remove any hard-coded open class from HTML
+document.addEventListener('DOMContentLoaded', function () {
+  closeAllDropdowns();
+});
+
+document.querySelectorAll('.nav-dropdown-toggle').forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    var dropdown = btn.closest('.nav-dropdown');
+    var isOpen = dropdown.classList.contains('open');
+    closeAllDropdowns();
+    if (!isOpen) {
+      dropdown.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// Hovering into another dropdown closes any JS-opened one
+document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+  dd.addEventListener('mouseenter', function () {
+    document.querySelectorAll('.nav-dropdown.open').forEach(function (d) {
+      if (d !== dd) {
+        d.classList.remove('open');
+        d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+});
+
+// Outside click closes all
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.nav-dropdown')) {
+    closeAllDropdowns();
+  }
+});
+
 // Close mobile nav on link click
 menu.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
@@ -240,9 +285,69 @@ monthItems.forEach(function(item, index) {
   });
 
   item.addEventListener('click', function() {
-    window.location.href = 'plan.html';
+    window.location.href = 'when-to-visit.html';
   });
 });
+
+function initQuiz() {
+  var quiz = document.querySelector('.quiz-card');
+  if (!quiz) return;
+
+  var questions = Array.from(quiz.querySelectorAll('.quiz-question'));
+  var options = quiz.querySelectorAll('.quiz-option');
+  var result = quiz.querySelector('.quiz-result');
+  var resultText = quiz.querySelector('.quiz-result-text');
+  var resultLink = quiz.querySelector('.quiz-result-link');
+
+  var scores = { weekend: 0, classic: 0, island: 0 };
+
+  options.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var parent = btn.closest('.quiz-question');
+      parent.querySelectorAll('.quiz-option').forEach(function(b){ b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      scores[btn.getAttribute('data-score')] += 1;
+
+      var answered = 0;
+      questions.forEach(function(q) {
+        if (q.querySelector('.quiz-option.selected')) answered += 1;
+      });
+
+      if (answered === questions.length) {
+        var best = 'weekend';
+        Object.keys(scores).forEach(function(k) {
+          if (scores[k] > scores[best]) best = k;
+        });
+
+        var map = {
+          weekend: {
+            text: 'You match the Weekend Escape — a short, easy trip built around beach time, sunset, and low-friction planning.',
+            link: '#itinerary-weekend'
+          },
+          classic: {
+            text: 'You match the Classic Week — the most balanced option, with beach, food, and some exploration.',
+            link: '#itinerary-classic'
+          },
+          island: {
+            text: 'You match the Island Explorer — slower, more scenic, and best for travelers who want space and coast-time.',
+            link: '#itinerary-island'
+          }
+        };
+
+        resultText.textContent = map[best].text;
+        resultLink.href = map[best].link;
+        result.hidden = false;
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initQuiz);
+} else {
+  initQuiz();
+}
 
 // ── Wishlist (localStorage) ──
 function getWishlist() {
