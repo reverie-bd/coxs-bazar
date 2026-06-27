@@ -326,9 +326,6 @@ ul { list-style: none; }
 }
 .nav-dropdown-link:hover { background: var(--sand-light); color: var(--ocean); }
 
-.nav-cta-toggle { background: var(--gold) !important; color: var(--ocean-deep) !important; font-weight: 600; margin-left: 4px; }
-.nav-cta-toggle:hover { background: var(--gold-light) !important; }
-
 @media (max-width: 768px) {
   .nav-dropdown-menu {
     position: static; opacity: 1; visibility: visible; transform: none;
@@ -829,7 +826,6 @@ ul { list-style: none; }
    FOOTER
 ═══════════════════════════════════════════ */
 .site-footer { background: var(--footer-light); padding: 72px 0 0; border-top: 1px solid rgba(26,95,122,0.08); }
-.footer-brand .logo-main { color: var(--text-dark); }
 .footer-brand .logo-sub { color: var(--gold-on-light); }
 .footer-tagline { color: var(--text-light); }
 .footer-nav h4, .footer-info h4 { color: var(--gold-on-light); }
@@ -852,7 +848,7 @@ ul { list-style: none; }
 .footer-brand .logo-main {
   font-family: var(--font-display);
   font-size: 1.4rem;
-  color: var(--white);
+  color: var(--text-dark);
   display: block;
 }
 
@@ -860,14 +856,14 @@ ul { list-style: none; }
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-on-light);
   display: block;
   margin-bottom: 16px;
 }
 
 .footer-tagline {
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.45);
+  color: var(--text-light);
   line-height: 1.6;
   margin-top: 12px;
 }
@@ -877,7 +873,7 @@ ul { list-style: none; }
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-on-light);
   margin-bottom: 16px;
 }
 
@@ -885,41 +881,41 @@ ul { list-style: none; }
 
 .footer-nav a {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.6);
+  color: var(--text-mid);
   transition: var(--transition);
 }
 
-.footer-nav a:hover { color: var(--white); padding-left: 4px; }
+.footer-nav a:hover { color: var(--ocean); padding-left: 4px; }
 
 .footer-info h4 {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-on-light);
   margin-bottom: 16px;
 }
 
 .footer-info p {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.6);
+  color: var(--text-mid);
   line-height: 1.7;
 }
 
 .footer-credit {
   margin-top: 16px !important;
   font-size: 0.8rem !important;
-  color: rgba(255,255,255,0.35) !important;
+  color: var(--text-light) !important;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(26,95,122,0.08);
   padding: 24px 0;
 }
 
 .footer-bottom p {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.3);
+  color: var(--text-light);
   text-align: center;
 }
 
