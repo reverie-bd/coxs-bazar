@@ -750,7 +750,7 @@ ul { list-style: none; }
 /* ═══════════════════════════════════════════
    ATMOSPHERE STRIP (dark, 2-col)
 ═══════════════════════════════════════════ */
-.atmo-dark { background: var(--warm-dark); }
+.atmo-dark { background: var(--text-light); }
 
 .atmo-inner {
   display: grid;
