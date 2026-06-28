@@ -310,14 +310,14 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .nav-dropdown-menu {
     position: static; opacity: 1; visibility: visible; transform: none;
-    box-shadow: none; background: rgba(255,255,255,0.06);
+    box-shadow: none; background: rgba(26,95,122,0.05);
     max-height: 0; overflow: hidden; padding: 0 8px; margin-top: 0;
     transition: max-height 0.3s ease;
   }
   .nav-dropdown.open .nav-dropdown-menu { max-height: 400px; padding: 8px; }
-  .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 12px 16px; color: rgba(255,255,255,0.85); }
-  .nav-dropdown-link { color: rgba(255,255,255,0.75); }
-  .nav-dropdown-link:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+  .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 12px 16px; color: var(--text-mid); }
+  .nav-dropdown-link { color: var(--text-mid); }
+  .nav-dropdown-link:hover { background: var(--sand-light); color: var(--ocean); }
 }
 
 /* ═══════════════════════════════════════════
@@ -338,7 +338,7 @@ ul { list-style: none; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transform: scale(1.05);
+  transform: scale(1.02);
   transition: transform 8s ease-out;
 }
 
@@ -727,7 +727,7 @@ ul { list-style: none; }
   transition: transform 0.4s ease;
 }
 
-.exp-card:hover .exp-image { transform: scale(1.05); }
+.exp-card:hover .exp-image { transform: scale(1.02); }
 
 .exp-body {
   padding: 20px;
@@ -920,18 +920,19 @@ ul { list-style: none; }
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--ocean-deep);
+    background: var(--white);
     flex-direction: column;
     align-items: flex-start;
     padding: 32px 24px;
     gap: 8px;
     overflow-y: auto;
+    box-shadow: var(--shadow-lg);
   }
 
   .nav-menu.open { display: flex; }
   .nav-toggle { display: flex; }
 
-  .nav-link { font-size: 1.1rem; padding: 12px 16px; width: 100%; }
+  .nav-link { font-size: 1.1rem; padding: 12px 16px; width: 100%; color: var(--text-mid); }
   .nav-cta { margin-left: 0; margin-top: 16px; text-align: center; justify-content: center; }
 
   .card-grid-3 { grid-template-columns: 1fr; }
@@ -1216,7 +1217,7 @@ ul { list-style: none; }
   transition: transform 0.6s ease;
 }
 
-.zone-card:hover .zone-card-img { transform: scale(1.05); }
+.zone-card:hover .zone-card-img { transform: scale(1.02); }
 
 .zone-card-overlay {
   position: absolute;

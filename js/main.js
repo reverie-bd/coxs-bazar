@@ -349,6 +349,111 @@ if (document.readyState === 'loading') {
   initQuiz();
 }
 
+// ── Trivia Quiz ──
+var TRIVIA_QUESTIONS = [
+  { q: "How long is Cox's Bazar's beach?", opts: ["About 60 km", "About 120 km", "About 250 km"], correct: 1 },
+  { q: "Who is Cox's Bazar named after?", opts: ["A local fisherman", "A British East India Company officer", "A Mughal governor"], correct: 1 },
+  { q: "Where do Saint Martin's Island ships currently depart from?", opts: ["Teknaf", "Inani", "Cox's Bazar"], correct: 2 },
+  { q: "Which community has lived on this coast since the 9th century?", opts: ["The Rakhine", "The Santal", "The Chakma"], correct: 0 },
+  { q: "What is Nazirartek best known for?", opts: ["Coral reefs", "Dried fish production", "Tea gardens"], correct: 1 },
+  { q: "Globally, Cox's Bazar ranks as the ___ longest beach in the world.", opts: ["3rd", "8th", "15th"], correct: 0 },
+  { q: "What was Cox's Bazar called before it had that name?", opts: ["Sonadia", "Panowa", "Ramu"], correct: 1 },
+  { q: "Which island is Bangladesh's only coral island?", opts: ["Sonadia", "Moheshkhali", "Saint Martin"], correct: 2 },
+  { q: "What is Bangladesh's weekend?", opts: ["Saturday–Sunday", "Friday–Saturday", "Sunday–Monday"], correct: 1 },
+  { q: "Cox's Bazar was a finalist in which global campaign?", opts: ["New7Wonders of Nature", "UNESCO World Heritage", "World's Best Beaches Award"], correct: 0 }
+];
+
+function initTrivia() {
+  var card = document.getElementById('trivia-quiz');
+  if (!card) return;
+
+  var startEl = document.getElementById('trivia-start');
+  var qEl = document.getElementById('trivia-question');
+  var resultEl = document.getElementById('trivia-result');
+  var qnumEl = document.getElementById('trivia-qnum');
+  var qtextEl = document.getElementById('trivia-qtext');
+  var optionsEl = document.getElementById('trivia-options');
+  var scoreEl = document.getElementById('trivia-score');
+  var messageEl = document.getElementById('trivia-message');
+
+  var current = 0;
+  var score = 0;
+
+  function showQuestion() {
+    var item = TRIVIA_QUESTIONS[current];
+    qnumEl.textContent = current + 1;
+    qtextEl.textContent = item.q;
+    optionsEl.innerHTML = '';
+    item.opts.forEach(function (opt, i) {
+      var btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.style.width = '100%';
+      btn.style.textAlign = 'left';
+      btn.textContent = opt;
+      btn.addEventListener('click', function () { selectAnswer(i, btn); });
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function selectAnswer(i, btn) {
+    var item = TRIVIA_QUESTIONS[current];
+    var allBtns = optionsEl.querySelectorAll('.quiz-option');
+    allBtns.forEach(function (b) { b.disabled = true; });
+    if (i === item.correct) {
+      score++;
+      btn.style.background = '#3a7d44';
+      btn.style.color = '#fff';
+      btn.style.borderColor = '#3a7d44';
+    } else {
+      btn.style.background = '#c0392b';
+      btn.style.color = '#fff';
+      btn.style.borderColor = '#c0392b';
+      allBtns[item.correct].style.background = '#3a7d44';
+      allBtns[item.correct].style.color = '#fff';
+      allBtns[item.correct].style.borderColor = '#3a7d44';
+    }
+    setTimeout(function () {
+      current++;
+      if (current < TRIVIA_QUESTIONS.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }, 700);
+  }
+
+  function showResult() {
+    qEl.hidden = true;
+    resultEl.hidden = false;
+    scoreEl.textContent = score + ' / 10';
+    var msg;
+    if (score >= 9) msg = "Outstanding — you know this coast better than most visitors.";
+    else if (score >= 7) msg = "Great result — you clearly know your way around.";
+    else if (score >= 4) msg = "Decent! A bit more reading and you'll ace it.";
+    else msg = "Worth another look around the site before your trip.";
+    messageEl.textContent = msg;
+  }
+
+  document.getElementById('trivia-begin').addEventListener('click', function () {
+    startEl.hidden = true;
+    qEl.hidden = false;
+    current = 0;
+    score = 0;
+    showQuestion();
+  });
+
+  document.getElementById('trivia-retry').addEventListener('click', function () {
+    resultEl.hidden = true;
+    startEl.hidden = false;
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTrivia);
+} else {
+  initTrivia();
+}
+
 // ── Wishlist (localStorage) ──
 function getWishlist() {
   try { return JSON.parse(localStorage.getItem('cbwishlist') || '[]'); }

@@ -155,6 +155,35 @@
     </div>
   </section>
 
+<!-- TRIVIA QUIZ -->
+  <section class="section-pad" style="background: var(--white);">
+    <div class="container-narrow">
+      <p class="section-label">Test Yourself</p>
+      <h2 class="section-heading">How Well Do You Know Cox's Bazar?</h2>
+      <p class="editorial-body" style="margin-bottom: 32px;">Ten quick questions. No account, no leaderboard — just see how you do.</p>
+
+      <div id="trivia-quiz" class="quiz-card">
+        <div id="trivia-start">
+          <p style="margin-bottom: 20px; color: var(--text-mid);">Ready when you are.</p>
+          <button id="trivia-begin" class="btn btn-primary">Start the Quiz</button>
+        </div>
+
+        <div id="trivia-question" hidden>
+          <p style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 8px;">Question <span id="trivia-qnum">1</span> of 10</p>
+          <h3 id="trivia-qtext" style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 20px;"></h3>
+          <div id="trivia-options" class="quiz-options" style="flex-direction: column; align-items: stretch;"></div>
+        </div>
+
+        <div id="trivia-result" hidden style="text-align: center;">
+          <p style="font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-on-light); margin-bottom: 8px;">Your Score</p>
+          <p id="trivia-score" style="font-family: var(--font-body); font-size: 3rem; font-weight: 700; color: var(--ocean); margin-bottom: 8px;"></p>
+          <p id="trivia-message" style="color: var(--text-mid); margin-bottom: 24px;"></p>
+          <button id="trivia-retry" class="btn btn-outline-light" style="border-color: var(--ocean); color: var(--ocean);">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="newsletter-band">
     <div class="nl-bg" style="background-image: url('images/cox-portrait.jpg');"></div>
     <div class="nl-overlay"></div>
