@@ -97,7 +97,7 @@
        HERO
   ═══════════════════════════════════════ -->
   <section class="hero" id="hero">
-    <div class="hero-bg" style="background-image: url('images/hero-beach.jpg');"></div>
+    <div class="hero-bg" style="background-image: url('images/hero-home.jpg');"></div>
     <div class="hero-grain"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -118,16 +118,18 @@
  <!-- ═══════════════════════════════════════
        LIVE COAST CONDITIONS STRIP
   ═══════════════════════════════════════ -->
-  <div class="conditions-strip">
-    <div class="cond-inner">
-      <span class="cond-label">Live Coast</span>
-      <div class="cond-item"><div class="cond-dot"></div>Season: <span class="cond-val" id="cond-season">&nbsp;—</span></div>
-      <div class="cond-item"><div class="cond-dot"></div>Typical Sea: <span class="cond-val" id="cond-sea">&nbsp;—</span></div>
-      <div class="cond-item"><div class="cond-dot"></div>Saint Martin's Boats: <span class="cond-val" id="cond-boats">&nbsp;—</span></div>
-      <div class="cond-item"><div class="cond-dot"></div>Recommended Beach: <span class="cond-val" id="cond-beach">&nbsp;—</span></div>
-      <div class="cond-item"><div class="cond-dot"></div>Avg Temp: <span class="cond-val" id="cond-temp">&nbsp;—</span></div>
+  <section class="live-coast">
+  <div class="container">
+    <p class="live-coast-label">Live Coast Conditions</p>
+    <div class="live-coast-grid">
+      <div class="live-coast-card"><div class="lc-icon">🌤️</div><span class="lc-label">Season</span><span class="lc-val" id="cond-season">—</span></div>
+      <div class="live-coast-card"><div class="lc-icon">🌊</div><span class="lc-label">Typical Sea</span><span class="lc-val" id="cond-sea">—</span></div>
+      <div class="live-coast-card"><div class="lc-icon">⛴️</div><span class="lc-label">St Martin's Boats</span><span class="lc-val" id="cond-boats">—</span></div>
+      <div class="live-coast-card"><div class="lc-icon">🏖️</div><span class="lc-label">Recommended Beach</span><span class="lc-val" id="cond-beach">—</span></div>
+      <div class="live-coast-card"><div class="lc-icon">🌡️</div><span class="lc-label">Avg Temp</span><span class="lc-val" id="cond-temp">—</span></div>
     </div>
   </div>
+</section>
 
   <!-- ═══════════════════════════════════════
        IDENTITY STRIP — the one fact
@@ -178,15 +180,15 @@
           <svg id="coast-svg" viewBox="0 0 280 520" xmlns="http://www.w3.org/2000/svg" aria-label="Cox's Bazar coastline map">
 
             <!-- Sea background -->
-            <rect width="280" height="520" fill="#0d2d3f"/>
+            <rect width="280" height="520" fill="#1B6B8A"/>
 
             <!-- Compass -->
-            <text x="248" y="22" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter,sans-serif" text-anchor="middle">N</text>
+            <text x="248" y="22" fill="rgba(255,255,255,0.55)" font-size="9" font-family="Inter,sans-serif" text-anchor="middle">N</text>
             <line x1="248" y1="26" x2="248" y2="38" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-            <text x="248" y="50" fill="rgba(255,255,255,0.2)" font-size="9" font-family="Inter,sans-serif" text-anchor="middle">S</text>
+            <text x="248" y="50" fill="rgba(255,255,255,0.45)" font-size="9" font-family="Inter,sans-serif" text-anchor="middle">S</text>
 
             <!-- Bay of Bengal label -->
-            <text x="68" y="260" fill="rgba(126,200,200,0.25)" font-size="11" font-family="Inter,sans-serif" text-anchor="middle" transform="rotate(-90,68,260)">Bay of Bengal</text>
+            <text x="68" y="260" fill="rgba(255,255,255,0.4)" font-size="11" font-family="Inter,sans-serif" text-anchor="middle" transform="rotate(-90,68,260)">Bay of Bengal</text>
 
             <!-- ZONE 1: Laboni / Main Beach -->
             <path id="zone-laboni"
@@ -261,7 +263,7 @@
       <div class="card-grid card-grid-3">
 
         <a href="beach.html" class="card card-large">
-          <div class="card-image" style="background-image: url('images/laboni-beach.jpg');"></div>
+          <div class="card-image" style="background-image: url('images/laboni-home.jpg');"></div>
           <div class="card-body">
             <span class="card-tag">The Beach</span>
             <h3 class="card-title">Laboni to Teknaf</h3>
@@ -271,7 +273,7 @@
         </a>
 
         <a href="explore.html#saint-martin" class="card card-large">
-          <div class="card-image" style="background-image: url('images/saint-martin.jpg');"></div>
+          <div class="card-image" style="background-image: url('images/saint-martin-home.jpg');"></div>
           <div class="card-body">
             <span class="card-tag">Island</span>
             <h3 class="card-title">Saint Martin Island</h3>
@@ -317,7 +319,7 @@
       <div class="exp-grid">
 
         <a href="activities.html" class="exp-card">
-          <div class="exp-image" style="background-image: url('images/activities.jpg');"></div>
+          <div class="exp-image" style="background-image: url('images/activities-home.jpg');"></div>
           <div class="exp-body">
             <h3>Activities</h3>
             <p>Surf, parasail, dive, or ride along the shoreline.</p>
@@ -325,7 +327,7 @@
         </a>
 
         <a href="food.html" class="exp-card">
-          <div class="exp-image" style="background-image: url('images/seafood-dish.jpg');"></div>
+          <div class="exp-image" style="background-image: url('images/food-home.jpg');"></div>
           <div class="exp-body">
             <h3>Food & Seafood</h3>
             <p>Grilled lobster, dried fish markets, and Rakhine kitchens.</p>
@@ -333,7 +335,7 @@
         </a>
 
         <a href="explore.html#himchari" class="exp-card">
-          <div class="exp-image" style="background-image: url('images/himchari.jpg');"></div>
+          <div class="exp-image" style="background-image: url('images/himchari-home.jpg');"></div>
           <div class="exp-body">
             <h3>Nature & Hills</h3>
             <p>Waterfall trails, mangrove islands, and jungle-backed shores.</p>
@@ -341,7 +343,7 @@
         </a>
 
         <a href="culture.html#temple" class="exp-card">
-          <div class="exp-image" style="background-image: url('images/buddhist-temple.jpg');"></div>
+          <div class="exp-image" style="background-image: url('images/heritage-home.jpg');"></div>
           <div class="exp-body">
             <h3>Heritage</h3>
             <p>Pagodas on hilltops, Burmese markets, and ancient Khyang temples.</p>
@@ -363,65 +365,7 @@
         <p class="atmo-body">Before dawn, the trawlers leave. By midday, the shore is alive with colour — kites, horses, nets, and the smell of salt. Cox's Bazar is not a resort. It is a place with a life of its own.</p>
         <a href="beach.html" class="btn btn-outline-light">See the beach →</a>
       </div>
-      <div class="atmo-image" style="background-image: url('images/fishing-boats.jpg');"></div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       WHEN TO VISIT — MONTH STRIP
-  ═══════════════════════════════════════ -->
-  <section class="month-strip-section">
-    <div class="container">
-      <div class="month-strip-header">
-        <p class="section-label">When to Visit</p>
-        <h2 class="section-heading">Every month tells a different story</h2>
-      </div>
-      <div class="month-strip">
-        <div class="month-item peak"     data-tip="Cool &amp; dry. Calm seas. Best overall.">
-          <span class="month-name">Nov</span><div class="month-bar"></div><span class="month-season">Peak</span>
-        </div>
-        <div class="month-item peak"     data-tip="Cool &amp; dry. Calm seas. Best overall.">
-          <span class="month-name">Dec</span><div class="month-bar"></div><span class="month-season">Peak</span>
-        </div>
-        <div class="month-item peak"     data-tip="Cool &amp; dry. Calm seas. Best overall.">
-          <span class="month-name">Jan</span><div class="month-bar"></div><span class="month-season">Peak</span>
-        </div>
-        <div class="month-item peak"     data-tip="Cool &amp; dry. Calm seas. Best overall.">
-          <span class="month-name">Feb</span><div class="month-bar"></div><span class="month-season">Peak</span>
-        </div>
-        <div class="month-item shoulder" data-tip="Warm &amp; quieter. Good beach weather.">
-          <span class="month-name">Mar</span><div class="month-bar"></div><span class="month-season">Shoulder</span>
-        </div>
-        <div class="month-item shoulder" data-tip="Warm &amp; quieter. Good beach weather.">
-          <span class="month-name">Apr</span><div class="month-bar"></div><span class="month-season">Shoulder</span>
-        </div>
-        <div class="month-item pre-monsoon" data-tip="Hot. Seas building. Last boats to St Martin.">
-          <span class="month-name">May</span><div class="month-bar"></div><span class="month-season">Pre-Monsoon</span>
-        </div>
-        <div class="month-item monsoon"  data-tip="Rain &amp; rough seas. Green hills. Very few tourists.">
-          <span class="month-name">Jun</span><div class="month-bar"></div><span class="month-season">Monsoon</span>
-        </div>
-        <div class="month-item monsoon"  data-tip="Rain &amp; rough seas. Green hills. Very few tourists.">
-          <span class="month-name">Jul</span><div class="month-bar"></div><span class="month-season">Monsoon</span>
-        </div>
-        <div class="month-item monsoon"  data-tip="Rain &amp; rough seas. Green hills. Very few tourists.">
-          <span class="month-name">Aug</span><div class="month-bar"></div><span class="month-season">Monsoon</span>
-        </div>
-        <div class="month-item monsoon"  data-tip="Easing rain. Seas calming. Lush landscape.">
-          <span class="month-name">Sep</span><div class="month-bar"></div><span class="month-season">Monsoon</span>
-        </div>
-        <div class="month-item transition" data-tip="Green &amp; quiet. Seas calming. Sweet spot.">
-          <span class="month-name">Oct</span><div class="month-bar"></div><span class="month-season">Transition</span>
-        </div>
-      </div>
-      <div class="month-tooltip" id="month-tooltip"></div>
-      <div class="month-legend">
-        <span class="legend-item peak">Peak Season</span>
-        <span class="legend-item shoulder">Shoulder</span>
-        <span class="legend-item pre-monsoon">Pre-Monsoon</span>
-        <span class="legend-item monsoon">Monsoon</span>
-        <span class="legend-item transition">Transition</span>
-      </div>
+      <div class="atmo-image" style="background-image: url('images/living-shore.jpg');"></div>
     </div>
   </section>
     
@@ -511,13 +455,13 @@
       <div class="footer-info">
         <h4>Cox's Bazar</h4>
         <p>Chittagong Division<br>Bangladesh</p>
-        <p class="footer-credit">A destination guide to the longest natural sea beach in Asia.</p>
+        <p class="footer-credit">Discover Cox's Bazar — the Longest Natural Sea Beach in Asia.</p>
       </div>
 
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; 2026 Cox's Bazar Destination Guide. Built with care for a remarkable place.</p>
+        <p>&copy; 2026 Visit Cox's Bazar. All rights reserved.</p>
       </div>
     </div>
   </footer>

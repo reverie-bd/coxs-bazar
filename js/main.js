@@ -120,11 +120,11 @@ if (d) {
   var elBoats  = document.getElementById('cond-boats');
   var elBeach  = document.getElementById('cond-beach');
   var elTemp   = document.getElementById('cond-temp');
-  if (elSeason) elSeason.textContent = ' ' + d[0];
-  if (elSea)    elSea.textContent    = ' ' + d[1];
-  if (elBoats)  elBoats.textContent  = ' ' + d[2];
-  if (elBeach)  elBeach.textContent  = ' ' + d[3];
-  if (elTemp)   elTemp.textContent   = ' ' + d[4];
+  if (elSeason) elSeason.textContent = d[0];
+  if (elSea)    elSea.textContent    = d[1];
+  if (elBoats)  elBoats.textContent  = d[2];
+  if (elBeach)  elBeach.textContent  = d[3];
+  if (elTemp)   elTemp.textContent   = d[4];
 }
 
 // ── Open-Meteo Live Weather (Cox's Bazar: 21.4272°N, 92.0058°E) ──
@@ -150,8 +150,8 @@ function updateWeather() {
 
       var tempEl  = document.getElementById('cond-temp');
       var seaEl   = document.getElementById('cond-sea');
-      if (tempEl) tempEl.textContent  = ' ' + temp;
-      if (seaEl)  seaEl.textContent   = ' ' + condition + ' · ' + wind;
+      if (tempEl) tempEl.textContent  = temp;
+      if (seaEl)  seaEl.textContent   = condition + ' · ' + wind;
     })
     .catch(function() {});
 }
@@ -215,8 +215,8 @@ if (document.readyState === 'loading') {
 
 // ── Coast Map Interaction ──
 var zoneData = {
-  laboni:   { title: 'Laboni & Kolatoli Beach', desc: 'The lively heart of Cox\'s Bazar — kites, horses, food stalls, and the longest unbroken view of open sea you will ever stand in front of.', link: 'beach.html' },
-  kolatoli: { title: 'Sugandha & Kolatoli', desc: 'The preferred sunset-watching stretch. The beach faces directly west — when the sky turns copper, there is nowhere better to be.', link: 'beach.html' },
+  laboni:   { title: 'Laboni Beach', desc: 'The lively heart of Cox\'s Bazar — kites, horses, food stalls, and the longest unbroken view of open sea you will ever stand in front of.', link: 'beach.html' },
+  kolatoli: { title: 'Kolatoli Beach', desc: 'The main hotel strip, just south of Laboni — busy and lively, with Sugandha\'s sunset views an easy walk away in the evening.', link: 'beach.html' },
   inani:    { title: 'Inani Beach', desc: '32 km south — coral stones embedded in the sand, teal water, dramatically quieter. The beach photographers come for.', link: 'explore.html#inani' },
   himchari: { title: 'Himchari & the Hills', desc: 'Forested hills tumbling to the sea, a waterfall most powerful in monsoon, and the only elevated view of the full coastline.', link: 'explore.html#himchari' },
   teknaf:   { title: 'Teknaf Peninsula', desc: 'The southern tip — where Bangladesh ends, the Naf River begins, and Myanmar lies across the water.', link: 'explore.html#teknaf' },
