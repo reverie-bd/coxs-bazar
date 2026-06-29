@@ -42,17 +42,19 @@ document.querySelectorAll('.nav-dropdown-toggle').forEach(function (btn) {
   });
 });
 
-// Hovering into another dropdown closes any JS-opened one
-document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
-  dd.addEventListener('mouseenter', function () {
-    document.querySelectorAll('.nav-dropdown.open').forEach(function (d) {
-      if (d !== dd) {
-        d.classList.remove('open');
-        d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
-      }
+// Hovering into another dropdown closes any JS-opened one — desktop only, avoids touch-device conflicts
+if (window.matchMedia('(hover: hover)').matches) {
+  document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+    dd.addEventListener('mouseenter', function () {
+      document.querySelectorAll('.nav-dropdown.open').forEach(function (d) {
+        if (d !== dd) {
+          d.classList.remove('open');
+          d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+        }
+      });
     });
   });
-});
+}
 
 // Outside click closes all
 document.addEventListener('click', function (e) {
