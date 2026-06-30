@@ -3113,6 +3113,10 @@ ul { list-style: none; }
   outline: none; background: #f7f6f3;
   transition: border-color 0.2s;
 }
+@media (max-width: 768px) {
+  #cb-chat-input { font-size: 16px; }
+}
+
 #cb-chat-input:focus { border-color: #0e9e8e; background: #fff; }
 #cb-chat-form button[type="submit"] {
   background: linear-gradient(135deg, #0e9e8e, #0a8070);
