@@ -321,6 +321,15 @@ ul { list-style: none; }
   .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 12px 16px; color: var(--text-mid); }
   .nav-dropdown-link { color: var(--text-mid); }
   .nav-dropdown-link:hover { background: var(--sand-light); color: var(--ocean); }
+
+  /* On mobile the menu panel is solid white, so the desktop white-text
+     states (open dropdown, active page) need a visible color instead */
+  .nav-link.active,
+  .nav-dropdown-toggle.active,
+  .nav-dropdown.open .nav-dropdown-toggle {
+    color: var(--ocean) !important;
+    background: rgba(26,95,122,0.06) !important;
+  }
 }
 
 /* ═══════════════════════════════════════════
