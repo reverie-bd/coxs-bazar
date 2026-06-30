@@ -2962,6 +2962,9 @@ ul { list-style: none; }
   padding: 12px 14px;
   display: flex; align-items: center; justify-content: space-between;
   font-weight: 600; font-size: 0.88rem; flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 .cb-header-identity {
   display: flex; align-items: center; gap: 10px;
@@ -3155,12 +3158,22 @@ ul { list-style: none; }
 
 /* ── Mobile ── */
 @media (max-width: 480px) {
-  #cb-chat-window {
-    width: calc(100vw - 24px); right: 12px;
-    bottom: 80px; height: calc(100vh - 150px); max-height: 580px;
+#cb-chat-window {
+    position: fixed;
+    top: 8px;           /* small gap from top of screen */
+    bottom: 70px;       /* clears the toggle button at bottom */
+    left: 12px;
+    right: 12px;
+    width: auto;        /* let left+right define the width */
+    height: auto;       /* let top+bottom define the height */
+    max-height: none;   /* remove the cap so it fills the space properly */
   }
   #cb-chat-window.cb-expanded {
-    width: calc(100vw - 24px); height: calc(100vh - 120px);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
   }
 }
 
