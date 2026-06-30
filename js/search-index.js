@@ -49,8 +49,8 @@ var searchIndex = [
   },
   {
     id: 'plan',
-    title: 'Plan Your Trip',
-    url: 'plan.html',
+    title: 'Itineraries — Plan Your Trip',
+    url: 'itineraries.html',
     body: 'plan trip best time visit november december january february dry season monsoon cyclone how to get there abroad dhaka airport international flight bus train visa tips practical guide eid peak season transport currency exchange sim roaming connectivity power emergency contacts time zone weekend drone tipping bargaining package tour itinerary weekend escape classic week island explorer budget cost packing list ramadan faq saint martin ferry'
   },
   {

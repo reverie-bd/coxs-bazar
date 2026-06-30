@@ -63,14 +63,17 @@ document.addEventListener('click', function (e) {
   }
 });
 
-// Close mobile nav on link click
-menu.querySelectorAll('.nav-link').forEach(link => {
+// Close mobile nav on link click (real navigation links only — excludes
+// dropdown-toggle buttons so they can expand/collapse instead of closing
+// the whole menu)
+menu.querySelectorAll('.nav-link:not(.nav-dropdown-toggle), .nav-dropdown-link').forEach(link => {
   link.addEventListener('click', () => {
     menu.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   });
 });
+
 
 // ── Hero subtle zoom-in on load ──
 const hero = document.getElementById('hero');
@@ -257,37 +260,6 @@ mapZones.forEach(function(zone) {
     var key = zone.getAttribute('data-zone');
     var info = zoneData[key];
     if (info) window.location.href = info.link;
-  });
-});
-
-// ── Month Strip ──
-var monthItems = document.querySelectorAll('.month-item');
-var monthTooltip = document.getElementById('month-tooltip');
-var currentMonth = new Date().getMonth(); // 0-indexed
-var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-monthItems.forEach(function(item, index) {
-  // Map grid order (Nov=0) to real month index
-  var monthOrder = [10,11,0,1,2,3,4,5,6,7,8,9];
-  if (monthOrder[index] === currentMonth) {
-    item.classList.add('current-month');
-  }
-
-  item.addEventListener('mouseenter', function() {
-    if (monthTooltip) {
-      monthTooltip.textContent = item.getAttribute('data-tip');
-      monthTooltip.classList.add('visible');
-    }
-  });
-
-  item.addEventListener('mouseleave', function() {
-    if (monthTooltip) {
-      monthTooltip.classList.remove('visible');
-    }
-  });
-
-  item.addEventListener('click', function() {
-    window.location.href = 'when-to-visit.html';
   });
 });
 

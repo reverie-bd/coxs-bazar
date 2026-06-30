@@ -24,7 +24,6 @@
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'Inter', -apple-system, sans-serif;
-.num-fix { font-family: var(--font-body); font-variant-numeric: tabular-nums; }
 
   --radius-sm:   6px;
   --radius-md:   12px;
@@ -40,6 +39,8 @@
   --space-12: 48px;
   --space-16: 64px;
 }
+
+.num-fix { font-family: var(--font-body); font-variant-numeric: tabular-nums; }
 
 /* ═══════════════════════════════════════════
    RESET & BASE
@@ -3193,11 +3194,14 @@ ul { list-style: none; }
 .local-voice-quote { font-family: var(--font-display); font-size: 1.25rem; font-style: italic; color: var(--text-dark); line-height: 1.5; margin-bottom: 8px; }
 .local-voice-attr { font-size: 0.8rem; color: var(--gold-on-light); font-weight: 600; letter-spacing: 0.04em; }
 
-/* ═══ FINAL LIGHT-THEME OVERRIDE ═══ */
-.atmo-dark,
-section[style*="background: var(--ocean-deep)"] {
-  background: var(--sand-light) !important;
+/* ═══ LIGHT-THEME SECTION TREATMENTS ═══ */
+.atmo-dark {
+  background: var(--surface-mid) !important;
 }
+section[style*="background: var(--ocean-deep)"] {
+  background: rgba(27,107,138,0.07) !important;
+}
+
 .atmo-dark .section-label.light,
 section[style*="background: var(--ocean-deep)"] .section-label.light,
 section[style*="background: var(--ocean-deep)"] .section-label {
@@ -3233,4 +3237,4 @@ section[style*="background: var(--ocean-deep)"] .atmo-body {
 .temple-card-body h3 { color: var(--text-dark) !important; }
 .temple-card-body p { color: var(--text-mid) !important; }
 
-.culture-bg-text { color: rgba(26,95,122,0.05) !important; }
+.culture-bg-text { color: rgba(26,95,122,0.09) !important; }
