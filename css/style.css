@@ -2680,7 +2680,7 @@ ul { list-style: none; }
 
 /* Season tab JS — add to main.js */
 @media (max-width: 1024px) {
-  .season-panel.active { grid-template-columns: 1fr; }
+  .season-panel { grid-template-columns: 1fr; gap: 32px; }
   .transport-grid { grid-template-columns: 1fr 1fr; }
   .essentials-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -2689,6 +2689,7 @@ ul { list-style: none; }
   .transport-grid { grid-template-columns: 1fr; }
   .essentials-grid { grid-template-columns: 1fr; }
   .season-facts { gap: 20px; }
+  .season-img img { height: 240px; }
 }
 
 .essential-link {
@@ -2830,9 +2831,19 @@ ul { list-style: none; }
 }
 
 @media (max-width: 1024px) { .itin-options { grid-template-columns: 1fr; } }
+@media (max-width: 1024px) {
+  .beyond-grid { grid-template-columns: 1fr; }
+}
+.beyond-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
 @media (max-width: 600px) {
   .beyond-grid { grid-template-columns: 1fr; }
 }
+
 
 /* ═══════════════════════════════════════════
    BUDGET TABLE
