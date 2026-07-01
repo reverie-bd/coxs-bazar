@@ -263,66 +263,6 @@ mapZones.forEach(function(zone) {
   });
 });
 
-function initQuiz() {
-  var quiz = document.querySelector('.quiz-card');
-  if (!quiz) return;
-
-  var questions = Array.from(quiz.querySelectorAll('.quiz-question'));
-  var options = quiz.querySelectorAll('.quiz-option');
-  var result = quiz.querySelector('.quiz-result');
-  var resultText = quiz.querySelector('.quiz-result-text');
-  var resultLink = quiz.querySelector('.quiz-result-link');
-
-  var scores = { weekend: 0, classic: 0, island: 0 };
-
-  options.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var parent = btn.closest('.quiz-question');
-      parent.querySelectorAll('.quiz-option').forEach(function(b){ b.classList.remove('selected'); });
-      btn.classList.add('selected');
-      scores[btn.getAttribute('data-score')] += 1;
-
-      var answered = 0;
-      questions.forEach(function(q) {
-        if (q.querySelector('.quiz-option.selected')) answered += 1;
-      });
-
-      if (answered === questions.length) {
-        var best = 'weekend';
-        Object.keys(scores).forEach(function(k) {
-          if (scores[k] > scores[best]) best = k;
-        });
-
-        var map = {
-          weekend: {
-            text: 'You match the Weekend Escape — a short, easy trip built around beach time, sunset, and low-friction planning.',
-            link: '#itinerary-weekend'
-          },
-          classic: {
-            text: 'You match the Classic Week — the most balanced option, with beach, food, and some exploration.',
-            link: '#itinerary-classic'
-          },
-          island: {
-            text: 'You match the Island Explorer — slower, more scenic, and best for travelers who want space and coast-time.',
-            link: '#itinerary-island'
-          }
-        };
-
-        resultText.textContent = map[best].text;
-        resultLink.href = map[best].link;
-        result.hidden = false;
-        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initQuiz);
-} else {
-  initQuiz();
-}
-
 // ── Trivia Quiz ──
 var TRIVIA_QUESTIONS = [
   { q: "How long is Cox's Bazar's beach?", opts: ["About 60 km", "About 120 km", "About 250 km"], correct: 1 },
@@ -543,7 +483,7 @@ if (wishlistGrid) {
       var card = document.createElement('div');
       card.className = 'act-card';
       card.innerHTML =
-        '<button class="wish-btn wished" data-id="' + item.id + '" data-title="' + item.title + '" data-url="' + item.url + '" data-img="' + item.img + '" aria-label="Remove from wishlist">♥</button>' +
+        '<button class="wish-btn wished" data-id="' + item.id + '" data-title="' + item.title + '" data-url="' + item.url + '" data-img="' + item.img + '" aria-label="Remove from wishlist">♡</button>' +
         '<div class="act-icon-wrap" style="background: linear-gradient(135deg,#1A5F7A,#7EC8C8); background-image: url(images/' + item.img + '); background-size: cover; background-position: center; height: 160px;"></div>' +
         '<div class="act-body">' +
           '<h3>' + item.title + '</h3>' +
