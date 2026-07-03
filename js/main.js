@@ -6,6 +6,23 @@ const onScroll = () => {
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
+// ── Back to Top ──
+const backToTop = document.createElement('button');
+backToTop.id = 'back-to-top';
+backToTop.setAttribute('aria-label', 'Back to top');
+backToTop.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+document.body.appendChild(backToTop);
+
+const onScrollTopBtn = () => {
+  backToTop.classList.toggle('visible', window.scrollY > 600);
+};
+window.addEventListener('scroll', onScrollTopBtn, { passive: true });
+onScrollTopBtn();
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 // ── Mobile nav toggle ──
 const toggle = document.getElementById('nav-toggle');
 const menu   = document.getElementById('nav-menu');
