@@ -65,8 +65,7 @@
   function formatBotText(text) {
     let safe = escapeHtml(text);
     safe = safe.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-    safe = safe.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-    safe = safe.replace(/\*\*/g, "");
+    safe = safe.replace(/\*+/g, "");
     safe = safe.replace(/\n/g, "<br>");
     return safe;
   }
