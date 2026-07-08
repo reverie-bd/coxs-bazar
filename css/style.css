@@ -1858,21 +1858,6 @@ ul { list-style: none; }
   border: 1px solid rgba(26,95,122,0.15);
 }
 
-.culture-bg-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-display);
-  font-size: clamp(6rem, 16vw, 14rem);
-  font-weight: 700;
-  color: rgba(255,255,255,0.03);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-  letter-spacing: 0.1em;
-}
-
 .temple-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3149,5 +3134,3 @@ section[style*="background: var(--ocean-deep)"] .atmo-body {
 .temple-card:hover { background: var(--sand-light) !important; }
 .temple-card-body h3 { color: var(--text-dark) !important; }
 .temple-card-body p { color: var(--text-mid) !important; }
-
-.culture-bg-text { color: rgba(26,95,122,0.09) !important; }
