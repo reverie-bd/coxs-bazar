@@ -511,3 +511,25 @@ if (wishlistGrid) {
     initWishlistButtons();
   }
 }
+
+const heroVideo = document.querySelector('.hero-video');
+const soundToggle = document.querySelector('.hero-sound-toggle');
+
+if (heroVideo && soundToggle) {
+  const soundIcon = soundToggle.querySelector('.sound-icon');
+  const soundLabel = soundToggle.querySelector('.sound-label');
+
+  soundToggle.addEventListener('click', () => {
+    heroVideo.muted = !heroVideo.muted;
+
+    if (heroVideo.muted) {
+      soundIcon.textContent = '🔇';
+      soundLabel.textContent = 'Unmute';
+      soundToggle.setAttribute('aria-label', 'Unmute hero video');
+    } else {
+      soundIcon.textContent = '🔊';
+      soundLabel.textContent = 'Mute';
+      soundToggle.setAttribute('aria-label', 'Mute hero video');
+    }
+  });
+}
