@@ -3,6 +3,7 @@
   const BOT_NAME = "Neela";
   const TOGGLE_LABEL = "Explore with " + BOT_NAME;
   const MAX_HISTORY_TURNS = 6;
+  const SITE_VERSION = "with_chatbot";
 
   const container = document.createElement("div");
   container.id = "cb-chat-widget";
@@ -96,6 +97,14 @@
     }
     return state.sessionId;
   }
+    
+function logWidgetEvent(eventName) {
+fetch(WORKER_URL + "/event", {
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(), page: document.title, device: DEVICE_TYPE, siteVersion: SITE_VERSION }),
+});
+}
 
   function isHomePage() {
     const path = window.location.pathname.toLowerCase();
@@ -195,6 +204,8 @@
       minimizeWindow();
       return;
     }
+      logWidgetEvent("reopened");
+    
     closeConfirm.hidden = true;
     if (state.history.length === 0) {
       state.started = true;
@@ -205,11 +216,11 @@
     }
   });
 
-  minimizeBtn.addEventListener("click", minimizeWindow);
+  minimizeBtn.addEventListener("click", function () { logWidgetEvent("minimized"); minimizeWindow(); });
   expandBtn.addEventListener("click", toggleExpand);
-  closeBtn.addEventListener("click", function () { closeConfirm.hidden = false; });
-  confirmNo.addEventListener("click", function () { closeConfirm.hidden = true; });
-  confirmYes.addEventListener("click", function () { closeConfirm.hidden = true; performClose(); });
+  closeBtn.addEventListener("click", function () { logWidgetEvent("close_clicked"); closeConfirm.hidden = false; });
+  confirmNo.addEventListener("click", function () { logWidgetEvent("close_cancelled"); closeConfirm.hidden = true; });
+  confirmYes.addEventListener("click", function () { logWidgetEvent("close_confirmed"); closeConfirm.hidden = true; performClose(); });
 
   async function sendMessage() {
     const question = input.value.trim();
@@ -223,13 +234,7 @@
       const res = await fetch(WORKER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message: question,
-          history: state.history.slice(0, -1),
-          sessionId: getSessionId(),
-          page: document.title,
-          device: DEVICE_TYPE,
-        }),
+        body: JSON.stringify({ message: question, history: state.history.slice(0, -1), sessionId: getSessionId(), page: document.title, device: DEVICE_TYPE, siteVersion: SITE_VERSION }),
       });
       const data = await res.json();
       removeThinking();
@@ -255,6 +260,7 @@
     if (state.open) win.hidden = false;
   } else if (isHomePage()) {
     setTimeout(function () {
+    logWidgetEvent("popup_shown");
       state.started = true;
       openWindow();
       addMessage(WELCOME_TEXT, "bot");
