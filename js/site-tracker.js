@@ -3,13 +3,13 @@
   const SITE_VERSION = "with_chatbot"; // change to "without_chatbot" only in the copied repo, later
 
   function getSessionId() {
-    let id = sessionStorage.getItem("sid");
-    if (!id) {
-      id = crypto.randomUUID();
-      sessionStorage.setItem("sid", id);
-    }
-    return id;
+  let id = sessionStorage.getItem("cb_session_id");
+  if (!id) {
+    id = crypto.randomUUID();
+    sessionStorage.setItem("cb_session_id", id);
   }
+  return id;
+}
 
   const sessionId = getSessionId();
   const page = document.title || location.pathname;

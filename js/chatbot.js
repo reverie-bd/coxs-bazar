@@ -91,12 +91,13 @@
   const DEVICE_TYPE = /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop";
 
   function getSessionId() {
-    if (!state.sessionId) {
-      state.sessionId = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
-      saveState();
-    }
-    return state.sessionId;
+  let id = sessionStorage.getItem("cb_session_id");
+  if (!id) {
+    id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+    sessionStorage.setItem("cb_session_id", id);
   }
+  return id;
+}
     
 function logWidgetEvent(eventName) {
 fetch(WORKER_URL + "/event", {
