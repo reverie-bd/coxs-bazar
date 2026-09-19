@@ -113,19 +113,23 @@ body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(
     return path === "/" || path.endsWith("/index.html") || path.split("/").pop() === "";
   }
 
-    function typeOutMessage(row, bubble, html, onDone) {
+      function typeOutMessage(row, bubble, html, onDone) {
     const tokens = html.match(/<[^>]+>|[^<]/g) || [];
     let idx = 0;
-    const speed = 16;
+    const speed = 26;
+    const cursor = document.createElement("span");
+    cursor.className = "cb-cursor";
+    bubble.appendChild(cursor);
     messages.scrollTop = row.offsetTop - 12;
     function step() {
       if (idx >= tokens.length) {
+        cursor.remove();
         messages.scrollTop = messages.scrollHeight;
         if (onDone) onDone();
         return;
       }
       const token = tokens[idx];
-      bubble.innerHTML += token;
+      cursor.insertAdjacentHTML("beforebegin", token);
       messages.scrollTop = row.offsetTop - 12;
       idx++;
       setTimeout(step, token.charAt(0) === "<" ? 0 : speed);

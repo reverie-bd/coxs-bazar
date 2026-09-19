@@ -2988,6 +2988,19 @@ ul { list-style: none; }
   color: #fff;
 }
 
+.cb-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: currentColor;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: cbBlink 0.8s steps(1) infinite;
+}
+@keyframes cbBlink {
+  50% { opacity: 0; }
+}
+
 /* ── Bubbles ── */
 .cb-msg {
   max-width: 78%; padding: 10px 14px;
@@ -3005,8 +3018,9 @@ ul { list-style: none; }
   color: #fff;
   border-radius: 16px 16px 4px 16px;
 }
-.cb-msg strong { color: #0a7060; }
-.cb-msg-user strong { color: rgba(255,255,255,0.9); }
+.cb-msg strong { color: #0a7060; font-weight: 700 !important; }
+.cb-msg-user strong { color: rgba(255,255,255,0.9); font-weight: 700 !important; }
+.cb-msg em { font-style: italic !important; }
 .cb-msg a { color: inherit; text-decoration: underline; opacity: 0.9; }
 
 /* ── Thinking indicator ── */
