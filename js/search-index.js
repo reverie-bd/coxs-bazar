@@ -60,4 +60,3 @@ var searchIndex = [
     body: 'wishlist saved places experiences list favourites'
   }
 ];
-</content>
