@@ -63,10 +63,11 @@
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
-  function formatBotText(text) {
+    function formatBotText(text) {
     let safe = escapeHtml(text);
     safe = safe.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-    safe = safe.replace(/\*+/g, "");
+    safe = safe.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    safe = safe.replace(/\*([^*]+)\*/g, '<em>$1</em>');
     safe = safe.replace(/\n/g, "<br>");
     return safe;
   }
@@ -112,20 +113,50 @@ body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(
     return path === "/" || path.endsWith("/index.html") || path.split("/").pop() === "";
   }
 
-  function addMessage(text, sender, save) {
+    function typeOutMessage(row, bubble, html, onDone) {
+    const tokens = html.match(/<[^>]+>|[^<]/g) || [];
+    let idx = 0;
+    const speed = 16;
+    messages.scrollTop = row.offsetTop - 12;
+    function step() {
+      if (idx >= tokens.length) {
+        messages.scrollTop = messages.scrollHeight;
+        if (onDone) onDone();
+        return;
+      }
+      const token = tokens[idx];
+      bubble.innerHTML += token;
+      messages.scrollTop = row.offsetTop - 12;
+      idx++;
+      setTimeout(step, token.charAt(0) === "<" ? 0 : speed);
+    }
+    step();
+  }
+
+  function addMessage(text, sender, save, animate, onDone) {
     const row = document.createElement("div");
     row.className = "cb-row cb-row-" + sender;
     const bubble = document.createElement("div");
     bubble.className = "cb-msg cb-msg-" + sender;
-    if (sender === "bot") {
-      bubble.innerHTML = formatBotText(text);
-    } else {
-      bubble.textContent = text;
-    }
     row.innerHTML = sender === "bot" ? BOT_AVATAR : USER_AVATAR;
     row.appendChild(bubble);
     messages.appendChild(row);
-    messages.scrollTop = messages.scrollHeight;
+
+    if (sender === "bot") {
+      const html = formatBotText(text);
+      if (animate) {
+        typeOutMessage(row, bubble, html, onDone);
+      } else {
+        bubble.innerHTML = html;
+        messages.scrollTop = messages.scrollHeight;
+        if (onDone) onDone();
+      }
+    } else {
+      bubble.textContent = text;
+      messages.scrollTop = messages.scrollHeight;
+      if (onDone) onDone();
+    }
+
     if (save !== false) {
       state.history.push({ role: sender === "bot" ? "model" : "user", text: text });
       saveState();
@@ -200,7 +231,7 @@ body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(
     saveState();
   }
 
-  toggle.addEventListener("click", function () {
+    toggle.addEventListener("click", function () {
     if (!win.hidden) {
       minimizeWindow();
       return;
@@ -211,7 +242,7 @@ body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(
     if (state.history.length === 0) {
       state.started = true;
       openWindow();
-      addMessage(WELCOME_TEXT, "bot");
+      addMessage(WELCOME_TEXT, "bot", true, true);
     } else {
       openWindow();
     }
@@ -223,7 +254,7 @@ body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(
   confirmNo.addEventListener("click", function () { logWidgetEvent("close_cancelled"); closeConfirm.hidden = true; });
   confirmYes.addEventListener("click", function () { logWidgetEvent("close_confirmed"); closeConfirm.hidden = true; performClose(); });
 
-  async function sendMessage() {
+    async function sendMessage() {
     const question = input.value.trim();
     if (!question) return;
     clearSuggestionRows();
@@ -239,11 +270,12 @@ body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(
       });
       const data = await res.json();
       removeThinking();
-      addMessage(data.answer || "Sorry, something went wrong — please try again.", "bot");
-      renderSuggestions(data.suggestions);
+      addMessage(data.answer || "Sorry, something went wrong — please try again.", "bot", true, true, function () {
+        renderSuggestions(data.suggestions);
+      });
     } catch (err) {
       removeThinking();
-      addMessage("Sorry, I couldn't reach the server — please try again.", "bot");
+      addMessage("Sorry, I couldn't reach the server — please try again.", "bot", true, true);
     }
   }
 
@@ -252,11 +284,11 @@ body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(
     sendMessage();
   });
 
-  if (state.expanded) win.classList.add("cb-expanded");
+    if (state.expanded) win.classList.add("cb-expanded");
 
   if (state.started) {
     state.history.forEach(function (h) {
-      addMessage(h.text, h.role === "user" ? "user" : "bot", false);
+      addMessage(h.text, h.role === "user" ? "user" : "bot", false, false);
     });
     if (state.open) win.hidden = false;
   } else if (isHomePage()) {
@@ -264,7 +296,7 @@ body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(
     logWidgetEvent("popup_shown");
       state.started = true;
       openWindow();
-      addMessage(WELCOME_TEXT, "bot");
+      addMessage(WELCOME_TEXT, "bot", true, true);
     }, 1500);
   }
 })();
