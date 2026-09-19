@@ -237,12 +237,12 @@ if (document.readyState === 'loading') {
 
 // ── Coast Map Interaction ──
 var zoneData = {
-  laboni:   { title: 'Laboni Beach', desc: 'The lively heart of Cox\'s Bazar — kites, horses, food stalls, and the longest unbroken view of open sea you will ever stand in front of.', link: 'beach.html' },
-  kolatoli: { title: 'Kolatoli Beach', desc: 'The main hotel strip, just south of Laboni — busy and lively, with Sugandha\'s sunset views an easy walk away in the evening.', link: 'beach.html' },
-  inani:    { title: 'Inani Beach', desc: '32 km south — coral stones embedded in the sand, teal water, dramatically quieter. The beach photographers come for.', link: 'explore.html#inani' },
-  himchari: { title: 'Himchari & the Hills', desc: 'Forested hills tumbling to the sea, a waterfall most powerful in monsoon, and the only elevated view of the full coastline.', link: 'explore.html#himchari' },
-  teknaf:   { title: 'Teknaf Peninsula', desc: 'The southern tip — where Bangladesh ends, the Naf River begins, and Myanmar lies across the water.', link: 'explore.html#teknaf' },
-  stmartin: { title: "Saint Martin's Island", desc: "Bangladesh's only coral island — 9 km offshore from Teknaf. Turquoise shallows, coral reefs, and the clearest water in the country.", link: 'explore.html#saint-martin' }
+  laboni:   { title: 'Laboni Beach', desc: 'The lively heart of Cox\'s Bazar — kites, horses, food stalls, and the longest unbroken view of open sea you will ever stand in front of.', link: 'destinations.html' },
+  kolatoli: { title: 'Kolatoli Beach', desc: 'The main hotel strip, just south of Laboni — busy and lively, with Sugandha\'s sunset views an easy walk away in the evening.', link: 'destinations.html' },
+  inani:    { title: 'Inani Beach', desc: '32 km south — coral stones embedded in the sand, teal water, dramatically quieter. The beach photographers come for.', link: 'destinations.html#inani' },
+  himchari: { title: 'Himchari & the Hills', desc: 'Forested hills tumbling to the sea, a waterfall most powerful in monsoon, and the only elevated view of the full coastline.', link: 'destinations.html#himchari' },
+  teknaf:   { title: 'Teknaf Peninsula', desc: 'The southern tip — where Bangladesh ends, the Naf River begins, and Myanmar lies across the water.', link: 'destinations.html#teknaf' },
+  stmartin: { title: "Saint Martin's Island", desc: "Bangladesh's only coral island — 9 km offshore from Teknaf. Turquoise shallows, coral reefs, and the clearest water in the country.", link: 'destinations.html#saint-martin' }
 };
 
 var mapTitle   = document.getElementById('map-zone-title');
@@ -279,111 +279,6 @@ mapZones.forEach(function(zone) {
     if (info) window.location.href = info.link;
   });
 });
-
-// ── Trivia Quiz ──
-var TRIVIA_QUESTIONS = [
-  { q: "How long is Cox's Bazar's beach?", opts: ["About 60 km", "About 120 km", "About 250 km"], correct: 1 },
-  { q: "Who is Cox's Bazar named after?", opts: ["A local fisherman", "A British East India Company officer", "A Mughal governor"], correct: 1 },
-  { q: "Where do Saint Martin's Island ships currently depart from?", opts: ["Teknaf", "Inani", "Cox's Bazar"], correct: 2 },
-  { q: "Which community has lived on this coast since the 9th century?", opts: ["The Rakhine", "The Santal", "The Chakma"], correct: 0 },
-  { q: "What is Nazirartek best known for?", opts: ["Coral reefs", "Dried fish production", "Tea gardens"], correct: 1 },
-  { q: "Globally, Cox's Bazar ranks as the ___ longest beach in the world.", opts: ["3rd", "8th", "15th"], correct: 0 },
-  { q: "What was Cox's Bazar called before it had that name?", opts: ["Sonadia", "Panowa", "Ramu"], correct: 1 },
-  { q: "Which island is Bangladesh's only coral island?", opts: ["Sonadia", "Moheshkhali", "Saint Martin"], correct: 2 },
-  { q: "What is Bangladesh's weekend?", opts: ["Saturday–Sunday", "Friday–Saturday", "Sunday–Monday"], correct: 1 },
-  { q: "Cox's Bazar was a finalist in which global campaign?", opts: ["New7Wonders of Nature", "UNESCO World Heritage", "World's Best Beaches Award"], correct: 0 }
-];
-
-function initTrivia() {
-  var card = document.getElementById('trivia-quiz');
-  if (!card) return;
-
-  var startEl = document.getElementById('trivia-start');
-  var qEl = document.getElementById('trivia-question');
-  var resultEl = document.getElementById('trivia-result');
-  var qnumEl = document.getElementById('trivia-qnum');
-  var qtextEl = document.getElementById('trivia-qtext');
-  var optionsEl = document.getElementById('trivia-options');
-  var scoreEl = document.getElementById('trivia-score');
-  var messageEl = document.getElementById('trivia-message');
-
-  var current = 0;
-  var score = 0;
-
-  function showQuestion() {
-    var item = TRIVIA_QUESTIONS[current];
-    qnumEl.textContent = current + 1;
-    qtextEl.textContent = item.q;
-    optionsEl.innerHTML = '';
-    item.opts.forEach(function (opt, i) {
-      var btn = document.createElement('button');
-      btn.className = 'quiz-option';
-      btn.style.width = '100%';
-      btn.style.textAlign = 'left';
-      btn.textContent = opt;
-      btn.addEventListener('click', function () { selectAnswer(i, btn); });
-      optionsEl.appendChild(btn);
-    });
-  }
-
-  function selectAnswer(i, btn) {
-    var item = TRIVIA_QUESTIONS[current];
-    var allBtns = optionsEl.querySelectorAll('.quiz-option');
-    allBtns.forEach(function (b) { b.disabled = true; });
-    if (i === item.correct) {
-      score++;
-      btn.style.background = '#3a7d44';
-      btn.style.color = '#fff';
-      btn.style.borderColor = '#3a7d44';
-    } else {
-      btn.style.background = '#c0392b';
-      btn.style.color = '#fff';
-      btn.style.borderColor = '#c0392b';
-      allBtns[item.correct].style.background = '#3a7d44';
-      allBtns[item.correct].style.color = '#fff';
-      allBtns[item.correct].style.borderColor = '#3a7d44';
-    }
-    setTimeout(function () {
-      current++;
-      if (current < TRIVIA_QUESTIONS.length) {
-        showQuestion();
-      } else {
-        showResult();
-      }
-    }, 700);
-  }
-
-  function showResult() {
-    qEl.hidden = true;
-    resultEl.hidden = false;
-    scoreEl.textContent = score + ' / 10';
-    var msg;
-    if (score >= 9) msg = "Outstanding — you know this coast better than most visitors.";
-    else if (score >= 7) msg = "Great result — you clearly know your way around.";
-    else if (score >= 4) msg = "Decent! A bit more reading and you'll ace it.";
-    else msg = "Worth another look around the site before your trip.";
-    messageEl.textContent = msg;
-  }
-
-  document.getElementById('trivia-begin').addEventListener('click', function () {
-    startEl.hidden = true;
-    qEl.hidden = false;
-    current = 0;
-    score = 0;
-    showQuestion();
-  });
-
-  document.getElementById('trivia-retry').addEventListener('click', function () {
-    resultEl.hidden = true;
-    startEl.hidden = false;
-  });
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initTrivia);
-} else {
-  initTrivia();
-}
 
 // ── Wishlist (localStorage) ──
 function getWishlist() {
@@ -510,4 +405,212 @@ if (wishlistGrid) {
     });
     initWishlistButtons();
   }
+}
+
+// ── Community Voices — user-submitted notes ──
+function escapeVoiceText(str) {
+  var div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function getCommunityNotes() {
+  try { return JSON.parse(localStorage.getItem('cbCommunityNotes') || '[]'); }
+  catch (e) { return []; }
+}
+
+function saveCommunityNotes(list) {
+  localStorage.setItem('cbCommunityNotes', JSON.stringify(list));
+}
+
+function renderCommunityNotes() {
+  var wall = document.getElementById('voice-notes-wall');
+  if (!wall) return;
+  var notes = getCommunityNotes();
+  wall.innerHTML = '';
+  notes.forEach(function (note) {
+    var thread = document.createElement('div');
+    thread.className = 'forum-thread';
+    thread.innerHTML =
+      '<div class="forum-post">' +
+        '<span class="forum-avatar">🧳</span>' +
+        '<div class="forum-post-body">' +
+          '<p class="forum-author">' + escapeVoiceText(note.name) + '</p>' +
+          '<p class="forum-text">' + escapeVoiceText(note.text) + '</p>' +
+        '</div>' +
+      '</div>';
+    wall.appendChild(thread);
+  });
+}
+
+function initCommunityForm() {
+  var form = document.getElementById('voice-note-form');
+  if (!form) return;
+
+  renderCommunityNotes();
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nameInput = document.getElementById('voice-note-name');
+    var textInput = document.getElementById('voice-note-text');
+    var name = nameInput.value.trim() || 'A traveller';
+    var text = textInput.value.trim();
+    if (!text) return;
+
+    var notes = getCommunityNotes();
+    notes.unshift({ name: name, text: text });
+    saveCommunityNotes(notes);
+    renderCommunityNotes();
+    form.reset();
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCommunityForm);
+} else {
+  initCommunityForm();
+}
+
+// ── Destinations page tab switcher ──
+function initDestinationTabs() {
+  var tabs = document.querySelectorAll('.dest-tab');
+  var views = document.querySelectorAll('.destination-view');
+  if (!tabs.length) return;
+
+  function showView(name) {
+    tabs.forEach(function (t) {
+      t.classList.toggle('active', t.getAttribute('data-view') === name);
+    });
+    views.forEach(function (v) {
+      v.hidden = (v.id !== 'view-' + name);
+    });
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      showView(tab.getAttribute('data-view'));
+    });
+  });
+
+  // If someone links straight to a spot inside "Beyond the Beach"
+  // (e.g. destinations.html#saint-martin), open that tab first so
+  // the page can actually scroll to it.
+  var hash = window.location.hash.replace('#', '');
+  if (hash) {
+    var target = document.getElementById(hash);
+    if (target && target.closest('#view-beyond')) {
+      showView('beyond');
+      setTimeout(function () { target.scrollIntoView({ behavior: 'smooth' }); }, 50);
+    }
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initDestinationTabs);
+} else {
+  initDestinationTabs();
+}
+
+// ── Play With Us widget (reusable across pages, cycles through a shuffled question set) ──
+var PLAY_WIDGET_SETS = {
+  'coxsbazar-facts': [
+    { q: "What share of Bangladesh's dried fish supply comes from Nazirartek, right here on this coast?", opts: ["15%", "45%", "85%"], correct: 2, fact: "Nazirartek, just north of the main beach, produces around 85% of Bangladesh's entire dried fish supply — a real percentage, not an estimate." },
+    { q: "How long is Cox's Bazar's beach, roughly?", opts: ["60 km", "120 km", "250 km"], correct: 1, fact: "Cox's Bazar's beach runs roughly 120 km from Laboni to Teknaf — one of the longest unbroken stretches of natural beach on Earth." },
+    { q: "How long has the Rakhine community lived on this coast?", opts: ["About 200 years", "Since the 9th century", "Since the 15th century"], correct: 1, fact: "The Rakhine community's presence on this coast dates back to the 9th century — over a thousand years before the town had its current name." },
+    { q: "Which island is Bangladesh's only coral island?", opts: ["Sonadia", "Moheshkhali", "Saint Martin"], correct: 2, fact: "Saint Martin's Island, about 9 km off Teknaf, is Bangladesh's only coral island." },
+    { q: "What is Bangladesh's weekend?", opts: ["Saturday–Sunday", "Friday–Saturday", "Sunday–Monday"], correct: 1, fact: "Bangladesh's weekend runs Friday–Saturday, not Saturday–Sunday — worth knowing when planning around bank or office hours." },
+    { q: "Who is Cox's Bazar named after?", opts: ["A local fisherman", "A British East India Company officer", "A Mughal governor"], correct: 1, fact: "Cox's Bazar is named after Captain Hiram Cox, a British East India Company officer posted here in 1798 to oversee the resettlement of Arakanese refugees." },
+    { q: "Cox's Bazar was an official finalist in which global campaign?", opts: ["New7Wonders of Nature", "UNESCO World Heritage", "World's Best Beaches Award"], correct: 0, fact: "Cox's Bazar was an official finalist in the New7Wonders of Nature campaign, alongside Komodo Island and the Amazon Rainforest — it didn't win, but the nomination says a lot." },
+    { q: "How long is Marine Drive, the coastal road running the length of the beach?", opts: ["25 km", "80 km", "150 km"], correct: 1, fact: "Marine Drive runs about 80 km along the full length of the beach — one of South Asia's most scenic coastal roads." },
+    { q: "When is peak season in Cox's Bazar?", opts: ["June–September", "November–February", "March–May"], correct: 1, fact: "November to February is peak season — calm seas, clear skies, and temperatures around 18–25°C." },
+    { q: "What is Dulahazara Safari Park known for?", opts: ["Bangladesh's largest safari park", "A butterfly sanctuary", "A working lighthouse"], correct: 0, fact: "Dulahazara Safari Park, north of Cox's Bazar, is Bangladesh's largest safari park — about 900 hectares with Asian elephants, deer, and over 200 bird species." }
+  ]
+};
+
+function initPlayWidgets() {
+  document.querySelectorAll('.play-widget').forEach(function (widget) {
+    var questions = PLAY_WIDGET_SETS[widget.getAttribute('data-set')];
+    if (!questions || !questions.length) return;
+
+    function shuffledIndices() {
+      var arr = questions.map(function (_, i) { return i; });
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+      }
+      return arr;
+    }
+
+    var order = shuffledIndices();
+    var current = 0;
+
+    var qEl = widget.querySelector('.play-question');
+    var optsEl = widget.querySelector('.play-options');
+    var revealEl = widget.querySelector('.play-reveal');
+    var nextBtn = widget.querySelector('.play-next');
+    var progCurrent = widget.querySelector('.play-progress-current');
+    var progTotal = widget.querySelector('.play-progress-total');
+    if (progTotal) progTotal.textContent = order.length;
+
+    function renderDone() {
+      qEl.textContent = "You've been through all " + order.length + " facts about Cox's Bazar!";
+      optsEl.innerHTML = '';
+      revealEl.hidden = true;
+      if (progCurrent) progCurrent.textContent = order.length;
+      nextBtn.hidden = false;
+      nextBtn.textContent = 'Play again ↺';
+      nextBtn.dataset.restart = 'true';
+    }
+
+    function renderQuestion() {
+      if (current >= order.length) { renderDone(); return; }
+      var item = questions[order[current]];
+      qEl.textContent = item.q;
+      optsEl.innerHTML = '';
+      revealEl.hidden = true;
+      nextBtn.hidden = true;
+      delete nextBtn.dataset.restart;
+      if (progCurrent) progCurrent.textContent = current + 1;
+
+      item.opts.forEach(function (opt, i) {
+        var btn = document.createElement('button');
+        btn.className = 'play-option';
+        btn.type = 'button';
+        btn.textContent = opt;
+        btn.addEventListener('click', function () {
+          var allBtns = optsEl.querySelectorAll('.play-option');
+          allBtns.forEach(function (b) { b.disabled = true; });
+          if (i === item.correct) {
+            btn.classList.add('correct');
+          } else {
+            btn.classList.add('wrong');
+            allBtns[item.correct].classList.add('correct');
+          }
+          revealEl.textContent = item.fact;
+          revealEl.hidden = false;
+          nextBtn.hidden = false;
+          nextBtn.textContent = current < order.length - 1 ? 'Next question →' : 'See recap →';
+        });
+        optsEl.appendChild(btn);
+      });
+    }
+
+    nextBtn.addEventListener('click', function () {
+      if (nextBtn.dataset.restart === 'true') {
+        order = shuffledIndices();
+        current = 0;
+      } else {
+        current++;
+      }
+      renderQuestion();
+    });
+
+    renderQuestion();
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPlayWidgets);
+} else {
+  initPlayWidgets();
 }

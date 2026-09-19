@@ -33,9 +33,9 @@
     if (pct > maxScroll) maxScroll = Math.min(pct, 100);
   });
 
-  document.addEventListener("click", function (e) {
+    document.addEventListener("click", function (e) {
     const el = e.target.closest("a, button");
-    if (!el) return;
+    if (!el || el.closest("#cb-chat-widget")) return;
     send({
       eventName: "click",
       sessionId, page, device,

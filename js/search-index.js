@@ -3,55 +3,55 @@ var searchIndex = [
     id: 'index',
     title: "Cox's Bazar — Home",
     url: 'index.html',
-    body: 'home overview asia longest natural sea beach unbroken 120km bay of bengal bangladesh welcome destination'
+    body: 'home overview asia longest natural sea beach unbroken 120km bay of bengal bangladesh welcome destination live coast conditions season sea temperature coral islands hill forests'
   },
   {
-    id: 'beach',
-    title: 'The Beach',
-    url: 'beach.html',
-    body: 'beach laboni kolatoli sugandha inani marine drive 80km coastal road surfing parasailing horse riding kite sunset golden hour waves shore tide swimming zones sugandha sunset point'
-  },
-  {
-    id: 'explore',
-    title: 'Explore',
-    url: 'explore.html',
-    body: 'explore saint martin coral island snorkelling reef teknaf himchari waterfall national park maheshkhali sonadia mangrove dulahazara safari ramu buddhist destinations islands shopping souvenirs burmese market rakhine weaving sustainability responsible travel'
+    id: 'destinations',
+    title: 'Destinations',
+    url: 'destinations.html',
+    body: 'destinations beach laboni kolatoli sugandha inani marine drive 80km coastal road dawn golden hour midday swimming zones beyond the beach saint martin coral island snorkelling reef teknaf naf river himchari waterfall national park moheshkhali adinath temple dulahazara safari park elephants sonadia island mangrove birdwatching rakhain village weaving khyang temple burmese market shopping responsible travel'
   },
   {
     id: 'culture',
     title: 'Culture & Heritage',
     url: 'culture.html',
-    body: 'culture rakhine rakhain heritage buddhist temple pagoda khyang burmese market tekpara shutki palli dried fish weaving bamboo festival prabarna bishu ramu aggameda adinath history events calendar eid independence day victory day pohela boishakh buddha purnima'
-  },
-  {
-    id: 'history',
-    title: 'History & Origins',
-    url: 'history.html',
-    body: 'history origins captain cox hiram cox palongkee panowa rakhine settlement fishing village name asia longest beach unbroken seven wonders new7wonders finalist nominee heritage today'
+    body: 'culture heritage history origins captain hiram cox palongkee panowa rakhine rakhain buddhist temple pagoda khyang aggameda ramu adinath burmese market tekpara shutki palli nazirartek dried fish weaving fishing fleet harbour festivals calendar eid independence day victory day pohela boishakh bishu prabarna purnima buddha purnima durga puja christmas new7wonders finalist'
   },
   {
     id: 'activities',
-    title: 'Activities',
+    title: 'Activities & Dining',
     url: 'activities.html',
-    body: 'activities surfing parasailing scuba diving snorkelling boat tour deep sea fishing golf aquarium beach football horse riding hiking trail trekking birdwatching adventure sports'
-  },
-  {
-    id: 'food',
-    title: 'Food & Dining',
-    url: 'food.html',
-    body: 'food dining seafood lobster red snapper hilsa kala bhuna bhorta mermaid cafe jhawban poushee rakhine cuisine burmese noodle dried fish restaurant eat drink halal vegetarian dietary'
+    body: 'activities dining surfing parasailing scuba diving snorkelling boat tour deep sea fishing horse riding hiking trekking birdwatching adventure sports seafood lobster red snapper hilsa kala bhuna bhorta rakhine cuisine burmese noodle dried fish eat drink halal vegetarian dietary options'
   },
   {
     id: 'stay',
     title: 'Where to Stay',
     url: 'stay.html',
-    body: 'stay hotel resort accommodation luxury budget guesthouse kolatoli sugandha sea view booking long beach seagull ocean paradise inani marine drive south'
+    body: 'stay hotel resort accommodation luxury budget guesthouse kolatoli sugandha laboni inani sea view booking price range fare caveat verify pricing'
   },
   {
-    id: 'plan',
-    title: 'Itineraries — Plan Your Trip',
-    url: 'itineraries.html',
-    body: 'plan trip best time visit november december january february dry season monsoon cyclone how to get there abroad dhaka airport international flight bus train visa tips practical guide eid peak season transport currency exchange sim roaming connectivity power emergency contacts time zone weekend drone tipping bargaining package tour itinerary weekend escape classic week island explorer budget cost packing list ramadan faq saint martin ferry'
+    id: 'when-to-visit',
+    title: 'When to Visit',
+    url: 'when-to-visit.html',
+    body: 'when to visit best time season peak season shoulder season monsoon winter dry season november december january february weather temperature rainfall crowd levels festivals calendar cyclone'
+  },
+  {
+    id: 'essentials',
+    title: 'Travel Essentials',
+    url: 'essentials.html',
+    body: 'travel essentials getting there dhaka airport flight bus train fare range visa currency exchange rate sim card connectivity power plug emergency contacts time zone tipping bargaining packing list safety practical tips verify official sources'
+  },
+  {
+    id: 'community',
+    title: 'Community Forum',
+    url: 'community.html',
+    body: 'community forum voices tourists visitors locals stories notes wall share exchange discuss testimonials threads travellers'
+  },
+  {
+    id: 'about-us',
+    title: 'About Us',
+    url: 'about-us.html',
+    body: 'about us mission story purpose travel guide website contact visit coxs bazar bangladesh'
   },
   {
     id: 'wishlist',
@@ -60,3 +60,4 @@ var searchIndex = [
     body: 'wishlist saved places experiences list favourites'
   }
 ];
+</content>
