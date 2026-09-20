@@ -113,25 +113,57 @@ body: JSON.stringify({ type: "widget_event", eventName, sessionId: getSessionId(
     return path === "/" || path.endsWith("/index.html") || path.split("/").pop() === "";
   }
 
-      function typeOutMessage(row, bubble, html, onDone) {
-    const tokens = html.match(/<[^>]+>|[^<]/g) || [];
+            function typeOutMessage(row, bubble, html, onDone) {
+    const tokens = html.match(/<[^>]+>|&[a-zA-Z]+;|[^<]/g) || [];
+    const charCount = tokens.filter(function (t) { return t.charAt(0) !== "<" && t.charAt(0) !== "&"; }).length;
+    const speed = Math.max(6, Math.min(24, 1600 / Math.max(charCount, 1)));
     let idx = 0;
-    const speed = 26;
-    const cursor = document.createElement("span");
-    cursor.className = "cb-cursor";
-    bubble.appendChild(cursor);
-    messages.scrollTop = row.offsetTop - 12;
+    let finished = false;
+    bubble.style.cursor = "pointer";
+    messages.scrollTop = messages.scrollHeight;
+
+    function unclosedTagsSuffix(partial) {
+      const tagRegex = /<\/?([a-zA-Z]+)[^>]*>/g;
+      const stack = [];
+      let m;
+      while ((m = tagRegex.exec(partial))) {
+        const tag = m[1].toLowerCase();
+        if (tag === "br") continue;
+        if (m[0].charAt(1) === "/") {
+          for (let i = stack.length - 1; i >= 0; i--) {
+            if (stack[i] === tag) { stack.splice(i, 1); break; }
+          }
+        } else {
+          stack.push(tag);
+        }
+      }
+      let suffix = "";
+      for (let i = stack.length - 1; i >= 0; i--) suffix += "</" + stack[i] + ">";
+      return suffix;
+    }
+
+    function finish() {
+      if (finished) return;
+      finished = true;
+      bubble.innerHTML = html;
+      bubble.style.cursor = "default";
+      bubble.removeEventListener("click", finish);
+      messages.scrollTop = messages.scrollHeight;
+      if (onDone) onDone();
+    }
+    bubble.addEventListener("click", finish);
+
     function step() {
+      if (finished) return;
       if (idx >= tokens.length) {
-        cursor.remove();
-        messages.scrollTop = messages.scrollHeight;
-        if (onDone) onDone();
+        finish();
         return;
       }
-      const token = tokens[idx];
-      cursor.insertAdjacentHTML("beforebegin", token);
-      messages.scrollTop = row.offsetTop - 12;
       idx++;
+      const partial = tokens.slice(0, idx).join("");
+      bubble.innerHTML = partial + unclosedTagsSuffix(partial) + '<span class="cb-cursor"></span>';
+      messages.scrollTop = messages.scrollHeight;
+      const token = tokens[idx - 1];
       setTimeout(step, token.charAt(0) === "<" ? 0 : speed);
     }
     step();

@@ -614,3 +614,26 @@ if (document.readyState === 'loading') {
 } else {
   initPlayWidgets();
 }
+
+// ── "Ask Neela" button (about-us.html) — opens the chatbot widget ──
+function initAskNeelaButton() {
+  var btn = document.getElementById('ask-neela-btn');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var toggle = document.getElementById('cb-chat-toggle');
+    if (toggle) {
+      toggle.click();
+    } else {
+      setTimeout(function () {
+        var retryToggle = document.getElementById('cb-chat-toggle');
+        if (retryToggle) retryToggle.click();
+      }, 300);
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAskNeelaButton);
+} else {
+  initAskNeelaButton();
+}

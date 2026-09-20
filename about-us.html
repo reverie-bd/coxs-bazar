@@ -11,7 +11,7 @@
   <title>About Us — Cox's Bazar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -82,27 +82,48 @@
     </div>
   </section>
 
-  <section class="section-pad" style="background: var(--sand-light);">
+    <section class="section-pad" style="background: var(--sand-light);">
     <div class="container">
       <p class="section-label">Here to Help</p>
-      <h2 class="section-heading">The People Behind Visit Cox's Bazar</h2>
-      <div class="tips-grid">
-        <div class="tip-card reveal reveal-d1">
-          <div class="tip-icon">🧭</div>
-          <h4>Masha — Local Travel Coordinator</h4>
-          <p>Born and raised in Cox's Bazar, Masha has spent years helping visitors find their footing on this coast — from a first evening on Laboni Beach to arranging an island crossing.</p>
+      <h2 class="section-heading">Meet the Team</h2>
+      <div class="team-grid">
+        <div class="team-card reveal reveal-d1">
+          <div class="team-avatar" style="background-image: url('images/team-anny.jpg');"></div>
+          <h4 class="team-name">Anny</h4>
+          <p class="team-role">Local Travel Coordinator</p>
+          <p class="team-bio">Born and raised in Cox's Bazar, Anny has spent years helping visitors find their footing on this coast — from a first evening on Laboni Beach to arranging an island crossing.</p>
         </div>
-        <div class="tip-card reveal reveal-d2">
-          <div class="tip-icon">🗺️</div>
-          <h4>Rafiq — Destinations Specialist</h4>
-          <p>Rafiq knows the coast beyond the beach — the hills, the islands, the Rakhine villages — and helps put together the parts of a trip that don't turn up in a quick search.</p>
+        <div class="team-card reveal reveal-d2">
+          <div class="team-avatar" style="background-image: url('images/team-arafat.jpg');"></div>
+          <h4 class="team-name">Arafat</h4>
+          <p class="team-role">Destinations Specialist</p>
+          <p class="team-bio">Arafat knows the coast beyond the beach — the hills, the islands, the Rakhine villages — and helps put together the parts of a trip that don't turn up in a quick search.</p>
         </div>
-        <div class="tip-card reveal reveal-d3">
-          <div class="tip-icon">💬</div>
-          <h4>Neela — Your AI Assistant, Anytime</h4>
-          <p>Neela is available right on this site, any hour, to help as you plan — ferry seasons, what to pack, where to eat. Look for her in the corner of your screen.</p>
+        <div class="team-card reveal reveal-d3">
+          <div class="team-avatar" style="background-image: url('images/neela-avatar.png');"></div>
+          <h4 class="team-name">Neela</h4>
+          <p class="team-role">Your AI Assistant, Anytime</p>
+          <p class="team-bio">Neela is available right on this site, any hour, to help as you plan — ferry seasons, what to pack, where to eat.</p>
+          <button type="button" id="ask-neela-btn" class="ask-neela-btn">💬 Ask Neela</button>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background: var(--white);">
+    <div class="container-narrow">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-heading">Contact Us</h2>
+      <p class="editorial-body" style="margin-bottom:32px;">Have a question about your trip, a suggestion, or just curious about the coast? Get in touch — we'd love to hear from you.</p>
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="contact-form-row">
+          <input type="text" name="name" class="voice-input" placeholder="Your name" required />
+          <input type="email" name="email" class="voice-input" placeholder="Your email" required />
+        </div>
+        <input type="text" name="subject" class="voice-input" placeholder="Subject" />
+        <textarea name="message" class="voice-textarea" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
     </div>
   </section>
 

@@ -55,6 +55,7 @@ body {
   background: var(--sand-light);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  font-variant-numeric: lining-nums;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -1224,6 +1225,8 @@ ul { list-style: none; }
   height: 36px;
   border-radius: 50%;
   background: var(--sand);
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3162,3 +3165,93 @@ section[style*="background: var(--ocean-deep)"] .atmo-body {
 .temple-card:hover { background: var(--sand-light) !important; }
 .temple-card-body h3 { color: var(--text-dark) !important; }
 .temple-card-body p { color: var(--text-mid) !important; }
+
+/* ═══════════════════════════════════════════
+   TEAM CARDS (About Us)
+═══════════════════════════════════════════ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+.team-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.team-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 20px;
+  border: 3px solid var(--sand);
+}
+.team-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.team-role {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-on-light);
+  margin-bottom: 14px;
+}
+.team-bio {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.ask-neela-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(26,95,122,0.25);
+  background: transparent;
+  color: var(--ocean);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.ask-neela-btn:hover {
+  background: var(--ocean);
+  color: var(--white);
+  border-color: var(--ocean);
+}
+@media (max-width: 1024px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT FORM (About Us)
+═══════════════════════════════════════════ */
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 600px) {
+  .contact-form-row { grid-template-columns: 1fr; }
+}
